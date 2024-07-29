@@ -22,7 +22,7 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-            <body className={ `!h-screen !w-screen space-y-6 overflow-x-hidden ${inter.className}` }>
+            <body className={ `!h-screen !w-screen overflow-x-hidden p-4 ${inter.className}` }>
                 { children }
             </body>
         </html>

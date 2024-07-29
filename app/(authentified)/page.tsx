@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
     return (
-        <Card className="w-full pe-2 bg-transparent">
+        <Card className="w-full pe-2 overflow-hidden">
             <BlurryBlob>
                 <Blob className="bg-purple-400 -right-24 -top-28" />
                 <Blob className="bg-purple-400 -left-40 -top-64" />

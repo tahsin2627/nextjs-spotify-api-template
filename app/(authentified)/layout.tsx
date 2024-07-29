@@ -21,9 +21,9 @@ export default function Layout({
 }>) {
 
     return (
-        <div className="min-h-[100dvh]">
+        <div className="max-h-[100vh] grid grid-rows-[auto_1fr_auto] gap-4">
             <Header />
-            <main className="flex gap-6 !max-h-[85%] w-full">
+            <main className="flex gap-4 w-full">
                 <Library />
                 { children }
             </main>

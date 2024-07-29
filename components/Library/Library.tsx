@@ -10,7 +10,7 @@ interface LibraryProps { }
 
 const Library: FC<LibraryProps> = (): React.JSX.Element => (
     <Card className="w-1/4 min-w-[270px] max-w-[400px]">
-        <div className="fixed">
+        <div className="fixed w-fit">
             <CardHeader>
                 <div className="flex justify-between items-center">
                     <h2 className="flex items-center gap-2 text-lg font-medium justify-between">
@@ -41,7 +41,7 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => (
                     </div>
                 </div>
             </CardHeader>
-            <CardContent className="space-x-2 ps-6">
+            <CardContent className="space-x-2">
                 <Badge>Playlists</Badge>
                 <Badge>Albums</Badge>
                 <Badge>Artistes</Badge>
