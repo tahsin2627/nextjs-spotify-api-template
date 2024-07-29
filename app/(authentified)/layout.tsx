@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import * as icons from "lucide-react";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/Header/Header";
 import { Card, CardHeader } from "@/components/ui/card";
 import Library from "@/components/Library/Library";
@@ -14,17 +14,20 @@ export const metadata: Metadata = {
     description: "Listen to Spotify and generate new playlists",
 };
 
-export default function RootLayout({
+export default function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
 
     return (
-        <html lang="en">
-            <body className={ `!h-screen !w-screen space-y-6 overflow-x-hidden ${inter.className}` }>
+        <div className="min-h-[100dvh]">
+            <Header />
+            <main className="flex gap-6 !max-h-[85%] w-full">
+                <Library />
                 { children }
-            </body>
-        </html>
+            </main>
+            <MusicPlayer />
+        </div>
     );
 }

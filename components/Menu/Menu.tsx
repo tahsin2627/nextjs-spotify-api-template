@@ -1,7 +1,10 @@
+"use client";
+
 import React, { FC } from 'react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import * as icons from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 
 
 interface MenuProps { }
@@ -358,14 +361,23 @@ const Menu: FC<MenuProps> = (): React.JSX.Element => {
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="ghost">
-                    { dropdownMenuContent.icon }
-                </Button>
+            <DropdownMenuTrigger>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button variant="ghost">
+                                { dropdownMenuContent.icon }
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>
+                                { dropdownMenuContent.title }
+                            </p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 ms-2">
-                <DropdownMenuLabel>Manage</DropdownMenuLabel>
-                <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     { dropdownMenuContent.items.map((item: {
                         title: string;
@@ -418,7 +430,7 @@ const Menu: FC<MenuProps> = (): React.JSX.Element => {
                     )) }
                 </DropdownMenuGroup>
             </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu >
     );
 };
 
