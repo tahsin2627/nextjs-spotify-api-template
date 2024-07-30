@@ -81,7 +81,8 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pop-blob": "pop-blob 5s infinite",
+        "pop-blob": "pop-blob 12s infinite",
+        "pop-blob-2": "pop-blob 20s infinite",
       },
     },
   },
