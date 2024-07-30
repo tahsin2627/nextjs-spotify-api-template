@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import * as icons from "lucide-react";
 import { Input } from '../ui/input';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
+import { ThemeSwitcherTransition } from '../ui/theme-switcher-transition';
 
 interface HeaderProps { }
 
@@ -15,7 +16,7 @@ const Header: FC<HeaderProps> = () => {
                 <Menu />
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.ChevronLeft />
                             </Button>
@@ -25,7 +26,7 @@ const Header: FC<HeaderProps> = () => {
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.ChevronRight />
                             </Button>
@@ -37,7 +38,7 @@ const Header: FC<HeaderProps> = () => {
             <div>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.Home />
                             </Button>
@@ -48,7 +49,7 @@ const Header: FC<HeaderProps> = () => {
                 <Input placeholder="Search..." className="w-80" />
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.Search />
                             </Button>
@@ -58,7 +59,7 @@ const Header: FC<HeaderProps> = () => {
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.Folders />
                             </Button>
@@ -70,7 +71,15 @@ const Header: FC<HeaderProps> = () => {
             <div>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
+                            <ThemeSwitcherTransition />
+                        </TooltipTrigger>
+                        <TooltipContent>Toggle dark mode</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.Bell />
                             </Button>
@@ -80,7 +89,7 @@ const Header: FC<HeaderProps> = () => {
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.Users />
                             </Button>
@@ -90,7 +99,7 @@ const Header: FC<HeaderProps> = () => {
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost">
                                 <icons.User />
                             </Button>

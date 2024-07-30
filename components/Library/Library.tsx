@@ -1,91 +1,123 @@
-import React, { FC } from 'react';
+"use client";
+
+import React, { FC, useEffect, useState } from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import * as icons from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
+
 
 interface LibraryProps { }
 
-const Library: FC<LibraryProps> = (): React.JSX.Element => (
-    <Card className="w-1/4 min-w-[270px] max-w-[400px]">
-        <div className="fixed w-fit">
-            <CardHeader>
-                <div className="flex justify-between items-center">
-                    <h2 className="flex items-center gap-2 text-lg font-medium justify-between">
-                        <icons.Library />
-                        Library
-                    </h2>
-                    <div>
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <Button variant="ghost" size="sm">
-                                        <icons.Plus />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>New playlist</TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <Button variant="ghost" size="sm">
-                                        <icons.ArrowRight />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>Expand library</TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+const Library: FC<LibraryProps> = (): React.JSX.Element => {
+    const { data: session } = useSession();
+    const [playlists, setPlaylists] = useState([]);
+
+    useEffect(() => {
+        async function fetchPlaylists() {
+            if (session && (session as any).accessToken) {
+                const response = await fetch('https://api.spotify.com/v1/me/playlists', {
+                    headers: {
+                        Authorization: `Bearer ${(session as any).accessToken}`,
+                    },
+                });
+                const data = await response.json();
+                console.log(data);
+                setPlaylists(data.items);
+            }
+        }
+        fetchPlaylists();
+    }), [session];
+
+
+    return (
+        <Card className="w-1/4 min-w-[270px] max-w-[400px]">
+            <div className="fixed w-fit">
+                <CardHeader>
+                    <div className="flex justify-between items-center">
+                        <h2 className="flex items-center gap-2 text-lg font-medium justify-between">
+                            <icons.Library />
+                            Library
+                        </h2>
+                        <div>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant="ghost" size="sm">
+                                            <icons.Plus />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>New playlist</TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant="ghost" size="sm">
+                                            <icons.ArrowRight />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>Expand library</TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </div>
                     </div>
-                </div>
-            </CardHeader>
-            <CardContent className="space-x-2">
-                <Badge>Playlists</Badge>
-                <Badge>Albums</Badge>
-                <Badge>Artistes</Badge>
-            </CardContent>
-        </div>
-        <CardFooter className="flex flex-col gap-2 h-full pt-32 pb-0 px-2">
-            <div className="flex justify-between w-full">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <Button variant="ghost" size="sm">
-                                <icons.Search />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>Search</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <Button variant="ghost">
-                                Recents
-                                <icons.ListFilter className="ms-2" />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>Filter</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                </CardHeader>
+                <CardContent className="space-x-2">
+                    <Badge>Playlists</Badge>
+                    <Badge>Albums</Badge>
+                    <Badge>Artistes</Badge>
+                </CardContent>
             </div>
-            <ScrollArea aria-orientation="vertical" className="h-full w-full">
-                <div className="w-full flex flex-col pe-4">
-                    { Array.from({ length: 25 }).map((_: unknown, index: number): React.JSX.Element => (
-                        <Button variant="ghost" key={ index } className="flex justify-start !py-8 !px-2 items-center">
-                            <div className="size-12 rounded-lg bg-secondary" />
-                            <div className="text-start ms-2">
-                                <p>Playlist { index + 1 }</p>
-                                <p className="text-sm text-muted-foreground flex items-center">Description<icons.Dot />Author</p>
-                            </div>
-                        </Button>
-                    )) }
+            <CardFooter className="flex flex-col gap-2 h-full pt-28 pb-0 px-2">
+                <div className="flex justify-between w-full">
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button variant="ghost" size="sm">
+                                    <icons.Search />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Search</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button variant="ghost">
+                                    Recents
+                                    <icons.ListFilter className="ms-2" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Filter</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 </div>
-            </ScrollArea>
-        </CardFooter>
-    </Card>
-);
+                <ScrollArea aria-orientation="vertical" className="w-full mb-2">
+                    <div className="w-full flex flex-col pe-4">
+                        { playlists.map((playlist: any, index: number): React.JSX.Element => (
+                            <Button variant="ghost" key={ index } className="flex justify-start !py-8 !px-2 items-center">
+                                { playlist.images ?
+                                    // <Image src={ playlist.images[0].url } alt={ `Playlist ${playlist.name} image` } className="rounded-lg bg-secondary" width={ 48 } height={ 48 } />
+                                    <div className="size-12 rounded-lg bg-secondary" />
+                                    :
+                                    <icons.Music className="size-12 rounded-lg" />
+                                }
+                                <div className="text-start ms-2">
+                                    <p>{ playlist.name }</p>
+                                    <p className="text-sm text-muted-foreground flex items-center">Playlist<icons.Dot className="size-4 text-primary" />{ playlist.owner.display_name }</p>
+                                </div>
+                            </Button>
+                        )) }
+                    </div>
+                </ScrollArea>
+            </CardFooter>
+        </Card>
+    );
+};
 
 export default Library;

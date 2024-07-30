@@ -8,7 +8,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 interface MusicPlayerProps { }
 
 const MusicPlayer: FC<MusicPlayerProps> = () => (
-    <div className="w-full flex justify-between items-center h-fit">
+    <div className="w-full flex justify-between items-center min-h-[72px]">
         <div className="flex items-center">
             <div className="size-12 bg-secondary rounded-lg" />
             <div className="ms-2 me-6">
@@ -17,7 +17,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
             </div>
             <TooltipProvider>
                 <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger asChild>
                         <Button variant="ghost" size="sm">
                             <icons.PlusCircle />
                         </Button>
@@ -30,7 +30,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
             <div className="flex gap-1">
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Toggle size="sm">
                                 <icons.LucideShuffle />
                             </Toggle>
@@ -40,7 +40,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost" size="sm">
                                 <icons.LucideSkipBack />
                             </Button>
@@ -50,7 +50,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button>
                                 <icons.LucidePause />
                             </Button>
@@ -60,7 +60,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Button variant="ghost" size="sm">
                                 <icons.LucideSkipForward />
                             </Button>
@@ -70,7 +70,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                 </TooltipProvider>
                 <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger asChild>
                             <Toggle size="sm">
                                 <icons.LucideRepeat />
                             </Toggle>
@@ -80,15 +80,15 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                 </TooltipProvider>
             </div>
             <div className="flex items-center gap-4">
-                <p>--:--:--</p>
+                <p>-- : -- : --</p>
                 <Slider className="w-[500px] h-2" />
-                <p>--:--:--</p>
+                <p>-- : -- : --</p>
             </div>
         </div>
         <div className="flex items-center gap-1">
             <TooltipProvider>
                 <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger asChild>
                         <Button variant="ghost" size="sm">
                             <icons.PlaySquare />
                         </Button>
@@ -98,7 +98,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
             </TooltipProvider>
             <TooltipProvider>
                 <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger asChild>
                         <Button variant="ghost" size="sm">
                             <icons.ListMusic />
                         </Button>
@@ -108,7 +108,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
             </TooltipProvider>
             <TooltipProvider>
                 <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger asChild>
                         <Button variant="ghost" size="sm">
                             <icons.LucideVolume2 />
                         </Button>

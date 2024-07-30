@@ -361,22 +361,11 @@ const Menu: FC<MenuProps> = (): React.JSX.Element => {
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Button variant="ghost">
-                                { dropdownMenuContent.icon }
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>
-                                { dropdownMenuContent.title }
-                            </p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost">
+                    { dropdownMenuContent.icon }
+                </Button>
+            </DropdownMenuTrigger >
             <DropdownMenuContent className="w-56 ms-2">
                 <DropdownMenuGroup>
                     { dropdownMenuContent.items.map((item: {
@@ -404,25 +393,23 @@ const Menu: FC<MenuProps> = (): React.JSX.Element => {
                                         action: () => void;
                                         shortkey: string;
                                     }[], subindex: number): React.JSX.Element => (
-                                        <>
+                                        <div key={ `group${subindex}` }>
                                             { itemGroup.map((subitem: {
                                                 title: string;
                                                 icon: React.JSX.Element;
                                                 action: () => void;
                                                 shortkey: string;
                                             }, subsubindex: number): React.JSX.Element => (
-                                                <>
-                                                    <DropdownMenuItem key={ item.title + subsubindex } onClick={ subitem.action } className="flex gap-6">
-                                                        <p className="flex gap-3 items-center">
-                                                            { subitem.icon }
-                                                            <span>{ subitem.title }</span>
-                                                        </p>
-                                                        <DropdownMenuShortcut className="text-sm">{ subitem.shortkey }</DropdownMenuShortcut>
-                                                    </DropdownMenuItem>
-                                                </>
+                                                <DropdownMenuItem key={ item.title } onClick={ subitem.action } className="flex gap-6">
+                                                    <p className="flex gap-3 items-center">
+                                                        { subitem.icon }
+                                                        <span>{ subitem.title }</span>
+                                                    </p>
+                                                    <DropdownMenuShortcut className="text-sm">{ subitem.shortkey }</DropdownMenuShortcut>
+                                                </DropdownMenuItem>
                                             )) }
-                                            { subindex !== item.items.length - 1 && <DropdownMenuSeparator /> }
-                                        </>
+                                            { subindex !== item.items.length - 1 && <DropdownMenuSeparator key={ `s${subindex}` } /> }
+                                        </div>
                                     )) }
                                 </DropdownMenuSubContent >
                             </DropdownMenuPortal>

@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import * as icons from "lucide-react";
+import { NextAuthProvider } from "../providers/NextAuthProvider";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header/Header";
-import { Card, CardHeader } from "@/components/ui/card";
-import Library from "@/components/Library/Library";
-import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +17,12 @@ export default function RootLayout({
 }>) {
 
     return (
-        <html lang="en">
-            <body className={ `!h-screen !w-screen overflow-x-hidden p-4 ${inter.className}` }>
-                { children }
-            </body>
-        </html>
+        <NextAuthProvider>
+            <html lang="en">
+                <body className={ `!h-screen !w-screen overflow-x-hidden !p-4 ${inter.className}` }>
+                    { children }
+                </body>
+            </html>
+        </NextAuthProvider>
     );
 }

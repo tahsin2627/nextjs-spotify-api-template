@@ -1,16 +1,20 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export default function Page() {
+
+    // const { data: session } = useSession();
+
     return (
 
         <Card className="m-auto max-w-sm">
@@ -21,26 +25,9 @@ export default function Page() {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="grid gap-4">
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="m@example.com"
-                            required
-                        />
-                    </div>
-                    <div className="grid gap-2">
-                        <div className="flex items-center">
-                            <Label htmlFor="password">Password</Label>
-                        </div>
-                        <Input id="password" type="password" required />
-                    </div>
-                    <Button type="submit" className="w-full">
-                        Login
-                    </Button>
-                </div>
+                <Button type="submit" className="w-full" onClick={ () => signIn('spotify', { callbackUrl: '/' }) }>
+                    Login
+                </Button>
             </CardContent>
         </Card>
     );
