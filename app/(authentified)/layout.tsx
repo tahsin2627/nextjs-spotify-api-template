@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header";
 import Library from "@/components/Library/Library";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
+import { Card } from "@/components/ui/card";
 
 export default function Layout({
     children,
@@ -12,7 +13,9 @@ export default function Layout({
             <Header />
             <main className="flex gap-4 w-full max-h-[85dvh]">
                 <Library />
-                { children }
+                <Card className="w-full pe-2 overflow-hidden">
+                    { children }
+                </Card>
             </main>
             <MusicPlayer />
         </div>

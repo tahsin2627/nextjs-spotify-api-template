@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
     return (
-        <Card className="w-full pe-2 overflow-hidden">
+        <>
             <CardHeader className="fixed">
                 <div className="flex gap-2">
                     <Badge>All</Badge>
@@ -92,6 +92,6 @@ export default function Home() {
                     </div>
                 </CardContent>
             </ScrollArea>
-        </Card>
+        </>
     );
 }

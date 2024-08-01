@@ -5,6 +5,7 @@ import * as icons from "lucide-react";
 import { Input } from '../ui/input';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 import { ThemeSwitcherTransition } from '../ui/theme-switcher-transition';
+import Link from 'next/link';
 
 interface HeaderProps { }
 
@@ -40,7 +41,9 @@ const Header: FC<HeaderProps> = () => {
                     <Tooltip>
                         <TooltipTrigger asChild>
                             <Button variant="ghost">
-                                <icons.Home />
+                                <Link href='/'>
+                                    <icons.Home />
+                                </Link>
                             </Button>
                         </TooltipTrigger>
                         <TooltipContent>Home</TooltipContent>
@@ -69,14 +72,7 @@ const Header: FC<HeaderProps> = () => {
                 </TooltipProvider>
             </div>
             <div>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <ThemeSwitcherTransition />
-                        </TooltipTrigger>
-                        <TooltipContent>Toggle dark mode</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <ThemeSwitcherTransition />
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
@@ -101,7 +97,7 @@ const Header: FC<HeaderProps> = () => {
                     <Tooltip>
                         <TooltipTrigger asChild>
                             <Button variant="ghost">
-                                <icons.User />
+                                <icons.UserCircle className='text-primary' />
                             </Button>
                         </TooltipTrigger>
                         <TooltipContent>Account</TooltipContent>

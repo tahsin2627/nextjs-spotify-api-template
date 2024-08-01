@@ -9,6 +9,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 interface LibraryProps { }
@@ -26,11 +27,10 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                     },
                 });
                 const data = await response.json();
-                console.log(data);
                 setPlaylists(data.items);
             }
         }
-        fetchPlaylists();
+        playlists.length === 0 && fetchPlaylists();
     }), [session];
 
 
@@ -100,17 +100,20 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                 <ScrollArea aria-orientation="vertical" className="w-full mb-2">
                     <div className="w-full flex flex-col pe-4">
                         { playlists.map((playlist: any, index: number): React.JSX.Element => (
-                            <Button variant="ghost" key={ index } className="flex justify-start !py-8 !px-2 items-center">
-                                { playlist.images ?
-                                    // <Image src={ playlist.images[0].url } alt={ `Playlist ${playlist.name} image` } className="rounded-lg bg-secondary" width={ 48 } height={ 48 } />
-                                    <div className="size-12 rounded-lg bg-secondary" />
-                                    :
-                                    <icons.Music className="size-12 rounded-lg" />
-                                }
-                                <div className="text-start ms-2">
-                                    <p>{ playlist.name }</p>
-                                    <p className="text-sm text-muted-foreground flex items-center">Playlist<icons.Dot className="size-4 text-primary" />{ playlist.owner.display_name }</p>
-                                </div>
+                            <Button variant="ghost" key={ index } className="flex justify-start !py-8 !px-2 items-center" asChild>
+                                <Link href={ `/playlist?id=${playlist.id}` }>
+                                    { playlist.images ?
+                                        <>
+                                            <Image src={ playlist.images[0].url } alt={ `Playlist ${playlist.name} image` } className="rounded-lg bg-secondary" width={ 48 } height={ 48 } />
+                                        </>
+                                        :
+                                        <div className="bg-secondary size-12 rounded-lg" />
+                                    }
+                                    <div className="text-start ms-2">
+                                        <p>{ playlist.name }</p>
+                                        <p className="text-sm text-muted-foreground flex items-center">Playlist<icons.Dot className="size-4 text-primary" />{ playlist.owner.display_name }</p>
+                                    </div>
+                                </Link>
                             </Button>
                         )) }
                     </div>
