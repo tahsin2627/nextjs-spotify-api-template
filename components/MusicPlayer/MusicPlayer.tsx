@@ -26,8 +26,8 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                 </Tooltip>
             </TooltipProvider>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-            <div className="flex gap-1">
+        <div className="flex flex-col items-center justify-center gap-2 [&>div]:flex [&>div]:items-center">
+            <div className="gap-1">
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
@@ -79,7 +79,7 @@ const MusicPlayer: FC<MusicPlayerProps> = () => (
                     </Tooltip>
                 </TooltipProvider>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="gap-4">
                 <p>-- : -- : --</p>
                 <Slider className="w-[500px] h-2" />
                 <p>-- : -- : --</p>

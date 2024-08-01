@@ -1,10 +1,11 @@
 "use client";
 
 import React, { createContext } from "react";
+import Playlist from "@/lib/types/Playlist";
 
-export const PlaylistContext = createContext('playlist');
+export const PlaylistContext = createContext();
 
-export default function PlaylistProvider({ children, playlist }) {
+export default function PlaylistProvider({ children, playlist }: { children: React.ReactNode; playlist: Playlist; }) {
 
     return (
 

@@ -111,7 +111,7 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                                     }
                                     <div className="text-start ms-2">
                                         <p>{ playlist.name }</p>
-                                        <p className="text-sm text-muted-foreground flex items-center">Playlist<icons.Dot className="size-4 text-primary" />{ playlist.owner.display_name }</p>
+                                        <p className="text-sm text-muted-foreground flex items-center">Playlist<icons.Dot className="size-6 text-primary mx-[-4px]" />{ playlist.owner.display_name }</p>
                                     </div>
                                 </Link>
                             </Button>

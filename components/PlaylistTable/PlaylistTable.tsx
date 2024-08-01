@@ -5,158 +5,24 @@ import { ColumnDef, ColumnFiltersState, flexRender, getCoreRowModel, getFiltered
 import { Button } from "../ui/button";
 import { icons } from "lucide-react";
 import React from "react";
+import { PlaylistContext } from "@/providers/PlaylistProvider";
+import { Playlist } from "@/lib/types/Playlist";
+import Track from "@/lib/types/Track";
+import PublicUser from "@/lib/types/PublicUser";
+import Image from "next/image";
+import { calcDuration } from "@/lib/utils";
 
 interface PlaylistTableProps { }
 
 const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
-    const playlistItems = [
-        {
-            title: "Title 1",
-            artist: "Artist 1",
-            album: "Album 1",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 2",
-            artist: "Artist 2",
-            album: "Album 2",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 3",
-            artist: "Artist 3",
-            album: "Album 3",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 4",
-            artist: "Artist 4",
-            album: "Album 4",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 5",
-            artist: "Artist 5",
-            album: "Album 5",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 6",
-            artist: "Artist 6",
-            album: "Album 6",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 7",
-            artist: "Artist 7",
-            album: "Album 7",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 8",
-            artist: "Artist 8",
-            album: "Album 8",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 9",
-            artist: "Artist 9",
-            album: "Album 9",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 10",
-            artist: "Artist 10",
-            album: "Album 10",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 11",
-            artist: "Artist 11",
-            album: "Album 11",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 12",
-            artist: "Artist 12",
-            album: "Album 12",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 13",
-            artist: "Artist 13",
-            album: "Album 13",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 14",
-            artist: "Artist 14",
-            album: "Album 14",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 15",
-            artist: "Artist 15",
-            album: "Album 15",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 16",
-            artist: "Artist 16",
-            album: "Album 16",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 17",
-            artist: "Artist 17",
-            album: "Album 17",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 18",
-            artist: "Artist 18",
-            album: "Album 18",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 19",
-            artist: "Artist 19",
-            album: "Album 19",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-        {
-            title: "Title 20",
-            artist: "Artist 20",
-            album: "Album 20",
-            added_at: "Added at",
-            duration_ms: "0:00",
-        },
-    ];
+    const playlist: Playlist = React.useContext(PlaylistContext) as Playlist;
+    const playlistItems = playlist.tracks.items;
+    console.log(playlistItems);
     const columns: ColumnDef<{
-        title: string,
-        artist: string,
-        album: string,
-        added_at: string,
-        duration_ms: string;
+        added_at: string;
+        added_by: PublicUser;
+        is_local: boolean;
+        track: Track;
     }>[] = [
             {
                 accessorKey: "title",
@@ -173,10 +39,12 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                 },
                 cell: ({ row }): React.JSX.Element => (
                     <div className="flex items-center gap-2">
-                        <div className="bg-secondary rounded-lg size-10"></div>
-                        <div className="font-medium w-40">
-                            <p>{ row.getValue("title") }</p>
-                            <p className="text-muted-foreground">{ row.original?.artist }</p>
+                        <Image src={ row.original.track.album.images[0].url } height={ 44 } width={ 44 } className="rounded-lg" alt={ `${row.original.track.album.name} album cover` } />
+                        <div className="font-medium text-nowrap text-ellipsis">
+                            <p>{ row.original.track.name }</p>
+                            <p className="text-muted-foreground">
+                                { row.original.track.artists.map((artist) => artist.name).join(", ") }
+                            </p>
                         </div>
                     </div>
                 ),
@@ -194,7 +62,7 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                         </Button>
                     );
                 },
-                cell: ({ row }): React.JSX.Element => <p className="ml-4">{ row.getValue("album") }</p>,
+                cell: ({ row }): React.JSX.Element => <p className="ml-4 text-nowrap text-ellipsis">{ row.original.track.album.name }</p>,
             },
             {
                 accessorKey: "added_at",
@@ -209,7 +77,7 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                         </Button>
                     );
                 },
-                cell: ({ row }): React.JSX.Element => <p className="ml-4">{ row.getValue("added_at") }</p>,
+                cell: ({ row }): React.JSX.Element => <p className="ml-4">{ row.original.added_at.slice(0, 10) }</p>,
             },
             {
                 accessorKey: "duration_ms",
@@ -224,7 +92,7 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                         </Button>
                     );
                 },
-                cell: ({ row }): React.JSX.Element => <p className="ml-4">{ row.getValue('duration_ms') }</p>,
+                cell: ({ row }): React.JSX.Element => <p className="ml-4">{ calcDuration(row.original.track.duration_ms) }</p>,
             },
         ];
     const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -260,8 +128,8 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
             <TableHeader className="sticky">
                 { table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={ headerGroup.id }>
-                        <TableHead>
-                            <p className="ml-6">#</p>
+                        <TableHead className="font-md text-xl text-center px-0">
+                            <p>#</p>
                         </TableHead>
                         { headerGroup.headers.map((header) => (
                             <TableHead key={ header.id }>
@@ -276,8 +144,8 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
             <TableBody>
                 { table.getRowModel().rows.map((row, index) => (
                     <TableRow key={ row.id } className="hover:bg-muted/50">
-                        <TableCell>
-                            <p className="ml-6">{ index + 1 }</p>
+                        <TableCell className="!max-w-6 px-0">
+                            <p className="text-xl font-md text-muted-foreground text-center">{ index + 1 }</p>
                         </TableCell>
                         { row.getVisibleCells().map((cell) => (
                             <TableCell key={ cell.id }>
