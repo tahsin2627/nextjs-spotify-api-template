@@ -10,23 +10,12 @@ import { headers } from "next/headers";
 import PlaylistTable from "@/components/PlaylistTable/PlaylistTable";
 import Playlist from "@/types/Playlist";
 import { getSession } from "next-auth/react";
+import { getPlaylist } from "@/lib/spotify";
 
 export default async function Page() {
-    const session = await getSession();
-    console.log(session);
     const headerList = headers();
     const playlistId = headerList.get("x-current-path-item-id");
-    async function fetchPlaylist() {
-        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
-            headers: {
-                Authorization: `Bearer ${session}`,
-            }
-        },);
-        const data: Playlist = await response.json();
-        console.log(data);
-        return data;
-    }
-    const playlist = await fetchPlaylist();
+    const playlist = await getPlaylist(playlistId);
     return (
         <ScrollArea aria-orientation="vertical" className="h-full z-50">
             <CardHeader>
