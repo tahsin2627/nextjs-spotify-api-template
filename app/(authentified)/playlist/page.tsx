@@ -12,14 +12,14 @@ import Playlist from "@/lib/types/Playlist";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Image from 'next/image';
-import { getPlaylist } from "@/lib/spotify";
 import PlaylistProvider from "@/providers/PlaylistProvider";
+import getPlaylist from "@/lib/data/Playlist/getPlaylist";
 
 export default async function Page() {
     const headerList = headers();
-    const playlistId = headerList.get("x-current-path-item-id");
+    const playlistId: string = headerList.get("x-current-path-item-id") as string;
     const session = await getServerSession(authOptions);
-    const playlist: Playlist = await getPlaylist(session.accessToken, playlistId);
+    const playlist: Playlist = await getPlaylist(session.accessToken, playlistId) as Playlist;
 
     return (
         <PlaylistProvider playlist={ playlist }>
@@ -33,8 +33,11 @@ export default async function Page() {
                                 { playlist.owner.display_name }
                                 <icons.Dot />
                                 { playlist.description ? playlist.description : "No description" }
-                                <icons.Dot />{ playlist.followers.total } followers
-                                <icons.Dot />{ playlist.tracks.total } tracks</p>
+                                <icons.Dot />
+                                { playlist.followers.total } followers
+                                <icons.Dot />
+                                { playlist.tracks.total } tracks
+                            </p>
                         </div>
                     </div>
                 </CardHeader>

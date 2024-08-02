@@ -1,9 +1,8 @@
-import RecentActivity from "@/components/RecentActivity/RecentActivity";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import Image from "next/image";
+import LastPlayed from "@/components/LastPlayed/LastPlayed";
 
 export default function Home() {
     return (
@@ -17,7 +16,7 @@ export default function Home() {
             </CardHeader>
             <ScrollArea aria-orientation="vertical" className="h-full pt-14 z-50">
                 <CardContent className="space-y-4 w-full">
-                    <RecentActivity />
+                    <LastPlayed />
                     <div>
                         <div className="flex justify-between items-center">
                             <h2 className="text-lg font-medium">Specifically designed for you</h2>
@@ -29,7 +28,7 @@ export default function Home() {
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Daily Mix { index + 1 }</p>
-                                        <p className="text-sm text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
+                                        <p className="text-sm font-normal text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
                                     </Button>
                                 )) }
                             </div>
@@ -47,7 +46,7 @@ export default function Home() {
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Mix { index + 1 }</p>
-                                        <p className="text-sm text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
+                                        <p className="text-sm font-normal text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
                                     </Button>
                                 )) }
                             </div>
@@ -65,7 +64,7 @@ export default function Home() {
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Album { index + 1 }</p>
-                                        <p className="text-sm text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
+                                        <p className="text-sm font-normal text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
                                     </Button>
                                 )) }
                             </div>
@@ -83,7 +82,7 @@ export default function Home() {
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Podcast { index + 1 }</p>
-                                        <p className="text-sm text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
+                                        <p className="text-sm font-normal text-muted-foreground text-wrap">Tom Misch, Timewarp Inc. ...</p>
                                     </Button>
                                 )) }
                             </div>

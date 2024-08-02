@@ -4,7 +4,6 @@ import React, { FC } from 'react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import * as icons from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 
 
 interface MenuProps { }
@@ -417,7 +416,7 @@ const Menu: FC<MenuProps> = (): React.JSX.Element => {
                     )) }
                 </DropdownMenuGroup>
             </DropdownMenuContent>
-        </DropdownMenu >
+        </DropdownMenu>
     );
 };
 

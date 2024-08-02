@@ -17,7 +17,6 @@ interface PlaylistTableProps { }
 const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
     const playlist: Playlist = React.useContext(PlaylistContext) as Playlist;
     const playlistItems = playlist.tracks.items;
-    console.log(playlistItems);
     const columns: ColumnDef<{
         added_at: string;
         added_by: PublicUser;
@@ -40,10 +39,10 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                 cell: ({ row }): React.JSX.Element => (
                     <div className="flex items-center gap-2">
                         <Image src={ row.original.track.album.images[0].url } height={ 44 } width={ 44 } className="rounded-lg" alt={ `${row.original.track.album.name} album cover` } />
-                        <div className="font-medium text-nowrap text-ellipsis">
-                            <p>{ row.original.track.name }</p>
+                        <div className="[&>p]:text-nowrap [&>p]:text-ellipsis [&>p]:overflow-hidden">
+                            <p className="font-medium">{ row.original.track.name.slice(0, 30) }</p>
                             <p className="text-muted-foreground">
-                                { row.original.track.artists.map((artist) => artist.name).join(", ") }
+                                { row.original.track.artists.map((artist) => artist.name).join(", ").slice(0, 30) }
                             </p>
                         </div>
                     </div>
@@ -62,7 +61,7 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                         </Button>
                     );
                 },
-                cell: ({ row }): React.JSX.Element => <p className="ml-4 text-nowrap text-ellipsis">{ row.original.track.album.name }</p>,
+                cell: ({ row }): React.JSX.Element => <p className="ml-4 text-nowrap text-ellipsis overflow-hidden">{ row.original.track.album.name.slice(0, 30) }</p>,
             },
             {
                 accessorKey: "added_at",
@@ -128,7 +127,7 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
             <TableHeader className="sticky">
                 { table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={ headerGroup.id }>
-                        <TableHead className="font-md text-xl text-center px-0">
+                        <TableHead className="font-md text-lg text-center px-0">
                             <p>#</p>
                         </TableHead>
                         { headerGroup.headers.map((header) => (
@@ -145,7 +144,7 @@ const PlaylistTable: React.FC<PlaylistTableProps> = ({ }) => {
                 { table.getRowModel().rows.map((row, index) => (
                     <TableRow key={ row.id } className="hover:bg-muted/50">
                         <TableCell className="!max-w-6 px-0">
-                            <p className="text-xl font-md text-muted-foreground text-center">{ index + 1 }</p>
+                            <p className="text-lg font-md text-muted-foreground text-center">{ index + 1 }</p>
                         </TableCell>
                         { row.getVisibleCells().map((cell) => (
                             <TableCell key={ cell.id }>
