@@ -40,4 +40,29 @@ export type Playlist = {
   uri: string;
 };
 
+export type SimplifiedPlaylist = {
+  collaborative: boolean;
+  description: string;
+  external_urls: {
+    spotify: string;
+  };
+  href: string;
+  id: string;
+  images: {
+    height: number;
+    url: string;
+    width: number;
+  }[];
+  name: string;
+  owner: PublicUser;
+  public: boolean;
+  snapshot_id: string;
+  tracks: {
+    href: string;
+    total: number;
+  };
+  type: string;
+  uri: string;
+};
+
 export default Playlist;

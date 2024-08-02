@@ -1,17 +1,9 @@
 import Album from "./Album";
+import { SimplifiedArtist } from "./Artist";
 
 export type Track = {
   album: Album;
-  artists: {
-    external_urls: {
-      spotify: string;
-    };
-    href: string;
-    id: string;
-    name: string;
-    type: string;
-    uri: string;
-  }[];
+  artists: SimplifiedArtist[];
   available_markets: string[];
   disc_number: number;
   duration_ms: number;
