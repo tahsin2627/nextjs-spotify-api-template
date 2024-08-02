@@ -10,6 +10,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 
 interface LibraryProps { }
@@ -17,6 +18,10 @@ interface LibraryProps { }
 const Library: FC<LibraryProps> = (): React.JSX.Element => {
     const { data: session } = useSession();
     const [playlists, setPlaylists] = useState([]);
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const paramId = searchParams?.get('id');
+    console.log(pathname, paramId);
 
     useEffect(() => {
         async function fetchPlaylists() {
@@ -100,7 +105,7 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                 <ScrollArea aria-orientation="vertical" className="w-full mb-2">
                     <div className="w-full flex flex-col pe-4">
                         { playlists.map((playlist: any, index: number): React.JSX.Element => (
-                            <Button variant="ghost" key={ index } className="flex justify-start !py-8 !px-2 items-center" asChild>
+                            <Button variant="ghost" key={ index } className={ `flex justify-start !py-8 !px-2 items-center` } asChild>
                                 <Link href={ `/playlist?id=${playlist.id}` }>
                                     { playlist.images ?
                                         <>
@@ -110,7 +115,7 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                                         <div className="bg-secondary size-12 rounded-lg" />
                                     }
                                     <div className="text-start ms-2">
-                                        <p>{ playlist.name }</p>
+                                        <p className={ `${pathname === "/playlist" && paramId === playlist.id ? 'text-primary' : null}` }>{ playlist.name }</p>
                                         <p className="text-sm text-muted-foreground flex items-center">Playlist<icons.Dot className="size-6 text-primary mx-[-4px]" />{ playlist.owner.display_name }</p>
                                     </div>
                                 </Link>
