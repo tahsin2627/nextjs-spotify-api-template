@@ -6,13 +6,14 @@ import { Input } from '../ui/input';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 import { ThemeSwitcherTransition } from '../ui/theme-switcher-transition';
 import Link from 'next/link';
+import AccountDropdownMenu from '../AccountDropdownMenu/AccountDropdownMenu';
 
 interface HeaderProps { }
 
 const Header: FC<HeaderProps> = () => {
 
     return (
-        <header className="flex justify-between items-center w-full !mt-0 [&_>div]:flex [&_>div]:gap-1">
+        <header className="flex justify-between items-center w-full !mt-0 [&_>div]:flex [&_>div]:gap-1 [&_>div]:items-center !h-10">
             <div>
                 <Menu />
                 <TooltipProvider>
@@ -40,7 +41,7 @@ const Header: FC<HeaderProps> = () => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button variant="ghost">
+                            <Button variant="ghost" asChild>
                                 <Link href='/'>
                                     <icons.Home />
                                 </Link>
@@ -63,11 +64,13 @@ const Header: FC<HeaderProps> = () => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button variant="ghost">
-                                <icons.Folders />
+                            <Button variant="ghost" asChild>
+                                <Link href="/browse">
+                                    <icons.Folders />
+                                </Link>
                             </Button>
                         </TooltipTrigger>
-                        <TooltipContent>Explore</TooltipContent>
+                        <TooltipContent>Browse</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
             </div>
@@ -93,16 +96,7 @@ const Header: FC<HeaderProps> = () => {
                         <TooltipContent>Friend activity</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Button variant="ghost">
-                                <icons.UserCircle className='text-primary' />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>Account</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <AccountDropdownMenu />
             </div>
         </header>
     );
