@@ -13,18 +13,27 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Image from 'next/image';
 import PlaylistProvider from "@/providers/PlaylistProvider";
-import getPlaylist from "@/lib/data/Playlist/getPlaylist";
+import getPlaylist from "@/lib/data/Playlists/getPlaylist";
 
 export default async function Page() {
     const headerList = headers();
     const playlistId: string = headerList.get("x-current-path-item-id") as string;
     const session = await getServerSession(authOptions);
     const playlist: Playlist = await getPlaylist(session.accessToken, playlistId) as Playlist;
-
+    const colors = [
+        'from-indigo-800',
+        'from-blue-800',
+        'from-green-800',
+        'from-red-800',
+        'from-yellow-800',
+        'from-pink-800',
+        'from-purple-800',
+    ];
+    const color = colors[Math.floor(Math.random() * colors.length)];
     return (
         <PlaylistProvider playlist={ playlist }>
-            <ScrollArea aria-orientation="vertical" className="h-full z-50">
-                <CardHeader>
+            <ScrollArea aria-orientation="vertical" className="h-full z-50 ">
+                <CardHeader className={ `bg-gradient-to-b to-card ${color}` }>
                     <div className="flex gap-6 items-center py-4">
                         <Image src={ playlist.images[0].url } className="rounded-lg bg-secondary" width={ 180 } height={ 180 } alt="Playlist image mosaic" />
                         <div className="flex flex-col items-start gap-4 flex-wrap">

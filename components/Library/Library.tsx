@@ -78,8 +78,8 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                     <Badge>Artistes</Badge>
                 </CardContent>
             </div>
-            <CardFooter className="flex flex-col gap-2 h-full pt-28 pb-0 px-2">
-                <div className="flex justify-between w-full">
+            <CardFooter className="flex flex-col gap-2 h-full pt-28 pb-0 px-0">
+                <div className="flex justify-between w-full px-2">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -102,8 +102,8 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                <ScrollArea aria-orientation="vertical" className="w-full mb-2">
-                    <div className="w-full flex flex-col pe-4">
+                <ScrollArea aria-orientation="vertical" className="w-full mb-2 px-2">
+                    <div className="w-full flex flex-col">
                         { playlists.map((playlist: any, index: number): React.JSX.Element => (
                             <Button variant="ghost" key={ index } className={ `flex justify-start !py-8 !px-2 items-center` } asChild>
                                 <Link href={ `/playlist?id=${playlist.id}` }>

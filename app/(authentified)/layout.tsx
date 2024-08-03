@@ -4,10 +4,10 @@ import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import { Card } from "@/components/ui/card";
 import UserProvider from "@/providers/UserProvider";
 import User from "@/lib/types/User";
-import getCurrentUser from "@/lib/data/User/getCurrentUser";
+import getCurrentUser from "@/lib/data/Users/getCurrentUser";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import getCurrentUserPlaylists from "@/lib/data/User/getCurrentUserPlaylists";
+import getCurrentUserPlaylists from "@/lib/data/Playlists/getCurrentUserPlaylists";
 import UserPlaylistsProvider from "@/providers/UserPlaylistsProvider";
 
 export default async function Layout({
