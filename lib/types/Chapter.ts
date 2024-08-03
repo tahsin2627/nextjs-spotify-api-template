@@ -1,7 +1,35 @@
-import Audiobook from "./Audiobook";
-
 export type Chapter = {
-  audiobook: Audiobook;
+  audiobook: {
+    authors: {
+      name: string;
+    }[];
+    available_markets: string[];
+    copyrights: {
+      text: string;
+      type: string;
+    }[];
+    description: string;
+    html_description: string;
+    edition: string;
+    explicit: boolean;
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    images: {
+      height: number;
+      url: string;
+      width: number;
+    }[];
+    languages: string[];
+    media_type: string;
+    name: string;
+    publisher: string;
+    type: "audiobook";
+    uri: string;
+    total_chapters: number;
+  };
   audio_preview_url: string;
   available_markets: string[];
   chapter_number: number;

@@ -1,5 +1,3 @@
-import Chapter from "./Chapter";
-
 export type Audiobook = {
   authors: {
     name: string;
@@ -7,7 +5,37 @@ export type Audiobook = {
   available_markets: string[];
   chapters: {
     href: string;
-    items: Chapter[];
+    items: {
+      audio_preview_url: string;
+      chapter_number: number;
+      description: string;
+      duration_ms: number;
+      explicit: boolean;
+      external_urls: {
+        spotify: string;
+      };
+      href: string;
+      html_description: string;
+      id: string;
+      images: {
+        url: string;
+        height: number;
+        width: number;
+      }[];
+      is_playable: boolean;
+      languages: string[];
+      name: string;
+      release_date: string;
+      release_date_precision: string;
+      restrictions: {
+        reason: string;
+      };
+      resume_point: {
+        fully_played: boolean;
+        resume_position_ms: number;
+      };
+      type: string;
+    }[];
     limit: number;
     next: string;
     offset: number;
@@ -19,13 +47,13 @@ export type Audiobook = {
     type: string;
   }[];
   description: string;
-  html_description: string;
   edition: string;
   explicit: boolean;
   external_urls: {
     spotify: string;
   };
   href: string;
+  html_description: string;
   id: string;
   images: {
     url: string;
