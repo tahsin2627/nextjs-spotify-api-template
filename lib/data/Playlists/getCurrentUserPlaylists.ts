@@ -1,6 +1,10 @@
 import { SimplifiedPlaylist } from "@/lib/types/Playlist";
 
-export default async function getCurrentUserPlaylists(token: string): Promise<
+export default async function getCurrentUserPlaylists(
+  token: string,
+  offset: number = 0,
+  limit: number = 50
+): Promise<
   | {
       href: string;
       items: SimplifiedPlaylist[];
@@ -14,7 +18,7 @@ export default async function getCurrentUserPlaylists(token: string): Promise<
 > {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/me/playlists`,
+      `https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
