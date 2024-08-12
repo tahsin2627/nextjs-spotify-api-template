@@ -21,7 +21,6 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const paramId = searchParams?.get('id');
-    console.log(pathname, paramId);
 
     useEffect(() => {
         async function fetchPlaylists() {
@@ -37,7 +36,6 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
         }
         playlists.length === 0 && fetchPlaylists();
     }), [session];
-
 
     return (
         <Card className="w-1/4 min-w-[270px] max-w-[400px]">

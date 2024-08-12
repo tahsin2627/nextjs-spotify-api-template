@@ -1,3 +1,5 @@
+"use server";
+
 import { SimplifiedPlaylist } from "@/lib/types/Playlist";
 
 export default async function getCurrentUserPlaylists(
@@ -8,7 +10,7 @@ export default async function getCurrentUserPlaylists(
   | {
       href: string;
       items: SimplifiedPlaylist[];
-      limite: number;
+      limit: number;
       next: string;
       offset: number;
       previous: string;

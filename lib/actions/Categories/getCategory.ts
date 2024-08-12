@@ -1,13 +1,17 @@
-import Playlist from "@/lib/types/Playlist";
+"use server";
 
-export default async function getPlaylist(
+import Category from "@/lib/types/Category";
+import { getToken } from "next-auth/jwt";
+
+export default async function getCategory(
   token: string,
-  playlistId: string,
+  categoryId: string,
   fields?: string
-): Promise<Playlist | undefined> {
-  try {
+): Promise<Category | undefined> {
+    try {
+      const token = await getToken({ req, secret: process.env.SECRET });
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/playlists/${playlistId}${
+      `https://api.spotify.com/v1/browse/categories/${categoryId}${
         fields ? `?fields=${fields}` : ""
       }`,
       {

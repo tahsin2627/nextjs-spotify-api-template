@@ -11,7 +11,6 @@ interface LastPlayedProps { }
 
 const LastPlayed: FC<LastPlayedProps> = () => {
     const userPlaylists = useContext(UserPlaylistsContext);
-    console.log(userPlaylists);
     return (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             { userPlaylists.items.slice(0, 12).map((playlist: SimplifiedPlaylist, index: number): React.JSX.Element => (

@@ -1,3 +1,5 @@
+"use server";
+
 import User from "@/lib/types/User";
 
 export default async function getCurrentUser(

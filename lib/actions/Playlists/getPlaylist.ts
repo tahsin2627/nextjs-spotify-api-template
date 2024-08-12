@@ -1,13 +1,15 @@
-import Category from "@/lib/types/Category";
+"use server";
 
-export default async function getCategory(
+import Playlist from "@/lib/types/Playlist";
+
+export default async function getPlaylist(
   token: string,
-  categoryId: string,
+  playlistId: string,
   fields?: string
-): Promise<Category | undefined> {
+): Promise<Playlist | undefined> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
+      `https://api.spotify.com/v1/playlists/${playlistId}${
         fields ? `?fields=${fields}` : ""
       }`,
       {

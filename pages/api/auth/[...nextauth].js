@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 
 const scopes = [
+    "streaming",
+    "app-remote-control",
     "user-read-email",
     "user-read-private",
     "playlist-read-private",

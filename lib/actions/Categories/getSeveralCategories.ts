@@ -1,3 +1,5 @@
+"use server";
+
 import Category from "@/lib/types/Category";
 
 export default async function getSeveralCategories(

@@ -58,6 +58,7 @@
     "react-hook-form": "^7.52.1",
     "react-remove-scroll": "^2.5.10",
     "react-resizable-panels": "^2.0.22",
+    "react-spotify-web-playback-sdk": "^3.0.2",
     "react-use-audio-player": "^2.2.0",
     "recharts": "^2.12.7",
     "sonner": "^1.5.0",

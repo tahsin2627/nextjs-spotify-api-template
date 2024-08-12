@@ -1,11 +1,17 @@
+import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const requestHeaders = new Headers(request.headers);
+export async function middleware(req: NextRequest) {
+  const token = await getToken({ req, secret: process.env.JWT_SECRET });
+  const { pathname } = req.nextUrl;
+  if (!token && !pathname.includes("/login")) {
+    return NextResponse.redirect("http://localhost:3000/login");
+  }
+  const requestHeaders = new Headers(req.headers);
   requestHeaders.set(
     "x-current-path-item-id",
-    request.nextUrl.searchParams.get("id") || "/"
+    req.nextUrl.searchParams.get("id") || "/"
   );
   const response = NextResponse.next({
     request: {

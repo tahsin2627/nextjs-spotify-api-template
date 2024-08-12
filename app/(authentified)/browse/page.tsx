@@ -2,7 +2,7 @@ import * as React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import getSeveralCategories from "@/lib/data/Categories/getSeveralCategories";
+import getSeveralCategories from "@/lib/actions/Categories/getSeveralCategories";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ export default async function Page() {
             <h1 className="text-2xl font-medium">Browse all categories</h1>
             <div className="flex gap-4 w-full flex-wrap mt-4 px-2">
                 { categories?.items.map((category) => (
-                    <div key={ category.id } className="relative grow cursor-pointer hover:scale-[1.02] hover:border-border hover:border rounded-lg transition">
+                    <div key={ category.id } className="relative grow cursor-pointer hover:scale-[1.02] rounded-lg transition">
                         <Link href={ `/category?id=${category.id}` }>
                             <Image
                                 src={ category.icons[0].url }
@@ -26,7 +26,7 @@ export default async function Page() {
                                 className="w-full h-full object-cover rounded-lg"
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg" />
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="absolute inset-0 flex text-center items-center justify-center">
                                 <h2 className="text-white text-2xl font-bold">{ category.name }</h2>
                             </div>
                         </Link>
