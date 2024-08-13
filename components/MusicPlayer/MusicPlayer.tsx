@@ -4,9 +4,10 @@ import React, { FC, useCallback, useEffect, useState } from 'react';
 import * as icons from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
-import { Toggle } from '../ui/toggle';
+import { Toggle } from '@/components/ui/toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { PlayerContext } from '@/providers/PlayerProvider';
+// import startResumePlayback from '@/lib/actions/Player/startResumePlayback';
 
 interface MusicPlayerProps { token: string; }
 
@@ -32,8 +33,7 @@ const MusicPlayer: FC<MusicPlayerProps> = ({ token }) => {
         }
     }
 
-    // const player = React.useContext(PlayerContext) as Spotify.Player;
-    // console.log(player);
+    const player = React.useContext(PlayerContext) as Spotify.Player;
 
     return (
         <div className="w-full flex justify-between items-center min-h-[72px]">
@@ -137,7 +137,7 @@ const MusicPlayer: FC<MusicPlayerProps> = ({ token }) => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button variant="ghost" size="sm">
+                            <Button variant="ghost" size="sm" onToggle={ () => player.setVolume(0) }>
                                 <icons.LucideVolume2 />
                             </Button>
                         </TooltipTrigger>

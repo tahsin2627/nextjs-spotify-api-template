@@ -15,6 +15,7 @@ export default function PlayerProvider({ children, token }: { children: React.Re
         document.body.appendChild(script);
         window.onSpotifyWebPlaybackSDKReady = () => {
             console.log("player ready");
+            setPlayer(player);
             if (!player) {
                 const player = new Spotify.Player({
                     name: "Spotifyer",
@@ -50,7 +51,7 @@ export default function PlayerProvider({ children, token }: { children: React.Re
                 });
                 // Connect to the player!
                 player.connect();
-                setPlayer(player);
+                player.disconnect();
             }
         };
     }, []);
