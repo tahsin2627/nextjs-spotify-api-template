@@ -1,21 +1,17 @@
 "use server";
 
-import Category from "@/lib/types/Category";
-
-export default async function getCategory(
+export default async function saveEpisodes(
   token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+  episodesIds: string[]
+): Promise<void> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
-      }`,
+      `https://api.spotify.com/v1/me/episodes?ids=${episodesIds.join(",")}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        method: "PUT",
       }
     );
     if (!res.ok) {

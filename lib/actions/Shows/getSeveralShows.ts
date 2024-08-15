@@ -1,16 +1,21 @@
 "use server";
 
-import Category from "@/lib/types/Category";
+import Show from "@/lib/types/Show";
 
-export default async function getCategory(
+export default async function getSeveralShows(
   token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+  showsIds: string[],
+  market?: string
+): Promise<
+  | {
+      shows: Show[];
+    }
+  | undefined
+> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
+      `https://api.spotify.com/v1/shows?ids=${showsIds.join(",")}${
+        market ? `&market=${market}` : ""
       }`,
       {
         headers: {

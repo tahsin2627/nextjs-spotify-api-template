@@ -1,17 +1,11 @@
 "use server";
 
-import Category from "@/lib/types/Category";
-
-export default async function getCategory(
-  token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+export default async function getAvailableGenreSeeds(
+  token: string
+): Promise<string[] | undefined> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
-      }`,
+      "https://api.spotify.com/v1/recommendations/available-genre-seeds",
       {
         headers: {
           Authorization: `Bearer ${token}`,

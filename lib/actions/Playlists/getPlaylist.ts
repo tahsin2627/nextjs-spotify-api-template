@@ -5,12 +5,12 @@ import Playlist from "@/lib/types/Playlist";
 export default async function getPlaylist(
   token: string,
   playlistId: string,
-  fields?: string
+  market?: string
 ): Promise<Playlist | undefined> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/playlists/${playlistId}${
-        fields ? `?fields=${fields}` : ""
+        market ? `?market=${market}` : ""
       }`,
       {
         headers: {

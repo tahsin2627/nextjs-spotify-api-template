@@ -1,17 +1,19 @@
 "use server";
 
-import Category from "@/lib/types/Category";
+import Artist from "@/lib/types/Artist";
 
-export default async function getCategory(
+export default async function getArtistRelatedArtists(
   token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+  artistId: string
+): Promise<
+  | {
+      artists: Artist[];
+    }
+  | undefined
+> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
-      }`,
+      `https://api.spotify.com/v1/artists/${artistId}/related-artists`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

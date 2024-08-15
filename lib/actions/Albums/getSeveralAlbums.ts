@@ -1,16 +1,21 @@
 "use server";
 
-import Category from "@/lib/types/Category";
+import Album from "@/lib/types/Album";
 
-export default async function getCategory(
+export default async function getSeveralAlbums(
   token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+  albumsIds: string[],
+  market?: string
+): Promise<
+  | {
+      albums: Album[];
+    }
+  | undefined
+> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
+      `https://api.spotify.com/v1/albums?ids=${albumsIds.join(",")}${
+        market ? `&market=${market}` : ""
       }`,
       {
         headers: {

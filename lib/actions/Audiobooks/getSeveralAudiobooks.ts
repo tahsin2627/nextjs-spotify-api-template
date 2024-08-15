@@ -1,16 +1,21 @@
 "use server";
 
-import Category from "@/lib/types/Category";
+import Audiobook from "@/lib/types/Audiobook";
 
-export default async function getCategory(
+export default async function getSeveralAudiobooks(
   token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+  audiobooksIds: string[],
+  market?: string
+): Promise<
+  | {
+      audiobooks: Audiobook[];
+    }
+  | undefined
+> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
+      `https://api.spotify.com/v1/audiobooks?ids=${audiobooksIds.join(",")}${
+        market ? `&market=${market}` : ""
       }`,
       {
         headers: {

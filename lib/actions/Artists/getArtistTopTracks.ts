@@ -1,16 +1,21 @@
 "use server";
 
-import Category from "@/lib/types/Category";
+import Track from "@/lib/types/Track";
 
-export default async function getCategory(
+export default async function getArtistTopTracks(
   token: string,
-  categoryId: string,
-  fields?: string
-): Promise<Category | undefined> {
+  artistId: string,
+  market?: string
+): Promise<
+  | {
+      tracks: Track[];
+    }
+  | undefined
+> {
   try {
     const res: Response = await fetch(
-      `https://api.spotify.com/v1/browse/categories/${categoryId}${
-        fields ? `?fields=${fields}` : ""
+      `https://api.spotify.com/v1/artists/${artistId}/top-tracks${
+        market ? `?market=${market}` : ""
       }`,
       {
         headers: {
