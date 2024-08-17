@@ -3,11 +3,10 @@ import Library from "@/components/Library/Library";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import { Card } from "@/components/ui/card";
 import UserProvider from "@/providers/UserProvider";
-import User from "@/lib/types/User";
-import getCurrentUser from "@/lib/actions/Users/getCurrentUser";
+import getCurrentUser from "@/lib/data/users/getCurrentUser";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import getCurrentUserPlaylists from "@/lib/actions/Playlists/getCurrentUserPlaylists";
+import getCurrentUserPlaylists from "@/lib/data/playlists/getCurrentUserPlaylists";
 import UserPlaylistsProvider from "@/providers/UserPlaylistsProvider";
 import PlayerProvider from "@/providers/PlayerProvider";
 
@@ -18,7 +17,7 @@ export default async function Layout({
 }>) {
 
     const session = await getServerSession(authOptions);
-    const user: User = await getCurrentUser(session.accessToken) as User;
+    const user = await getCurrentUser(session.accessToken);
     const userPlaylists = await getCurrentUserPlaylists(session.accessToken);
 
     return (

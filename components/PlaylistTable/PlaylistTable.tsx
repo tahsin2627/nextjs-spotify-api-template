@@ -7,8 +7,8 @@ import { icons } from "lucide-react";
 import React from "react";
 import { PlaylistContext } from "@/providers/PlaylistProvider";
 import { Playlist } from "@/lib/types/Playlist";
-import Track from "@/lib/types/Track";
-import PublicUser from "@/lib/types/PublicUser";
+import { Track } from "@/lib/types";
+import PublicUser from "@/lib/(old types)/PublicUser";
 import Image from "next/image";
 import { calcDuration } from "@/lib/utils";
 

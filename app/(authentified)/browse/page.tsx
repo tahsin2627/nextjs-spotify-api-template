@@ -2,7 +2,7 @@ import * as React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import getSeveralCategories from "@/lib/actions/Categories/getSeveralCategories";
+import getSeveralCategories from "@/lib/data/categories/getSeveralCategories";
 import Image from "next/image";
 import Link from "next/link";
 

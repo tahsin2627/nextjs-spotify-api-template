@@ -1,5 +1,5 @@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import getCategory from "@/lib/actions/Categories/getCategory";
+import getCategory from "@/lib/data/categories/getCategory";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 import { headers } from "next/headers";

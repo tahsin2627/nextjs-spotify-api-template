@@ -13,7 +13,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Image from 'next/image';
 import PlaylistProvider from "@/providers/PlaylistProvider";
-import getPlaylist from "@/lib/actions/Playlists/getPlaylist";
+import getPlaylist from "@/lib/data/playlists/getPlaylist";
 import { randomColor } from "@/lib/colors";
 
 export default async function Page() {
