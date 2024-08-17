@@ -5,13 +5,16 @@ import { Paging } from "@/lib/types";
 
 /**
  * Retrieves the chapters of an audiobook from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audiobook-chapters
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} audiobookId - The ID of the audiobook.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of chapters to retrieve (default: 50).
- * @param {string} market - The market for which to retrieve chapters (optional).
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of chapters to retrieve (default: 50).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<SimplifiedChapter> | undefined>} A promise that resolves to an object containing the audiobook chapters, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audiobook-chapters
  */
 export default async function getAudiobookChapters(
   token: string,

@@ -2,10 +2,13 @@
 
 /**
  * Skips to the previous track in the user's Spotify player.
- * @see https://developer.spotify.com/documentation/web-api/reference/skip-users-playback-to-previous-track
+ *
  * @param {string} token - The access token for the Spotify API.
- * @param {string} deviceId - (Optional) The ID of the device on which to skip to the previous track.
+ * @param {string} deviceId - (optional) The ID of the device on which to skip to the previous track.
+ *
  * @returns {Promise<void>} A Promise that resolves to void.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/skip-users-playback-to-previous-track
  */
 export default async function skipToNext(
   token: string,

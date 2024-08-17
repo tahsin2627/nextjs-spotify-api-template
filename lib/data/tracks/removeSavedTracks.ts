@@ -2,10 +2,13 @@
 
 /**
  * Removes saved tracks from a user's Spotify library.
- * @see https://developer.spotify.com/documentation/web-api/reference/remove-tracks-user
+ * 
  * @param {string} token - The access token for the user's Spotify account.
  * @param {string[]} ids - An array of track IDs to be removed.
+ * 
  * @returns {Promise<boolean | undefined>} A promise that resolves to a boolean indicating whether the tracks were successfully removed.
+ * 
+ * @see https://developer.spotify.com/documentation/web-api/reference/remove-tracks-user
  */
 export default async function removeSavedTracks(
   token: string,

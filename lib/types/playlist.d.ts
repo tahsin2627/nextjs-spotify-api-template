@@ -36,7 +36,6 @@ export interface PlaylistTrack {
 
 /**
  * The structure containing the simplified details of the Spotify Playlist.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-list-of-current-users-playlists
  * @property collaborative - True if the owner allows other users to modify the playlist.
  * @property description - The playlist description. Only returned for modified, verified playlists, otherwise null.
  * @property external_urls - Known external URLs for this playlist.
@@ -49,6 +48,7 @@ export interface PlaylistTrack {
  * @property tracks - A collection containing a link ( href ) to the Web API endpoint where full details of the playlist’s tracks can be retrieved, along with the total number of tracks in the playlist.
  * @property uri - The Spotify URI for the playlist
  * @property type - The object type: “playlist”
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-list-of-current-users-playlists
  */
 export interface SimplifiedPlaylist {
   /** True if the owner allows other users to modify the playlist. */
@@ -79,11 +79,11 @@ export interface SimplifiedPlaylist {
 
 /**
  * The structure containing the entire details of the Spotify Playlist.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-playlist
  * @extends SimplifiedPlaylist
  * @property followers - Information about the followers of the playlist.
  * @property public - The playlist’s public/private status: true the playlist is public, false the playlist is private, null the playlist status is not relevant.
  * @property tracks - Information about the tracks of the playlist. Note, a track object may be null. This can happen if a track is no longer available.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-playlist
  */
 export interface Playlist extends Omit<SimplifiedPlaylist, "tracks"> {
   /** Information about the followers of the playlist. */
@@ -96,9 +96,9 @@ export interface Playlist extends Omit<SimplifiedPlaylist, "tracks"> {
 
 /**
  * The structure returned by the [/browse/featured-playlists] endpoint.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-featured-playlists
  * @property message - The message from the featured playlists.
  * @property playlists - The list of the featured playlists wrapped in Paging object.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-featured-playlists
  */
 export interface FeaturedPlaylists {
   /** The message from the featured playlists. */
@@ -109,14 +109,14 @@ export interface FeaturedPlaylists {
 
 /**
  * The query structure required by the [/users/{id}/playlists] enpoint.
- * @see https://developer.spotify.com/documentation/web-api/reference/create-playlist
- * @property name - The name for the new playlist, for example "Your Coolest Playlist".
+ * @property name - The name for the new playlist.
  * @property public - Defaults to true. If true the playlist will be public.
  * @property collaboratve - Defaults to false. If true the playlist will be collaborative.
  * @property description - The description for the playlist.
+ * @see https://developer.spotify.com/documentation/web-api/reference/create-playlist
  */
 export interface CreatePlaylistQuery {
-  /** The name for the new playlist, for example "Your Coolest Playlist". */
+  /** The name for the new playlist. */
   name: string;
   /** Defaults to true. If true the playlist will be public. */
   public?: boolean;

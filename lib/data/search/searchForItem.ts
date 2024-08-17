@@ -4,13 +4,16 @@ import { SearchContent, SpotifyType } from "@/lib/types";
 
 /**
  * Searches for an item in Spotify based on the provided query and type.
- * @see https://developer.spotify.com/documentation/web-api/reference/search
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} query - The search query.
  * @param {SpotifyType} type - The type of item to search for.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of items to retrieve (default: 50).
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
+ *
  * @returns {Promise<SearchContent | undefined>} A promise that resolves to the search results or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/search
  */
 export default async function SearchForItem(
   token: string,

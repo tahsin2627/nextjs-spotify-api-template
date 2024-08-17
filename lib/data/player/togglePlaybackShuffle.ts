@@ -2,11 +2,14 @@
 
 /**
  * Toggles the playback shuffle state for the current user's Spotify player.
- * @see https://developer.spotify.com/documentation/web-api/reference/toggle-shuffle-for-users-playback
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {boolean} state - The desired shuffle state (true for on, false for off).
- * @param {string} [device_id] - The optional device ID to target the shuffle state change.
+ * @param {string} [device_id] - (optional) The device ID to target the shuffle state change.
+ *
  * @returns {Promise<void>} A promise that resolves when the shuffle state is toggled.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/toggle-shuffle-for-users-playback
  */
 export default async function togglePlaybackShuffle(
   token: string,

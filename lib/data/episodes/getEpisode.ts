@@ -4,11 +4,14 @@ import { Episode } from "@/lib/types";
 
 /**
  * Retrieves an episode from Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-episode
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} episodeId - The ID of the episode to retrieve.
- * @param {string} [market] - The market for which to retrieve the episode (optional).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Episode | undefined>} A promise that resolves to the retrieved episode, or undefined if not found.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-episode
  */
 export default async function getEpisode(
   token: string,

@@ -2,10 +2,13 @@
 
 /**
  * Removes saved shows from the user's Spotify library.
- * @see https://developer.spotify.com/documentation/web-api/reference/remove-shows-user
+ *
  * @param {string} token - The access token for the user's Spotify account.
  * @param {string[]} showsIds - An array of show IDs to be removed.
+ *
  * @returns {Promise<void>} A promise that resolves when the shows are successfully removed.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/remove-shows-user
  */
 export default async function removeSavedShows(
   token: string,

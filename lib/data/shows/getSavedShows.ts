@@ -4,12 +4,15 @@ import { Paging, SavedShow } from "@/lib/types";
 
 /**
  * Retrieves a paginated list of saved shows for the authenticated user.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-shows
+ *
  * @param {string} token - The access token for the Spotify API.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of shows to retrieve (default: 50).
- * @param {string} market - Optional. An optional parameter for the market to retrieve shows from.
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of shows to retrieve (default: 50).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<SavedShow> | undefined>} A promise that resolves to a `Paging<SavedShow>` object or `undefined` if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-shows
  */
 export default async function getSavedShows(
   token: string,

@@ -4,11 +4,14 @@ import { Album, Paging } from "@/lib/types";
 
 /**
  * Retrieves new releases from Spotify's API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-new-releases
+ *
  * @param {string} token - The access token for authentication.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of albums to retrieve (default: 50).
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of albums to retrieve (default: 50).
+ *
  * @returns {Promise<{ albums: Paging<Album> } | undefined>} - The promise that resolves with the retrieved albums or undefined if an error occurred.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-new-releases
  */
 export default async function getNewReleases(
   token: string,

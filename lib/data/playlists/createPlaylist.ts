@@ -2,14 +2,17 @@
 
 /**
  * Creates a playlist on Spotify.
- * @see https://developer.spotify.com/documentation/web-api/reference/create-playlist
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} userId - The user ID of the owner of the playlist.
  * @param {string} name - The name of the playlist.
- * @param {string} [description] - Optional. The description of the playlist.
- * @param {boolean} [isPublic] - Optional. Indicates whether the playlist is public.
- * @param {boolean} [isCollaborative] - Optional. Indicates whether the playlist is collaborative.
+ * @param {string} [description] - (optional) The description of the playlist.
+ * @param {boolean} [isPublic] - (optional) Indicates whether the playlist is public.
+ * @param {boolean} [isCollaborative] - (optional) Indicates whether the playlist is collaborative.
+ *
  * @returns {Promise<void>} A promise that resolves when the playlist is created successfully.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/create-playlist
  */
 export default async function createPlaylist(
   token: string,

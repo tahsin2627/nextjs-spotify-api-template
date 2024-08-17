@@ -4,11 +4,14 @@ import { Track } from "@/lib/types";
 
 /**
  * Retrieves the top tracks of an artist from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-top-tracks
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} artistId - The ID of the artist.
- * @param {string} [market] - The market/country for which to retrieve the top tracks. (optional)
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<{ tracks: Track[] } | undefined>} A promise that resolves to an object containing the top tracks of the artist, or undefined if an error occurred.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-top-tracks
  */
 export default async function getArtistTopTracks(
   token: string,

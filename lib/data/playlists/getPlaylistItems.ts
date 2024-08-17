@@ -4,13 +4,16 @@ import { Paging, PlaylistTrack } from "@/lib/types";
 
 /**
  * Retrieves the items of a playlist from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of items to retrieve (default: 50).
- * @param {string} market - An optional market parameter for track availability.
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<PlaylistTrack> | undefined>} A promise that resolves to a Paging object containing the playlist items, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks
  */
 export default async function getPlaylistItems(
   token: string,

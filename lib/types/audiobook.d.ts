@@ -33,6 +33,7 @@ export type SavedAudiobook = Saved<"audiobook", Audiobook>;
  * @property name - The name of the audiobook.
  * @property narrator - The media type of the audiobook.
  * @property total_chapters - The total number of chapters in the audiobook.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-audiobook
  */
 export interface SimplifiedAudiobook {
   /** The authors of the audiobook. */

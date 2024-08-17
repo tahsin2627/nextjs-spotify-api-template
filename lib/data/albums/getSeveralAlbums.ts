@@ -4,11 +4,14 @@ import { Album } from "@/lib/types";
 
 /**
  * Retrieves information about several albums from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-albums
+ *
  * @param {string} token - The access token for authentication.
  * @param {string[]} albumsIds - An array of album IDs.
- * @param {string} [market] - An optional parameter to specify the market.
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<{ albums: Album[] } | undefined>} A promise that resolves to an object containing the retrieved albums.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-albums
  */
 export default async function getSeveralAlbums(
   token: string,

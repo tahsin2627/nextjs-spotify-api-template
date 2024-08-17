@@ -4,12 +4,15 @@ import { Paging, SavedEpisode } from "@/lib/types";
 
 /**
  * Retrieves a list of saved episodes from Spotify using the provided access token.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-episodes
+ *
  * @param {string} token - The access token for the Spotify API.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of episodes to retrieve (default: 50).
- * @param {string} [market] - An optional market code.
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of episodes to retrieve (default: 50).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<SavedEpisode> | undefined>} A promise that resolves to a paging object containing saved episode data, or undefined if an error occurred.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-episodes
  */
 export default async function getSavedEpisodes(
   token: string,

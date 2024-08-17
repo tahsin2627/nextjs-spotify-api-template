@@ -15,7 +15,6 @@ export type SavedTrack = Saved<"track", Track>;
 
 /**
  * The structure containing the simplified details of the Spotify Track.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
  * @property artists - The artists who performed the track.
  * @property available_markets - A list of the countries in which the track can be played.
  * @property disc_number - The disc number (usually 1 unless the album consists of more than one disc).
@@ -33,6 +32,7 @@ export type SavedTrack = Saved<"track", Track>;
  * @property track_number - The number of the track. If an album has several discs, the track number is the number on the specified disc.
  * @property type - The object type: “track”.
  * @property uri - The Spotify URI for the track.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
  */
 export interface SimplifiedTrack {
   /** The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist. */
@@ -73,12 +73,12 @@ export interface SimplifiedTrack {
 
 /**
  * The structure containing the entire details of the Spotify Track.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-track
  * @extends SimplifiedTrack
  * @property album - The album on which the track appears.
  * @property artists - The artists who performed the track.
  * @property external_ids - Known external IDs for the track.
  * @property popularity - The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-track
  */
 export interface Track extends SimplifiedTrack {
   /** The album on which the track appears.  */
@@ -114,13 +114,13 @@ export interface LinkedTrack {
 
 /**
  * An object containing all the features of the audio.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-features
  * @extends TuneableTrack
  * @property analysis_url - An HTTP URL to access the full audio analysis of this track. An access token is required to access this data.
  * @property id - The Spotify ID of the track.
  * @property track_href - A link to the Web API endpoint providing full details of the track.
  * @property type - The object type: “audio_features”
  * @property uri - The Spotify URI for the track.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-features
  */
 export interface AudioFeatures extends Omit<TuneableTrack, "popularity"> {
   /** An HTTP URL to access the full audio analysis of this track. An access token is required to access this data. */
@@ -137,7 +137,6 @@ export interface AudioFeatures extends Omit<TuneableTrack, "popularity"> {
 
 /**
  * The tuneable track object.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-features
  * @property acousticness - A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.
  * @property danceability - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
  * @property duration_ms - The duration of the track in milliseconds.
@@ -152,6 +151,7 @@ export interface AudioFeatures extends Omit<TuneableTrack, "popularity"> {
  * @property tempo - The overall estimated tempo of a track in beats per minute (BPM).
  * @property time_signature - An estimated overall time signature of a track.
  * @property valence - A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-features
  */
 export interface TuneableTrack {
   /** A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. */
@@ -186,10 +186,10 @@ export interface TuneableTrack {
 
 /**
  * Time interval object of [TrackAudioAnalysis].
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  * @property start - The starting point of the time interval.
  * @property duration - The duration of the time interval.
  * @property confidence - The confidence of the time interval.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  */
 export interface TimeInterval {
   /** The starting point of the time interval. */
@@ -202,7 +202,6 @@ export interface TimeInterval {
 
 /**
  * The element structure of the array of [AudioAnalysis.sections] property.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  * @property start - The starting point of the section.
  * @property duration - The duration of the section.
  * @property confidence - The confidence of the section.
@@ -213,6 +212,7 @@ export interface TimeInterval {
  * @property key_confidence - The confidence of the key.
  * @property mode_confidence - The confidence of the modality.
  * @property time_signature - The time signature of the section.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  */
 export interface AudioSection {
   /** The starting point of the section. */
@@ -241,7 +241,6 @@ export interface AudioSection {
 
 /**
  * The element structure of the array of [AudioAnalysis.segments] property.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  * @property start - The starting point of the segment.
  * @property duration - The duration of the segment.
  * @property confidence - The confidence of the segment.
@@ -251,6 +250,7 @@ export interface AudioSection {
  * @property loudness_end - The ending loudness of the segment.
  * @property pitches - Pitch values of the segment.
  * @property timbre - Timbre values of the segment.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  */
 export interface AudioSegment {
   /** The starting point of the segment. */
@@ -275,7 +275,6 @@ export interface AudioSegment {
 
 /**
  * The object structure of [AudioAnalysis.track] property.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  * @property duration - The duration of the track in milliseconds.
  * @property sample_md5 - The md5 hash of the samples of the track.
  * @property offset_seconds - The offset of the track.
@@ -301,6 +300,7 @@ export interface AudioSegment {
  * @property synch_version - The synch version of the track.
  * @property rhythmstring - The rhythm string of the track.
  * @property rhythm_version - The rhythm version of the track.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  */
 export interface AudioTrack {
   /** The duration of the track in milliseconds. */
@@ -357,19 +357,25 @@ export interface AudioTrack {
 
 /**
  * The object structure returned by [/audio-analysis/{id}] endpoint.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  * @property bars - The time intervals of the bars throughout the track.
  * @property beats - The time intervals of the beats throughout the track.
  * @property tatums - The time intervals of the tatums throughout the track.
  * @property sections - The sections of the track.
  * @property segments - The segments of the track.
  * @property track - The track object.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  */
 export interface AudioAnalysis {
+  /** The time intervals of the bars throughout the track. */
   bars: TimeInterval[];
+  /** The time intervals of the beats throughout the track. */
   beats: TimeInterval[];
+  /** The time intervals of the tatums throughout the track. */
   tatums: TimeInterval[];
+  /** The sections of the track. */
   sections: AudioSection[];
+  /** The segments of the track. */
   segments: AudioSegment[];
+  /** The track object. */
   track: AudioTrack;
 }

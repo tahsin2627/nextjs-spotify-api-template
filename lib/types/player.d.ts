@@ -32,7 +32,6 @@ export type PlayerErrorReason =
 
 /**
  * An object containing the details of a device.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-users-available-devices
  * @property id - The device ID.
  * @property is_active - If this device is the currently active device.
  * @property is_private_session - If this device is currently in a private session.
@@ -40,6 +39,7 @@ export type PlayerErrorReason =
  * @property name - The name of the device.
  * @property type - The device type.
  * @property volume_percent - The current volume in percent.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-users-available-devices
  */
 export interface Device {
   /** The device ID. */
@@ -78,7 +78,6 @@ export interface PlayerContext {
 
 /**
  * The disallows from the CurrentlyPlayingContext object.
- * @see  https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
  * @property interrupting_playback - Interrupting playback. Optional field.
  * @property pausing - Pausing.
  * @property resuming - Resuming.
@@ -89,6 +88,7 @@ export interface PlayerContext {
  * @property toggling_repeat_track - Toggling repeat track flag.
  * @property toggling_shuffle - Toggling shuffle flag.
  * @property transferring_playback - Transfering playback between devices.
+ * @see  https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
  */
 export interface ContextDisallows {
   /** Interrupting playback. Optional field. */
@@ -115,12 +115,12 @@ export interface ContextDisallows {
 
 /**
  * The currently playing context of the player api.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
  * @extends CurrentlyPlaying
  * @property actions - Allows to update the user interface based on which playback actions are available within the current context.
  * @property device - The device that is currently active.
  * @property repeat_state - The repeat state.
  * @property shuffle_state - The shuffle state.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
  */
 export interface CurrentlyPlayingContext extends CurrentlyPlaying {
   /** Allows to update the user interface based on which playback actions are available within the current context. */
@@ -135,13 +135,13 @@ export interface CurrentlyPlayingContext extends CurrentlyPlaying {
 
 /**
  * The currently playing object of the player api.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
  * @property context - The context.
  * @property currently_playing_type - The object type of the currently playing item.
  * @property is_playing - If something is currently playing, return true.
  * @property progress_ms - Progress into the currently playing track or episode.
  * @property item - The item of the context.
  * @property timestamp - Unix Millisecond Timestamp when data was fetched.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
  */
 export interface CurrentlyPlaying {
   /** The context. */
@@ -189,13 +189,13 @@ export interface Devices {
 
 /**
  * The recently played object which is returned by the [Player.getRecentlyPlayed] function.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-recently-played
  * @property cursors - The cursors to check other pages of recently played.
  * @property href - A link to the Web API endpoint providing full details of the track.
  * @property limit - The maximum number of items in the response (as set in the query or by default).
  * @property next - URL to the next page of items. ( null if none)
  * @property total - The total number of items available to return.
  * @property items - The items which have been recently played.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-recently-played
  */
 export interface RecentlyPlayed {
   /** The cursors to check other pages of recently played. */

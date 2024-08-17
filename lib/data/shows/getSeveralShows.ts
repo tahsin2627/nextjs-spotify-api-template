@@ -4,11 +4,14 @@ import { Show } from "@/lib/types";
 
 /**
  * Retrieves information about several shows from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-shows
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} showsIds - An array of show IDs.
- * @param {string} market - Optional. The market for which to retrieve the shows.
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<{shows: Show[]}| undefined>} Promise that resolves to an object containing the retrieved shows.Returns undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-shows
  */
 export default async function getSeveralShows(
   token: string,

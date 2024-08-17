@@ -2,10 +2,13 @@
 
 /**
  * Saves the specified shows for the authenticated user.
- * @see https://developer.spotify.com/documentation/web-api/reference/save-shows-user
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} showsIds - An array of show IDs to save.
+ *
  * @returns {Promise<void>} A promise that resolves when the shows are saved successfully.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/save-shows-user
  */
 export default async function saveShows(
   token: string,

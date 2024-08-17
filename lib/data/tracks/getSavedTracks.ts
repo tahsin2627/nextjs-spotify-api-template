@@ -4,11 +4,14 @@ import { SavedTrack } from "@/lib/types";
 
 /**
  * Retrieves the saved tracks for a user from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-tracks
+ *
  * @param {string} token - The access token for the Spotify API.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of items to retrieve (default: 50).
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
+ *
  * @returns A promise that resolves to an array of SavedTrack objects, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-tracks
  */
 export default async function getSavedTracks(
   token: string,

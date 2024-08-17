@@ -2,14 +2,17 @@
 
 /**
  * Changes the details of a playlist.
- * @see https://developer.spotify.com/documentation/web-api/reference/change-playlist-details
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist to be modified.
- * @param {string} [name] - Optional. The new name for the playlist.
- * @param {string} [description] - Optional. The new description for the playlist.
- * @param {boolean} [isPublic] - Optional. Indicates whether the playlist should be public or not.
- * @param {boolean} [isCollaborative] - Optional. Indicates whether the playlist should be collaborative or not.
+ * @param {string} [name] - (optional) The new name for the playlist.
+ * @param {string} [description] - (optional) The new description for the playlist.
+ * @param {boolean} [isPublic] - (optional) Indicates whether the playlist should be public or not.
+ * @param {boolean} [isCollaborative] - (optional) Indicates whether the playlist should be collaborative or not.
+ *
  * @returns {Promise<void>} A promise that resolves when the playlist details are successfully changed.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/change-playlist-details
  */
 export default async function changePlaylistDetails(
   token: string,

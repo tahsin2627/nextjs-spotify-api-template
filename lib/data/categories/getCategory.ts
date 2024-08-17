@@ -4,11 +4,14 @@ import { Category } from "@/lib/types";
 
 /**
  * Retrieves a category from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-category
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} categoryId - The ID of the category to retrieve.
- * @param {string} [fields] - Optional fields to include in the response.
+ * @param {string} [fields] - (optional) Fields to include in the response.
+ *
  * @returns {Promise<Category | undefined>} A promise that resolves to the retrieved category object, or undefined if the request fails.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-category
  */
 export default async function getCategory(
   token: string,

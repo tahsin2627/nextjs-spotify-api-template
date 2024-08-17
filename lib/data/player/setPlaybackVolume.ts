@@ -2,11 +2,14 @@
 
 /**
  * Sets the playback volume for the Spotify player.
- * @see https://developer.spotify.com/documentation/web-api/reference/set-volume-for-users-playback
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {number} volume_percent - The desired volume percentage (0-100).
- * @param {string} [device_id] - The optional device ID to set the volume for.
+ * @param {string} [device_id] - (optional) The device ID to set the volume for.
+ *
  * @returns {Promise<void>} A promise that resolves when the volume is set successfully.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/set-volume-for-users-playback
  */
 export default async function setPlaybackVolume(
   token: string,

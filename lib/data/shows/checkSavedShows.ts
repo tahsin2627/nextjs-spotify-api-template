@@ -2,10 +2,13 @@
 
 /**
  * Checks if the specified shows are saved in the user's Spotify library.
- * @see https://developer.spotify.com/documentation/web-api/reference/check-users-saved-shows
+ *
  * @param {string} token - The access token for the user's Spotify account.
  * @param {string[]} showsIds - An array of show IDs to check.
+ *
  * @returns {Promise<boolean[] | undefined>} A promise that resolves to an array of booleans indicating whether each show is saved or not. Returns undefined if there was an error.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/check-users-saved-shows
  */
 export default async function checkSavedShows(
   token: string,

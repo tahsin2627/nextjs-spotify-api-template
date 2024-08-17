@@ -2,15 +2,18 @@
 
 /**
  * Updates the items in a playlist.
- * @see https://developer.spotify.com/documentation/web-api/reference/reorder-or-replace-playlists-tracks
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist to update.
  * @param {string[]} uris - An array of URIs representing the items to add to the playlist.
- * @param {number} rangeStart - Optional. The index of the first item to replace or add.
- * @param {number} position - Optional. The position at which to insert the items.
- * @param {number} rangeLength - Optional. The number of items to replace or add.
- * @param {string} snapshotId - Optional. The snapshot ID of the playlist.
+ * @param {number} [rangeStart] - (optional) The index of the first item to replace or add.
+ * @param {number} [position] - (optional) The position at which to insert the items.
+ * @param {number} [rangeLength] - (optional) The number of items to replace or add.
+ * @param {string} [snapshotId] - (optional) The snapshot ID of the playlist.
+ *
  * @returns {Promise<void>} A promise that resolves when the update is complete.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/reorder-or-replace-playlists-tracks
  */
 export default async function updatePlaylistItems(
   token: string,

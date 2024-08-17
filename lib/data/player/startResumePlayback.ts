@@ -2,10 +2,13 @@
 
 /**
  * Starts or resumes playback on the Spotify player.
- * @see https://developer.spotify.com/documentation/web-api/reference/start-a-users-playback
+ *
  * @param {string} token - The access token for the user's Spotify account.
- * @param {string} [device_id] - The ID of the device on which to start or resume playback (optional).
+ * @param {string} [device_id] - (optional) The ID of the device on which to start or resume playback.
+ *
  * @returns {Promise<void>} A promise that resolves when the playback is started or resumed successfully.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/start-a-users-playback
  */
 export default async function startResumePlayback(
   token: string,

@@ -2,11 +2,14 @@
 
 /**
  * Seeks the playback position of the Spotify player to the specified position in milliseconds.
- * @see https://developer.spotify.com/documentation/web-api/reference/seek-to-position-in-currently-playing-track
+ *
  * @param {string} token - The Spotify access token.
  * @param {number} position_ms - The position in milliseconds to seek to.
- * @param {string} device_id - (optional) The ID of the device on which to seek the playback position.
+ * @param {string} [device_id] - (optional) The ID of the device on which to seek the playback position.
+ *
  * @returns {Promise<void>} A promise that resolves when the seek operation is completed.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/seek-to-position-in-currently-playing-track
  */
 export default async function seekToPosition(
   token: string,

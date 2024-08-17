@@ -12,9 +12,9 @@ export type AccessTokenType = "bearer";
 
 /**
  * The spotify api object containing the details of the followers of a user.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
  * @property href - The api url where you can get the list of followers. This will be null as the spotify api does not supports it at the moment.
  * @property total - The total number of followers.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
  */
 export interface Followers {
   /** The api url where you can get the list of followers. This will be null as the spotify api does not supports it at the moment. */
@@ -37,7 +37,6 @@ export interface ExplicitContentSettings {
 
 /**
  * The spotify api object containing details of a user's public and private details.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
  * @extends PublicUser
  * @property country - The country of the user, as set in the user’s account profile.
  * @property email - The user’s email address, as entered by the user when creating their account.
@@ -45,6 +44,7 @@ export interface ExplicitContentSettings {
  * @property explicit_content - The user’s explicit content settings.
  * @property images - The user’s profile image.
  * @property followers - Information about the followers of the user.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
  */
 export interface PrivateUser extends PublicUser {
   /** The country of the user, as set in the user’s account profile. */
@@ -63,7 +63,6 @@ export interface PrivateUser extends PublicUser {
 
 /**
  * The spotify api object containing details of a user's public details.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-users-profile
  * @property display_name - The name displayed on the user’s profile. null if not available.
  * @property href - A link to the Web API endpoint for this user.
  * @property id - The Spotify user ID for the user.
@@ -72,6 +71,7 @@ export interface PrivateUser extends PublicUser {
  * @property images - The user’s profile image.
  * @property followers - Information about the followers of the user.
  * @property external_urls - Known external URLs for this user.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-profile
  */
 export interface PublicUser {
   /** The name displayed on the user’s profile. null if not available. */

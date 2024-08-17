@@ -4,11 +4,14 @@ import { Show } from "@/lib/types";
 
 /**
  * Retrieves a show from Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-show
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} showId - The ID of the show to retrieve.
- * @param {string} market - Optional. The market to retrieve the show from.
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Show | undefined>} A Promise that resolves to the retrieved Show object, or undefined if the show is not found.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-show
  */
 export default async function getShow(
   token: string,

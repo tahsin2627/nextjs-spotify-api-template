@@ -4,12 +4,15 @@ import { Paging, SimplifiedPlaylist } from "@/lib/types";
 
 /**
  * Retrieves the playlists for a specific category.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-categories-playlists
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} categoryId - The ID of the category.
- * @param {number} offset - The offset value for pagination (default: 0).
- * @param {number} limit - The maximum number of playlists to retrieve (default: 50).
+ * @param {number} [offset] - (optional) The offset value for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of playlists to retrieve (default: 50).
+ *
  * @returns {Promise<{message: string, playlists: Paging<SimplifiedPlaylist>} | undefined} A promise that resolves to an object containing a message and an array of playlists, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-categories-playlists
  */
 export default async function getCategoryPlaylists(
   token: string,

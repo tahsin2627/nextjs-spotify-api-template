@@ -2,12 +2,15 @@
 
 /**
  * Adds items to a playlist.
- * @see https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist to add items to.
  * @param {string[]} uris - An array of URIs representing the items to add.
- * @param {number} position - Optional. The position at which to insert the items in the playlist.
+ * @param {number} [position] - (optional) The position at which to insert the items in the playlist.
+ *
  * @returns {Promise<void>} A promise that resolves to void.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist
  */
 export default async function addItemsToPlaylist(
   token: string,

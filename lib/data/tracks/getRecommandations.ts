@@ -4,7 +4,7 @@ import { Recommendations } from "@/lib/types";
 
 /**
  * Retrieves recommendations based on the provided parameters.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations
+ * 
  * @param token - The access token for the Spotify API.
  * @param seedArtists - An array of seed artist IDs.
  * @param seedGenres - An array of seed genre names.
@@ -53,7 +53,10 @@ import { Recommendations } from "@/lib/types";
  * @param minValence - The minimum value for valence.
  * @param maxValence - The maximum value for valence.
  * @param targetValence - The target value for valence.
+ * 
  * @returns A Promise that resolves to the recommendations.
+ * 
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations
  */
 export default async function getRecommandations(
   token: string,

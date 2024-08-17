@@ -4,11 +4,14 @@ import { Artist, Paging } from "@/lib/types";
 
 /**
  * Retrieves a paginated list of followed artists for the authenticated user.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-followed
+ *
  * @param {string} token - The access token for the Spotify API.
- * @param {string} after - Optional. The last artist ID retrieved. Used for pagination.
- * @param {number} limit - The maximum number of artists to retrieve (default: 50).
+ * @param {string} after - (optional) The last artist ID retrieved. Used for pagination.
+ * @param {number} [limit] - (optional) The maximum number of artists to retrieve (default: 50).
+ *
  * @returns {Promise<Paging<Artist> | undefined>} A Promise that resolves to a Paging object containing the list of followed artists, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-followed
  */
 export default async function getFollowedArtists(
   token: string,

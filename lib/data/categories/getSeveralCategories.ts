@@ -4,11 +4,14 @@ import { Category, Paging } from "@/lib/types";
 
 /**
  * Retrieves several categories from Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-categories
+ *
  * @param {string} token - The access token for authentication.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of items to retrieve (default: 50).
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
+ *
  * @returns {Promise<{ categories: Paging<Category> } | undefined>} - The promise that resolves to an object containing the categories.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-categories
  */
 export default async function getSeveralCategories(
   token: string,

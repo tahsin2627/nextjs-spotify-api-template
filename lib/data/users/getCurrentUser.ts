@@ -4,9 +4,12 @@ import { PrivateUser } from "@/lib/types";
 
 /**
  * Retrieves the current user's information from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
+ *
  * @param {string} token - The access token for authentication.
+ *
  * @returns A promise that resolves to the current user's information, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
  */
 export default async function getCurrentUser(
   token: string

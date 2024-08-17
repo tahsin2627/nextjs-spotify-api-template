@@ -130,12 +130,12 @@ export type Saved<K extends SpotifyType, T> = { added_at: string } & Record<
 
 /**
  * The object structure returned by the [/search] endpoint.
- * @see https://developer.spotify.com/documentation/web-api/reference/search
  * @property albums - The album search results.
  * @property artists - The artist search results.
  * @property playlists - The playlist search results.
  * @property tracks - The track search results.
  * @property shows - The show search results.
+ * @see https://developer.spotify.com/documentation/web-api/reference/search
  */
 export interface SearchContent {
   /** The episode search results. */

@@ -2,11 +2,14 @@
 
 /**
  * Sets the repeat mode for the Spotify player.
- * @see https://developer.spotify.com/documentation/web-api/reference/set-repeat-mode-on-users-playback
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {"track" | "context" | "off"} state - The repeat mode state. Possible values are "track", "context", or "off".
- * @param {string} device_id - Optional. The ID of the device to set the repeat mode on.
+ * @param {string} [device_id] - (optional) The ID of the device to set the repeat mode on.
+ *
  * @returns {Promise<void>} A promise that resolves with void.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/set-repeat-mode-on-users-playback
  */
 export default async function setRepeatMode(
   token: string,

@@ -4,14 +4,17 @@ import { Album, Paging } from "@/lib/types";
 
 /**
  * Retrieves the albums of a specific artist from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-albums
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} artistId - The ID of the artist.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of artists to retrieve (default: 50).
- * @param {("album" | "single" | "appears_on" | "compilation")[]} [include_groups] - The groups of albums to include.
- * @param {string} [market] - The market for which to retrieve the albums.
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of artists to retrieve (default: 50).
+ * @param {("album" | "single" | "appears_on" | "compilation")[]} [include_groups] - (optional) The groups of albums to include.
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<Album> | undefined>} A promise that resolves to the paging object containing the artist's albums, or undefined if an error occurred.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-albums
  */
 export default async function getArtistAlbums(
   token: string,

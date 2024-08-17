@@ -4,10 +4,13 @@ import { Artist } from "@/lib/types";
 
 /**
  * Retrieves information about several artists from Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-artists
+ *
  * @param {string} token - The access token for authentication.
  * @param {string[]} artistsIds - An array of artist IDs.
+ *
  * @returns {Promise<{ artists: Artist[] } | undefined>} A promise that resolves to an object containing an array of artists or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-artists
  */
 export default async function getSeveralArtists(
   token: string,

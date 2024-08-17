@@ -4,13 +4,16 @@ import { Episode, Paging } from "@/lib/types";
 
 /**
  * Retrieves episodes for a specific show.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-shows-episodes
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} showId - The ID of the show.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of episodes to retrieve (default: 50).
- * @param {string} market - An optional market parameter for filtering the results by country.
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of episodes to retrieve (default: 50).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<Episode> | undefined>} A Promise that resolves to a Paging object containing the episodes, or undefined if an error occurs.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-shows-episodes
  */
 export default async function getShowEpisodes(
   token: string,

@@ -4,9 +4,12 @@ import { Device } from "@/lib/types";
 
 /**
  * Fetches the available devices for the player.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-a-users-available-devices
+ * 
  * @param {string} token - The access token for Spotify API.
+ * 
  * @returns {Promise<Device[] | undefined>} - The list of available devices or undefined.
+ * 
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-users-available-devices
  */
 export default async function getAvailableDevices(
   token: string

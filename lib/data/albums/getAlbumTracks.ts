@@ -4,13 +4,16 @@ import { Paging, Track } from "@/lib/types";
 
 /**
  * Retrieves the tracks of an album from the Spotify API.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} albumId - The ID of the album.
- * @param {number} offset - The offset for pagination (default: 0).
- * @param {number} limit - The maximum number of tracks to retrieve (default: 50).
- * @param {string} [market] - The market for which to retrieve the tracks.
+ * @param {number} [offset] - (optional) The offset for pagination (default: 0).
+ * @param {number} [limit] - (optional) The maximum number of tracks to retrieve (default: 50).
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
+ *
  * @returns {Promise<Paging<Track> | undefined>} A promise that resolves to the paging object containing the tracks, or undefined if an error occurred.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
  */
 export default async function getAlbumTracks(
   token: string,

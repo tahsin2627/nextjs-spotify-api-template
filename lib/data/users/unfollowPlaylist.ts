@@ -2,10 +2,13 @@
 
 /**
  * Unfollows a playlist.
- * @see https://developer.spotify.com/documentation/web-api/reference/unfollow-playlist
+ *
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist to unfollow.
+ *
  * @returns {Promise<void>} A promise that resolves when the playlist is unfollowed successfully.
+ *
+ * @see https://developer.spotify.com/documentation/web-api/reference/unfollow-playlist
  */
 export default async function unfollowPlaylist(
   token: string,

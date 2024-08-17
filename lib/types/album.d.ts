@@ -28,7 +28,6 @@ export type SavedAlbum = Saved<"album", Album>;
 
 /**
  * The spotify object containing the simplified details of the Spotify Album.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-albums
  * @property album_group - The field is present when getting an artist’s albums.
  * @property album_type - The type of album.
  * @property artists - The artists of the album.
@@ -44,6 +43,7 @@ export type SavedAlbum = Saved<"album", Album>;
  * @property total_tracks - The total number of tracks in the album.
  * @property type - The object type which will be 'album'.
  * @property uri - The Spotify URI for the album.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-albums
  */
 export interface SimplifiedAlbum {
   /** The field is present when getting an artist’s albums. */
@@ -80,7 +80,6 @@ export interface SimplifiedAlbum {
 
 /**
  * The spotify object containing the entire details of the Spotify Album.
- * @see https://developer.spotify.com/documentation/web-api/reference/get-an-album
  * @extends SimplifiedAlbum
  * @property artists - The artists of the album.
  * @property copyrights - The copyright statements of the album.
@@ -89,6 +88,7 @@ export interface SimplifiedAlbum {
  * @property label - The label for the album.
  * @property popularity - The popularity of the album. The value will be between 0 and 100, with 100 being the most popular. The popularity is calculated from the popularity of the album’s individual tracks.
  * @property tracks - The tracks of the album.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-album
  */
 export interface Album extends Omit<SimplifiedAlbum, "album_group"> {
   /** The artists of the album. */
