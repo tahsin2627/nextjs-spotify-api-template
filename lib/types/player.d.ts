@@ -32,8 +32,14 @@ export type PlayerErrorReason =
 
 /**
  * An object containing the details of a device.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-deviceobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-users-available-devices
+ * @property id - The device ID.
+ * @property is_active - If this device is the currently active device.
+ * @property is_private_session - If this device is currently in a private session.
+ * @property is_restricted - Whether controlling this device is restricted. At present if this is “true” then no Web API commands will be accepted by this device.
+ * @property name - The name of the device.
+ * @property type - The device type.
+ * @property volume_percent - The current volume in percent.
  */
 export interface Device {
   /** The device ID. */
@@ -54,8 +60,10 @@ export interface Device {
 
 /**
  * The context object of the player.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-contextobject
+ * @property external_urls - External URLs for this context.
+ * @property href - A link to the Web API endpoint providing full details of the track.
+ * @property type - The object type.
+ * @property uri - The Spotify URI for the context.
  */
 export interface PlayerContext {
   /** External URLs for this context. */
@@ -70,8 +78,17 @@ export interface PlayerContext {
 
 /**
  * The disallows from the CurrentlyPlayingContext object.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-disallowsobject
+ * @see  https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
+ * @property interrupting_playback - Interrupting playback. Optional field.
+ * @property pausing - Pausing.
+ * @property resuming - Resuming.
+ * @property seeking - Seeking playback location.
+ * @property skipping_next - Skipping to the next context.
+ * @property skipping_prev - Skipping to the previous context.
+ * @property toggling_repeat_context - Toggling repeat context flag.
+ * @property toggling_repeat_track - Toggling repeat track flag.
+ * @property toggling_shuffle - Toggling shuffle flag.
+ * @property transferring_playback - Transfering playback between devices.
  */
 export interface ContextDisallows {
   /** Interrupting playback. Optional field. */
@@ -98,8 +115,12 @@ export interface ContextDisallows {
 
 /**
  * The currently playing context of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-currentlyplayingcontextobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
+ * @extends CurrentlyPlaying
+ * @property actions - Allows to update the user interface based on which playback actions are available within the current context.
+ * @property device - The device that is currently active.
+ * @property repeat_state - The repeat state.
+ * @property shuffle_state - The shuffle state.
  */
 export interface CurrentlyPlayingContext extends CurrentlyPlaying {
   /** Allows to update the user interface based on which playback actions are available within the current context. */
@@ -114,8 +135,13 @@ export interface CurrentlyPlayingContext extends CurrentlyPlaying {
 
 /**
  * The currently playing object of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-currentlyplayingobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track
+ * @property context - The context.
+ * @property currently_playing_type - The object type of the currently playing item.
+ * @property is_playing - If something is currently playing, return true.
+ * @property progress_ms - Progress into the currently playing track or episode.
+ * @property item - The item of the context.
+ * @property timestamp - Unix Millisecond Timestamp when data was fetched.
  */
 export interface CurrentlyPlaying {
   /** The context. */
@@ -134,8 +160,7 @@ export interface CurrentlyPlaying {
 
 /**
  * The cursor object of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-cursorobject
+ * @property after - The cursor to use as key to find the next page of items.
  */
 export interface Cursor {
   /** The cursor to use as key to find the next page of items. */
@@ -144,8 +169,7 @@ export interface Cursor {
 
 /**
  * The cursor paging object of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-cursorpagingobject
+ * @property cursors - The cursors used to find the next set of items.
  */
 export interface CursorPaging<T>
   extends Omit<Paging<T>, "offset" | "previous"> {
@@ -155,8 +179,8 @@ export interface CursorPaging<T>
 
 /**
  * The devices object of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-devicesobject
+ * @property devices - A list of 0..n Device objects.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-information-about-the-users-current-playback
  */
 export interface Devices {
   /** A list of 0..n Device objects. */
@@ -165,8 +189,13 @@ export interface Devices {
 
 /**
  * The recently played object which is returned by the [Player.getRecentlyPlayed] function.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#/operations/get-recently-played
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-recently-played
+ * @property cursors - The cursors to check other pages of recently played.
+ * @property href - A link to the Web API endpoint providing full details of the track.
+ * @property limit - The maximum number of items in the response (as set in the query or by default).
+ * @property next - URL to the next page of items. ( null if none)
+ * @property total - The total number of items available to return.
+ * @property items - The items which have been recently played.
  */
 export interface RecentlyPlayed {
   /** The cursors to check other pages of recently played. */
@@ -190,8 +219,9 @@ export interface RecentlyPlayed {
 
 /**
  * The play history object of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-playhistoryobject
+ * @property context - The context the track was played from.
+ * @property played_at - The date and time the track was played.
+ * @property track - The track the user listened to.
  */
 export interface PlayHistory {
   /** The context the track was played from. */
@@ -204,8 +234,7 @@ export interface PlayHistory {
 
 /**
  * The error response sent by the spotify player api during unusual status codes.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-playererrorobject
+ * @property reason - The reason for the error.
  */
 export interface PlayerErrorResponse extends ErrorResponse {
   /** The reason for the error. */
@@ -214,10 +243,12 @@ export interface PlayerErrorResponse extends ErrorResponse {
 
 /**
  * The queue object of the player api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-queueobject
+ * @property currently_playing - The currently playing track.
+ * @property queue - The next queue of the player.
  */
 export interface PlayerQueue {
+  /** The currently playing track. */
   currently_playing: Track | Episode;
+  /** The next queue of the player */
   queue: Track[] | Episode[];
 }

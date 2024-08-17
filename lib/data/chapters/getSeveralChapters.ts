@@ -2,6 +2,14 @@
 
 import Chapter from "@/lib/(old types)/Chapter";
 
+/**
+ * Retrieves several chapters from Spotify API.
+ *
+ * @param {string} token - The access token for authentication.
+ * @param {string[]} chaptersIds - The IDs of the chapters to retrieve.
+ * @param {string} [market] - The market for which to retrieve the chapters.
+ * @returns {Promise<{ chapters: Chapter[] } | undefined>} - The retrieved chapters.
+ */
 export default async function getSeveralChapters(
   token: string,
   chaptersIds: string[],

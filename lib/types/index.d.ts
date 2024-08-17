@@ -8,3 +8,5 @@ export * from "./playlist";
 export * from "./episode";
 export * from "./show";
 export * from "./browse";
+export * from "./audiobook";
+export * from "./chapter";

@@ -5,7 +5,7 @@
  *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist to follow.
- * @param {boolean} [isPublic=true] - Optional. Indicates whether the playlist should be made public or not.
+ * @param {boolean} isPublic - Indicates whether the playlist should be made public or not (default: true).
  * @returns {Promise<void>} - A promise that resolves when the playlist is successfully followed.
  */
 export default async function followPlaylist(

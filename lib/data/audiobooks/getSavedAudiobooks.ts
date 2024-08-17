@@ -1,23 +1,12 @@
 "use server";
 
-import Audiobook from "@/lib/(old types)/Audiobook";
+import { Audiobook, Paging } from "@/lib/types";
 
 export default async function getSavedAudiobooks(
   token: string,
   offset: number = 0,
   limit: number = 50
-): Promise<
-  | {
-      href: string;
-      limit: number;
-      next: string;
-      offset: number;
-      previous: string;
-      total: number;
-      items: Audiobook[];
-    }
-  | undefined
-> {
+): Promise<Paging<Audiobook> | undefined> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/audiobooks?offset=${offset}&limit=${limit}`,

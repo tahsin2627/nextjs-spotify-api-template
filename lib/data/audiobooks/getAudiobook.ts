@@ -2,6 +2,14 @@
 
 import { Audiobook } from "@/lib/types";
 
+/**
+ * Retrieves an audiobook from Spotify API.
+ *
+ * @param {string} token - The access token for authorization.
+ * @param {string} audiobookId - The ID of the audiobook to retrieve.
+ * @param {string} [market] - The market for which the audiobook should be retrieved.
+ * @returns {Promise<Audiobook | undefined>} - A promise that resolves to the retrieved audiobook, or undefined if not found.
+ */
 export default async function getAudiobook(
   token: string,
   audiobookId: string,

@@ -1,5 +1,12 @@
 "use server";
 
+/**
+ * Saves the specified audiobooks for the authenticated user.
+ *
+ * @param {string} token - The access token for the Spotify API.
+ * @param {string[]} audiobooksIds - An array of audiobook IDs to be saved.
+ * @returns {Promise<void>} - A promise that resolves when the audiobooks are saved successfully.
+ */
 export default async function saveAudiobooks(
   token: string,
   audiobooksIds: string[]

@@ -12,8 +12,9 @@ export type AccessTokenType = "bearer";
 
 /**
  * The spotify api object containing the details of the followers of a user.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-followersobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
+ * @property href - The api url where you can get the list of followers. This will be null as the spotify api does not supports it at the moment.
+ * @property total - The total number of followers.
  */
 export interface Followers {
   /** The api url where you can get the list of followers. This will be null as the spotify api does not supports it at the moment. */
@@ -24,8 +25,8 @@ export interface Followers {
 
 /**
  * The spotify api object containing the information of explicit content.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-explicitcontentsettingsobject
+ * @property filter_enabled - When true, indicates that explicit content should not be played.
+ * @property filter_locked - When true, indicates that the explicit content setting is locked and can’t be changed by the user.
  */
 export interface ExplicitContentSettings {
   /** When true, indicates that explicit content should not be played. */
@@ -36,8 +37,14 @@ export interface ExplicitContentSettings {
 
 /**
  * The spotify api object containing details of a user's public and private details.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-privateuserobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
+ * @extends PublicUser
+ * @property country - The country of the user, as set in the user’s account profile.
+ * @property email - The user’s email address, as entered by the user when creating their account.
+ * @property product - The user’s Spotify subscription level.
+ * @property explicit_content - The user’s explicit content settings.
+ * @property images - The user’s profile image.
+ * @property followers - Information about the followers of the user.
  */
 export interface PrivateUser extends PublicUser {
   /** The country of the user, as set in the user’s account profile. */
@@ -56,8 +63,15 @@ export interface PrivateUser extends PublicUser {
 
 /**
  * The spotify api object containing details of a user's public details.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-publicuserobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-profile
+ * @property display_name - The name displayed on the user’s profile. null if not available.
+ * @property href - A link to the Web API endpoint for this user.
+ * @property id - The Spotify user ID for the user.
+ * @property uri - The Spotify URI for the user.
+ * @property type - The Spotify object type which will be 'User'.
+ * @property images - The user’s profile image.
+ * @property followers - Information about the followers of the user.
+ * @property external_urls - Known external URLs for this user.
  */
 export interface PublicUser {
   /** The name displayed on the user’s profile. null if not available. */
@@ -80,8 +94,9 @@ export interface PublicUser {
 
 /**
  * The spotify api object containing the user's access token.
- *
- * @see https://developer.spotify.com/documentation/general/guides/authorization/client-credentials/
+ * @property access_token - The token used to access the Spotify Web API.
+ * @property token_type - The type of token which is of type bearer.
+ * @property expires_in - The time after which the access token expires.
  */
 export interface AccessToken {
   /** The token used to access the Spotify Web API */

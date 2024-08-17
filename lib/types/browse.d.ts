@@ -3,8 +3,11 @@ import { SimplifiedTrack, TuneableTrack } from "./track";
 
 /**
  * An object containing details about the spotify category.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-categoryobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-category
+ * @property href - A link to the Web API endpoint returning full details of the category.
+ * @property icons - The category icon, in various sizes.
+ * @property id - The Spotify category ID of the category.
+ * @property name - The name of the category.
  */
 export interface Category {
   /** A link to the Web API endpoint returning full details of the category. */
@@ -19,8 +22,13 @@ export interface Category {
 
 /**
  * The spotify recommendation seed object.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-recommendationseedobject
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations
+ * @property afterFilteringSize - The number of tracks available after min_* and max_* filters have been applied.
+ * @property afterRelinkingSize - The number of tracks available after relinking for regional availability.
+ * @property href - A link to the full track or artist data for this seed.
+ * @property id - The id used to select this seed. This will be the same as the string used in the seed_artists, seed_tracks or seed_genres parameter.
+ * @property initialPoolSize - The number of recommended tracks available for this seed.
+ * @property type - The entity type of this seed.
  */
 export interface RecommendationSeed {
   /** The number of tracks available after min_* and max_* filters have been applied. */
@@ -38,9 +46,10 @@ export interface RecommendationSeed {
 }
 
 /**
- * The collection of recommendation seed objects with tracks provided from the spotify api..
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-recommendationsobject
+ * The collection of recommendation seed objects with tracks provided from the spotify api.
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations
+ * @property seeds - An array of recommendation seed objects.
+ * @property tracks - An array of track object (simplified) ordered according to the parameters supplied.
  */
 export interface Recommendations {
   /** An array of recommendation seed objects. */
@@ -55,20 +64,3 @@ export interface Recommendations {
 export type RecommendationQueryExtension<T extends string> = Partial<
   Record<`min_${T}` | `max_${T}` | `target_${T}`, number>
 >;
-
-/**
- * The query paramater structure of the [/recommendations] endpoint.
- */
-export interface RecommendationQuery
-  extends RecommendationQueryExtension<keyof TuneableTrack> {
-  /** The target size of the list of recommended tracks. */
-  limit?: number;
-  /** An ISO 3166-1 alpha-2 country code or the string from_token. */
-  market?: string;
-  /** A comma separated list of Spotify IDs for seed artists. Up to 5 seed values may be provided in any combination of seed_artists, seed_tracks and seed_genres **/
-  seed_artists: string;
-  /** A comma separated list of any genres in the set of available genre seeds. Up to 5 seed values may be provided in any combination of seed_artists, seed_tracks and seed_genres. */
-  seed_genres: string;
-  /** A comma separated list of Spotify IDs for a seed track. Up to 5 seed values may be provided in any combination of seed_artists, seed_tracks and seed_genres. */
-  seed_tracks: string;
-}

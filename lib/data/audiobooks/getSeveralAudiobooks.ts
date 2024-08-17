@@ -1,7 +1,15 @@
 "use server";
 
-import Audiobook from "@/lib/(old types)/Audiobook";
+import { Audiobook } from "@/lib/types";
 
+/**
+ * Retrieves several audiobooks from the Spotify API.
+ *
+ * @param {string} token - The access token for authentication.
+ * @param {string[]} audiobooksIds - The IDs of the audiobooks to retrieve.
+ * @param {string} [market] - The market to retrieve the audiobooks from (optional).
+ * @returns {Promise<{ audiobooks: Audiobook[] } | undefined>} The retrieved audiobooks.
+ */
 export default async function getSeveralAudiobooks(
   token: string,
   audiobooksIds: string[],

@@ -23,8 +23,9 @@ export type SearchType = "album" | "artist" | "track" | "show" | "episode";
 
 /**
  * The spotify object containing the details of an image.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-imageobject
+ * @property height - The image height in pixels. If unknown: null or not returned.
+ * @property url - The source URL of the image.
+ * @property width - The image width in pixels. If unknown: null or not returned.
  */
 export interface Image {
   /** The image height in pixels. If unknown: null or not returned. */
@@ -37,8 +38,7 @@ export interface Image {
 
 /**
  * The external urls object which contains the spotify url within it.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-externalurlobject
+ * @property spotify - The Spotify URL for the object.
  */
 export interface ExternalUrl {
   /** The Spotify URL for the object. */
@@ -47,8 +47,9 @@ export interface ExternalUrl {
 
 /**
  * The external ids object which contains the spotify id within it.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-externalidobject
+ * @property isrc - International Standard Recording Code
+ * @property ean - International Article Number
+ * @property upc - Universal Product Code
  */
 export interface ExternalID {
   /** International Article Number */
@@ -61,8 +62,13 @@ export interface ExternalID {
 
 /**
  * The paging object is a form of collection of items from the spotify api.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-pagingobject
+ * @property href - A link to the Web API endpoint returning the full result of the request.
+ * @property items - The requested data.
+ * @property limit - The maximum number of items in the response (as set in the query or by default).
+ * @property next - URL to the next page of items. (null if none)
+ * @property offset - The offset of the items returned (as set in the query or by default)
+ * @property previous - URL to the previous page of items. (null if none)
+ * @property total - The total number of items available to return.
  */
 export interface Paging<T> {
   /** A link to the Web API endpoint returning the full result of the request. */
@@ -83,8 +89,8 @@ export interface Paging<T> {
 
 /**
  * The copyright object contains the type and the name of copyright.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-copyrightobject
+ * @property text - The text of copyright.
+ * @property type - The type of copyright.
  */
 export interface Copyright {
   /** The text of copyright. */
@@ -95,6 +101,7 @@ export interface Copyright {
 
 /**
  * The object containing the reason of restriction by the spotify api.
+ * @property reason - The reason for the restriction.
  */
 export interface Restriction {
   /** The reason for the restriction. */
@@ -103,8 +110,8 @@ export interface Restriction {
 
 /**
  * The error response sent by the spotify api during unusual status codes.
- *
- * @see https://developer.spotify.com/documentation/web-api/reference/#object-errorobject
+ *@property message - A short description of the cause of the error.
+ *@property status - The HTTP status code (also returned in the response header; see Response Status Codes for more information).
  */
 export interface ErrorResponse {
   /** A short description of the cause of the error. */
@@ -123,6 +130,12 @@ export type Saved<K extends SpotifyType, T> = { added_at: string } & Record<
 
 /**
  * The object structure returned by the [/search] endpoint.
+ * @see https://developer.spotify.com/documentation/web-api/reference/search
+ * @property albums - The album search results.
+ * @property artists - The artist search results.
+ * @property playlists - The playlist search results.
+ * @property tracks - The track search results.
+ * @property shows - The show search results.
  */
 export interface SearchContent {
   /** The episode search results. */
