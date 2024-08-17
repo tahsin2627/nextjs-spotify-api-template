@@ -6,7 +6,7 @@
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist.
  * @param {string} image - The image to be set as the playlist cover.
- * @returns {Promise<void>} - A promise that resolves when the image cover is added successfully.
+ * @returns {Promise<void>} A promise that resolves when the image cover is added successfully.
  */
 export default async function addCustomPlaylistImageCover(
   token: string,

@@ -8,7 +8,7 @@ import { Album } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string[]} albumsIds - An array of album IDs.
  * @param {string} [market] - An optional parameter to specify the market.
- * @returns {Promise<{ albums: Album[] } | undefined>} - A promise that resolves to an object containing the retrieved albums.
+ * @returns {Promise<{ albums: Album[] } | undefined>} A promise that resolves to an object containing the retrieved albums.
  */
 export default async function getSeveralAlbums(
   token: string,

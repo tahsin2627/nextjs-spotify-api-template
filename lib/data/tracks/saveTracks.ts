@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/save-tracks-user
  * @param {string} token - The access token for the user's Spotify account.
  * @param {string[]} tracksIds - An array of track IDs to be saved.
- * @returns {Promise<void>} - A promise that resolves when the tracks are successfully saved.
+ * @returns {Promise<void>} A promise that resolves when the tracks are successfully saved.
  */
 export default async function saveTracks(
   token: string,

@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/pause-a-users-playback
  * @param {string} token - The access token for the Spotify API.
  * @param {string} [device_id] - The ID of the device on which to pause the playback. Optional.
- * @returns {Promise<void>} - A promise that resolves when the playback is paused.
+ * @returns {Promise<void>} A promise that resolves when the playback is paused.
  */
 export default async function pausePlayback(
   token: string,

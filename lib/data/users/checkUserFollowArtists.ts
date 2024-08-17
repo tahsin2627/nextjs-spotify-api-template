@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/check-current-user-follows
  * @param {string} token - The user's access token.
  * @param {string[]} artistsIds - An array of artist IDs to check.
- * @returns {Promise<boolean[] | undefined>} - A promise that resolves to an array of booleans indicating whether the user is following each artist. Returns undefined if there was an error.
+ * @returns {Promise<boolean[] | undefined>} A promise that resolves to an array of booleans indicating whether the user is following each artist. Returns undefined if there was an error.
  */
 export default async function checkUserFollowArtists(
   token: string,

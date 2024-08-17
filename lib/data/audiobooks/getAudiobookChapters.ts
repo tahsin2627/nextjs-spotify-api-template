@@ -11,7 +11,7 @@ import { Paging } from "@/lib/types";
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of chapters to retrieve (default: 50).
  * @param {string} market - The market for which to retrieve chapters (optional).
- * @returns {Promise<Paging<SimplifiedChapter> | undefined>} - A Promise that resolves to an object containing the audiobook chapters, or undefined if an error occurs.
+ * @returns {Promise<Paging<SimplifiedChapter> | undefined>} A promise that resolves to an object containing the audiobook chapters, or undefined if an error occurs.
  */
 export default async function getAudiobookChapters(
   token: string,

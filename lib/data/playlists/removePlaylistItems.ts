@@ -6,7 +6,7 @@
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist to remove items from.
  * @param {string[]} uris - An array of URIs representing the items to be removed.
- * @returns {Promise<void>} - A promise that resolves when the items are successfully removed.
+ * @returns {Promise<void>} A promise that resolves when the items are successfully removed.
  */
 export default async function removePlaylistItems(
   token: string,

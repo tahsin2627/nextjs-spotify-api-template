@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/check-users-saved-episodes
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} episodesIds - An array of episode IDs to check.
- * @returns {Promise<boolean[] | undefined>} - A promise that resolves to an array of booleans indicating whether each episode is saved or undefined if there was an error.
+ * @returns {Promise<boolean[] | undefined>} A promise that resolves to an array of booleans indicating whether each episode is saved or undefined if there was an error.
  */
 export default async function checkSavedEpisodes(
   token: string,

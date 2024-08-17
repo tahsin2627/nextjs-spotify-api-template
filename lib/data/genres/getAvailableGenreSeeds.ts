@@ -4,7 +4,7 @@
  * Retrieves the available genre seeds from Spotify API.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendation-genres
  * @param {string} token - The access token for the Spotify API.
- * @returns {Promise<string[] | undefined>} - A promise that resolves to an array of available genre seeds, or undefined if an error occurs.
+ * @returns {Promise<string[] | undefined>} A promise that resolves to an array of available genre seeds, or undefined if an error occurs.
  */
 export default async function getAvailableGenreSeeds(
   token: string

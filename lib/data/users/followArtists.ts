@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/follow-artists-users
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} artistIds - An array of artist IDs to follow.
- * @returns {Promise<void>} - A promise that resolves when the artists are successfully followed.
+ * @returns {Promise<void>} A promise that resolves when the artists are successfully followed.
  */
 export default async function followArtists(
   token: string,

@@ -7,7 +7,7 @@ import { PublicUser } from "@/lib/types";
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-profile
  * @param {string} token - The access token for authentication.
  * @param {string} userId - The ID of the user to retrieve information for.
- * @returns {Promise<PublicUser | undefined>} - A promise that resolves to the public user information, or undefined if the request fails.
+ * @returns {Promise<PublicUser | undefined>} A promise that resolves to the public user information, or undefined if the request fails.
  */
 export default async function getUser(
   token: string,

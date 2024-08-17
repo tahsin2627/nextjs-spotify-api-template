@@ -8,7 +8,7 @@ import { Episode } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string[]} episodesIds - An array of episode IDs to retrieve.
  * @param {string} [market] - The market to retrieve episodes from (optional).
- * @returns {Promise<{ episodes: Episode[] } | undefined>} - A promise that resolves to an object containing the retrieved episodes, or undefined if an error occurs.
+ * @returns {Promise<{ episodes: Episode[] } | undefined>} A promise that resolves to an object containing the retrieved episodes, or undefined if an error occurs.
  */
 export default async function getSeveralEpisodes(
   token: string,

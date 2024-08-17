@@ -9,7 +9,7 @@
  * @param {string} [description] - Optional. The new description for the playlist.
  * @param {boolean} [isPublic] - Optional. Indicates whether the playlist should be public or not.
  * @param {boolean} [isCollaborative] - Optional. Indicates whether the playlist should be collaborative or not.
- * @returns {Promise<void>} - A promise that resolves when the playlist details are successfully changed.
+ * @returns {Promise<void>} A promise that resolves when the playlist details are successfully changed.
  */
 export default async function changePlaylistDetails(
   token: string,

@@ -6,7 +6,7 @@
  * @param {string} token - The access token for the Spotify API.
  * @param {boolean} state - The desired shuffle state (true for on, false for off).
  * @param {string} [device_id] - The optional device ID to target the shuffle state change.
- * @returns {Promise<void>} - A promise that resolves when the shuffle state is toggled.
+ * @returns {Promise<void>} A promise that resolves when the shuffle state is toggled.
  */
 export default async function togglePlaybackShuffle(
   token: string,

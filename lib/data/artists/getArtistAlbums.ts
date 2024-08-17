@@ -11,7 +11,7 @@ import { Album, Paging } from "@/lib/types";
  * @param {number} limit - The maximum number of artists to retrieve (default: 50).
  * @param {("album" | "single" | "appears_on" | "compilation")[]} [include_groups] - The groups of albums to include.
  * @param {string} [market] - The market for which to retrieve the albums.
- * @returns {Promise<Paging<Album> | undefined>} - A promise that resolves to the paging object containing the artist's albums, or undefined if an error occurred.
+ * @returns {Promise<Paging<Album> | undefined>} A promise that resolves to the paging object containing the artist's albums, or undefined if an error occurred.
  */
 export default async function getArtistAlbums(
   token: string,

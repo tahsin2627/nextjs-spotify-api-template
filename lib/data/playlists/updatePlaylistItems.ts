@@ -10,7 +10,7 @@
  * @param {number} position - Optional. The position at which to insert the items.
  * @param {number} rangeLength - Optional. The number of items to replace or add.
  * @param {string} snapshotId - Optional. The snapshot ID of the playlist.
- * @returns {Promise<void>} - A promise that resolves when the update is complete.
+ * @returns {Promise<void>} A promise that resolves when the update is complete.
  */
 export default async function updatePlaylistItems(
   token: string,

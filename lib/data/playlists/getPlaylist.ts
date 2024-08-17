@@ -8,7 +8,7 @@ import { Playlist } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist to retrieve.
  * @param {string} [market] - The market for which to retrieve the playlist.
- * @returns {Promise<Playlist | undefined>} - A promise that resolves to the retrieved playlist, or undefined if an error occurs.
+ * @returns {Promise<Playlist | undefined>} A promise that resolves to the retrieved playlist, or undefined if an error occurs.
  */
 export default async function getPlaylist(
   token: string,

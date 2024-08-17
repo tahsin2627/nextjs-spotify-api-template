@@ -8,7 +8,7 @@ import { Category } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string} categoryId - The ID of the category to retrieve.
  * @param {string} [fields] - Optional fields to include in the response.
- * @returns {Promise<Category | undefined>} - A promise that resolves to the retrieved category object, or undefined if the request fails.
+ * @returns {Promise<Category | undefined>} A promise that resolves to the retrieved category object, or undefined if the request fails.
  */
 export default async function getCategory(
   token: string,

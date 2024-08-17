@@ -8,7 +8,7 @@ import { Track } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string} artistId - The ID of the artist.
  * @param {string} [market] - The market/country for which to retrieve the top tracks. (optional)
- * @returns {Promise<{ tracks: Track[] } | undefined>} - A promise that resolves to an object containing the top tracks of the artist, or undefined if an error occurred.
+ * @returns {Promise<{ tracks: Track[] } | undefined>} A promise that resolves to an object containing the top tracks of the artist, or undefined if an error occurred.
  */
 export default async function getArtistTopTracks(
   token: string,

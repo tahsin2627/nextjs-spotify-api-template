@@ -9,7 +9,7 @@
  * @param {string} [description] - Optional. The description of the playlist.
  * @param {boolean} [isPublic] - Optional. Indicates whether the playlist is public.
  * @param {boolean} [isCollaborative] - Optional. Indicates whether the playlist is collaborative.
- * @returns {Promise<void>} - A promise that resolves when the playlist is created successfully.
+ * @returns {Promise<void>} A promise that resolves when the playlist is created successfully.
  */
 export default async function createPlaylist(
   token: string,

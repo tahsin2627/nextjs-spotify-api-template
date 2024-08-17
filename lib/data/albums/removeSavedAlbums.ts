@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/remove-albums-user
  * @param {string} token - The access token for the user's Spotify account.
  * @param {string[]} albumsIds - An array of album IDs to be removed.
- * @returns {Promise<void>} - A promise that resolves when the albums are successfully removed.
+ * @returns {Promise<void>} A promise that resolves when the albums are successfully removed.
  */
 export default async function removeSavedAlbums(
   token: string,

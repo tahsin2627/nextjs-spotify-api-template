@@ -8,7 +8,7 @@ import { Audiobook, Paging } from "@/lib/types";
  * @param {string} token - The access token for making the API request.
  * @param {number} offset - The offset value for paginating through the audiobooks (default: 0).
  * @param {number} limit - The maximum number of audiobooks to retrieve per request (default: 50).
- * @returns {Promise<Paging<Audiobook> | undefined>} - A promise that resolves to the paginated list of audiobooks, or undefined if an error occurs.
+ * @returns {Promise<Paging<Audiobook> | undefined>} A promise that resolves to the paginated list of audiobooks, or undefined if an error occurs.
  */
 export default async function getSavedAudiobooks(
   token: string,

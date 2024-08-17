@@ -8,7 +8,7 @@ import { Album } from "@/lib/types";
  * @param {string} token - The access token for the Spotify API.
  * @param {string} albumId - The ID of the album to retrieve.
  * @param {string} [market] - The market for which to retrieve the album information (optional).
- * @returns {Promise<Album | undefined>} - A promise that resolves to the album information, or undefined if the album is not found.
+ * @returns {Promise<Album | undefined>} A promise that resolves to the album information, or undefined if the album is not found.
  */
 export default async function getAlbum(
   token: string,

@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/remove-episodes-user
  * @param {string} token - The access token for the user's Spotify account.
  * @param {string[]} episodesIds - An array of episode IDs to be removed.
- * @returns {Promise<void>} - A promise that resolves when the episodes are successfully removed.
+ * @returns {Promise<void>} A promise that resolves when the episodes are successfully removed.
  */
 export default async function removeSavedEpisodes(
   token: string,

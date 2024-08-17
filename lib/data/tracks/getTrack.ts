@@ -7,7 +7,7 @@ import { Track } from "@/lib/types";
  * @see https://developer.spotify.com/documentation/web-api/reference/get-track
  * @param {string} token - The access token for authentication.
  * @param {string} trackId - The ID of the track to retrieve.
- * @returns {Promise<Track | undefined>} - A promise that resolves to the retrieved track or undefined if not found.
+ * @returns {Promise<Track | undefined>} A promise that resolves to the retrieved track or undefined if not found.
  */
 export default async function getTrack(
   token: string,

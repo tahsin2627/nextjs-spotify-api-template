@@ -9,7 +9,7 @@ import { Paging, SavedEpisode } from "@/lib/types";
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of episodes to retrieve (default: 50).
  * @param {string} [market] - An optional market code.
- * @returns {Promise<Paging<SavedEpisode> | undefined>} - A promise that resolves to a paging object containing saved episode data, or undefined if an error occurred.
+ * @returns {Promise<Paging<SavedEpisode> | undefined>} A promise that resolves to a paging object containing saved episode data, or undefined if an error occurred.
  */
 export default async function getSavedEpisodes(
   token: string,

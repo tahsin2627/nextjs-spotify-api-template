@@ -5,7 +5,7 @@
  * @see https://developer.spotify.com/documentation/web-api/reference/unfollow-artists-users
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} usersIds - An array of user IDs to unfollow.
- * @returns {Promise<void>} - A promise that resolves when the unfollow operation is complete.
+ * @returns {Promise<void>} A promise that resolves when the unfollow operation is complete.
  */
 export default async function unfollowUsers(
   token: string,
