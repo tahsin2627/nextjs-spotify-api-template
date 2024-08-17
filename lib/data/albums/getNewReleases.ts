@@ -4,7 +4,7 @@ import { Album, Paging } from "@/lib/types";
 
 /**
  * Retrieves new releases from Spotify's API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-new-releases
  * @param {string} token - The access token for authentication.
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of albums to retrieve (default: 50).

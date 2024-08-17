@@ -4,7 +4,7 @@ import { Track } from "@/lib/types";
 
 /**
  * Retrieves the top tracks of an artist from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-top-tracks
  * @param {string} token - The access token for authentication.
  * @param {string} artistId - The ID of the artist.
  * @param {string} [market] - The market/country for which to retrieve the top tracks. (optional)

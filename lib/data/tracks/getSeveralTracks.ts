@@ -4,7 +4,7 @@ import { Track } from "@/lib/types";
 
 /**
  * Retrieves the information of multiple tracks from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-several-tracks
  * @param {string} token - The access token for authorization.
  * @param {string[]} ids - An array of track IDs.
  * @param {string} market - Optional. The market for which to retrieve the tracks.

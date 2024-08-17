@@ -4,7 +4,7 @@ import { Paging, SavedShow } from "@/lib/types";
 
 /**
  * Retrieves a paginated list of saved shows for the authenticated user.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-shows
  * @param {string} token - The access token for the Spotify API.
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of shows to retrieve (default: 50).

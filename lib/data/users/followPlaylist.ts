@@ -2,7 +2,7 @@
 
 /**
  * Follows a playlist on Spotify.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/follow-playlist
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist to follow.
  * @param {boolean} isPublic - Indicates whether the playlist should be made public or not (default: true).

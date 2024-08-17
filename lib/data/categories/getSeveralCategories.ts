@@ -4,7 +4,7 @@ import { Category, Paging } from "@/lib/types";
 
 /**
  * Retrieves several categories from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-categories
  * @param {string} token - The access token for authentication.
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of items to retrieve (default: 50).

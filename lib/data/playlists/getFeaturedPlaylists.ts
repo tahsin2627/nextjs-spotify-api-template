@@ -4,7 +4,7 @@ import { Paging, SimplifiedPlaylist } from "@/lib/types";
 
 /**
  * Retrieves the featured playlists from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-featured-playlists
  * @param {string} token - The access token for authentication.
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of playlists to retrieve (default: 50).

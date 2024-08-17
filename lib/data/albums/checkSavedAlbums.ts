@@ -2,7 +2,7 @@
 
 /**
  * Checks if the specified albums are saved in the user's Spotify library.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/check-users-saved-albums
  * @param {string} token - The Spotify access token.
  * @param {string[]} albumsIds - The IDs of the albums to check.
  * @returns {Promise<boolean[] | undefined>} - A promise that resolves to an array of booleans indicating whether each album is saved or not. Returns undefined if there was an error.

@@ -2,7 +2,7 @@
 
 /**
  * Checks if the user follows the specified playlists.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/check-if-user-follows-playlist
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} playlistId - The IDs of the playlists to check.
  * @returns {Promise<boolean[] | undefined>} - A promise that resolves to an array of booleans indicating whether the user follows each playlist. Returns undefined if an error occurs.

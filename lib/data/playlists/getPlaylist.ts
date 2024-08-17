@@ -4,7 +4,7 @@ import { Playlist } from "@/lib/types";
 
 /**
  * Retrieves a playlist from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-playlist
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist to retrieve.
  * @param {string} [market] - The market for which to retrieve the playlist.

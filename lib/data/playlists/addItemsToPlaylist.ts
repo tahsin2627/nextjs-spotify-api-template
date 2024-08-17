@@ -2,7 +2,7 @@
 
 /**
  * Adds items to a playlist.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist to add items to.
  * @param {string[]} uris - An array of URIs representing the items to add.

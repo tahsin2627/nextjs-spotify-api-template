@@ -6,7 +6,7 @@ import { Track } from "@/lib/types";
 
 /**
  * Retrieves the top items for a user from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
  * @param {string} token - The access token for the user.
  * @param {SpotifyType} type - The type of top items to retrieve (e.g., "artists", "tracks").
  * @param {string} timeRange - The time range for the top items (e.g., "short_term", "medium_term", "long_term").

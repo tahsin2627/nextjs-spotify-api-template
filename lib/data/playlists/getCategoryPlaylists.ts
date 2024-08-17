@@ -4,7 +4,7 @@ import { Paging, SimplifiedPlaylist } from "@/lib/types";
 
 /**
  * Retrieves the playlists for a specific category.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-categories-playlists
  * @param {string} token - The access token for authentication.
  * @param {string} categoryId - The ID of the category.
  * @param {number} offset - The offset value for pagination (default: 0).

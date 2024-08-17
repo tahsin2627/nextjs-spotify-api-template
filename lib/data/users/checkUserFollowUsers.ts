@@ -2,7 +2,7 @@
 
 /**
  * Checks if a user is following a list of other users on Spotify.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/check-current-user-follows
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} usersIds - An array of user IDs to check if the user is following.
  * @returns {Promise<boolean[] | undefined>} A promise that resolves to an array of booleans indicating if the user is following each user in the list. Returns undefined if there was an error.

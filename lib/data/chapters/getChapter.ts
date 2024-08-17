@@ -4,7 +4,7 @@ import Chapter from "@/lib/(old types)/Chapter";
 
 /**
  * Retrieves a specific chapter from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-chapter
  * @param {string} token - The access token for authentication.
  * @param {string} chapterId - The ID of the chapter to retrieve.
  * @param {string} [market] - The market for which to retrieve the chapter.

@@ -4,7 +4,7 @@ import { Album } from "@/lib/types";
 
 /**
  * Retrieves information about a specific album from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-album
  * @param {string} token - The access token for the Spotify API.
  * @param {string} albumId - The ID of the album to retrieve.
  * @param {string} [market] - The market for which to retrieve the album information (optional).

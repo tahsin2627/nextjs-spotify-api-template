@@ -4,7 +4,7 @@ import { PlayerQueue } from "@/lib/types";
 
 /**
  * Retrieves the user's queue from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-queue
  * @param {string} token - The access token for authenticating the request.
  * @returns {Promise<PlayerQueue | undefined>} A Promise that resolves to the user's queue as a PlayerQueue object, or undefined if the request fails.
  */

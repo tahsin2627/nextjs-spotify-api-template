@@ -4,7 +4,7 @@ import { SearchContent, SpotifyType } from "@/lib/types";
 
 /**
  * Searches for an item in Spotify based on the provided query and type.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/search
  * @param {string} token - The access token for authentication.
  * @param {string} query - The search query.
  * @param {SpotifyType} type - The type of item to search for.

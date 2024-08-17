@@ -4,7 +4,7 @@ import { Paging, Track } from "@/lib/types";
 
 /**
  * Retrieves the tracks of an album from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
  * @param {string} token - The access token for the Spotify API.
  * @param {string} albumId - The ID of the album.
  * @param {number} offset - The offset for pagination (default: 0).

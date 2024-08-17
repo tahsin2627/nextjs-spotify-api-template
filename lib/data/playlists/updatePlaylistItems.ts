@@ -2,7 +2,7 @@
 
 /**
  * Updates the items in a playlist.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/reorder-or-replace-playlists-tracks
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist to update.
  * @param {string[]} uris - An array of URIs representing the items to add to the playlist.

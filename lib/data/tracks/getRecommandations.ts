@@ -4,7 +4,7 @@ import { Recommendations } from "@/lib/types";
 
 /**
  * Retrieves recommendations based on the provided parameters.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations
  * @param token - The access token for the Spotify API.
  * @param seedArtists - An array of seed artist IDs.
  * @param seedGenres - An array of seed genre names.

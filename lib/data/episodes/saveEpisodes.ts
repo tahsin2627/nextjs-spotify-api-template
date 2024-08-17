@@ -2,7 +2,7 @@
 
 /**
  * Saves episodes to the user's Spotify library.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/save-episodes-user
  * @param {string} token - The user's access token.
  * @param {string[]} episodesIds - An array of episode IDs to be saved.
  * @returns {Promise<void>} - A promise that resolves when the episodes are saved successfully.

@@ -4,7 +4,7 @@ import { Episode } from "@/lib/types";
 
 /**
  * Retrieves several episodes from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-episodes
  * @param {string} token - The access token for authentication.
  * @param {string[]} episodesIds - An array of episode IDs to retrieve.
  * @param {string} [market] - The market to retrieve episodes from (optional).

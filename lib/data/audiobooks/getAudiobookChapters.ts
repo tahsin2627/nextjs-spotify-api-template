@@ -5,7 +5,7 @@ import { Paging } from "@/lib/types";
 
 /**
  * Retrieves the chapters of an audiobook from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-audiobook-chapters
  * @param {string} token - The access token for the Spotify API.
  * @param {string} audiobookId - The ID of the audiobook.
  * @param {number} offset - The offset for pagination (default: 0).

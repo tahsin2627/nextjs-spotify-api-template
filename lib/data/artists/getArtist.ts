@@ -4,7 +4,7 @@ import { Artist } from "@/lib/types";
 
 /**
  * Retrieves information about an artist from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artist
  * @param {string} token - The access token for authentication.
  * @param {string} artistId - The ID of the artist to retrieve information for.
  * @returns {Promise<Artist | undefined>} A promise that resolves to the artist information, or undefined if the request fails.

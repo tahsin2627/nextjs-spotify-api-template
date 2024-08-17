@@ -4,7 +4,7 @@ import { Artist, Paging } from "@/lib/types";
 
 /**
  * Retrieves a paginated list of followed artists for the authenticated user.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-followed
  * @param {string} token - The access token for the Spotify API.
  * @param {string} after - Optional. The last artist ID retrieved. Used for pagination.
  * @param {number} limit - The maximum number of artists to retrieve (default: 50).

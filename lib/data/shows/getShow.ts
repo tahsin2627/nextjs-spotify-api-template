@@ -4,7 +4,7 @@ import { Show } from "@/lib/types";
 
 /**
  * Retrieves a show from Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-show
  * @param {string} token - The access token for authentication.
  * @param {string} showId - The ID of the show to retrieve.
  * @param {string} market - Optional. The market to retrieve the show from.

@@ -4,7 +4,7 @@ import { Episode, Paging } from "@/lib/types";
 
 /**
  * Retrieves episodes for a specific show.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-a-shows-episodes
  * @param {string} token - The access token for authentication.
  * @param {string} showId - The ID of the show.
  * @param {number} offset - The offset for pagination (default: 0).

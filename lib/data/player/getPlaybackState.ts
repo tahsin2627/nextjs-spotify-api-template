@@ -4,7 +4,7 @@ import { CurrentlyPlayingContext } from "@/lib/types";
 
 /**
  * Retrieves the playback state from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-information-about-the-users-current-playback
  * @param {string} token - The access token for authentication.
  * @param {string} [market] - The market for which to retrieve the playback state (optional).
  * @returns {Promise<CurrentlyPlayingContext | undefined>} - The currently playing context or undefined if an error occurs.

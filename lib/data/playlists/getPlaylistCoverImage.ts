@@ -2,7 +2,7 @@
 
 /**
  * Retrieves the cover image URL for a given playlist.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-playlist-cover
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist.
  * @returns {Promise<string | undefined>} - The URL of the playlist cover image, or undefined if it is not available.

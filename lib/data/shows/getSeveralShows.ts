@@ -4,7 +4,7 @@ import { Show } from "@/lib/types";
 
 /**
  * Retrieves information about several shows from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-shows
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} showsIds - An array of show IDs.
  * @param {string} market - Optional. The market for which to retrieve the shows.

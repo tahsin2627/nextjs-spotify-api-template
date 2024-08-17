@@ -4,7 +4,7 @@ import { Paging, PlaylistTrack } from "@/lib/types";
 
 /**
  * Retrieves the items of a playlist from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks
  * @param {string} token - The access token for authentication.
  * @param {string} playlistId - The ID of the playlist.
  * @param {number} offset - The offset for pagination (default: 0).

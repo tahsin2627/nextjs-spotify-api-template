@@ -2,7 +2,7 @@
 
 /**
  * Creates a playlist on Spotify.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/create-playlist
  * @param {string} token - The access token for the Spotify API.
  * @param {string} userId - The user ID of the owner of the playlist.
  * @param {string} name - The name of the playlist.

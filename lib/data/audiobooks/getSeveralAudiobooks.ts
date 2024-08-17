@@ -4,7 +4,7 @@ import { Audiobook } from "@/lib/types";
 
 /**
  * Retrieves several audiobooks from the Spotify API.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-audiobooks
  * @param {string} token - The access token for authentication.
  * @param {string[]} audiobooksIds - The IDs of the audiobooks to retrieve.
  * @param {string} [market] - The market to retrieve the audiobooks from (optional).

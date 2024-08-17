@@ -4,7 +4,7 @@ import { Paging, SavedEpisode } from "@/lib/types";
 
 /**
  * Retrieves a list of saved episodes from Spotify using the provided access token.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-episodes
  * @param {string} token - The access token for the Spotify API.
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of episodes to retrieve (default: 50).

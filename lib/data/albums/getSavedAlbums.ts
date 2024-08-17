@@ -4,7 +4,7 @@ import { Paging, SavedAlbum } from "@/lib/types";
 
 /**
  * Retrieves the saved albums for a user.
- *
+ * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-albums
  * @param {string} token - The access token for the user.
  * @param {number} offset - The offset for pagination (default: 0).
  * @param {number} limit - The maximum number of albums to retrieve (default: 50).
