@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import LastPlayed from "@/components/LastPlayed/LastPlayed";
 
@@ -24,7 +24,7 @@ export default function Home() {
                         </div>
                         <ScrollArea className="grid">
                             <div className="p-4 flex">
-                                { Array.from({ length: 12 }).map((_, index) => (
+                                { Array.from({ length: 12 }).map((_: unknown, index: number) => (
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Daily Mix { index + 1 }</p>
@@ -42,7 +42,7 @@ export default function Home() {
                         </div>
                         <ScrollArea className="grid">
                             <div className="p-4 flex">
-                                { Array.from({ length: 12 }).map((_, index) => (
+                                { Array.from({ length: 12 }).map((_: unknown, index: number) => (
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Mix { index + 1 }</p>
@@ -60,7 +60,7 @@ export default function Home() {
                         </div>
                         <ScrollArea className="grid">
                             <div className="p-4 flex">
-                                { Array.from({ length: 12 }).map((_, index) => (
+                                { Array.from({ length: 12 }).map((_: unknown, index: number) => (
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Album { index + 1 }</p>
@@ -78,7 +78,7 @@ export default function Home() {
                         </div>
                         <ScrollArea className="grid">
                             <div className="p-4 flex">
-                                { Array.from({ length: 12 }).map((_, index) => (
+                                { Array.from({ length: 12 }).map((_: unknown, index: number) => (
                                     <Button key={ index } variant="ghost" className="flex flex-col items-start w-42 h-full p-2 text-start">
                                         <div className="size-36 bg-secondary rounded-lg" />
                                         <p className="mt-2 font-medium">Podcast { index + 1 }</p>

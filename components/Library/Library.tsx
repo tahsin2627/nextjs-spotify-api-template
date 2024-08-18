@@ -1,44 +1,26 @@
 "use client";
 
-import React, { FC, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import * as icons from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { ReadonlyURLSearchParams, usePathname, useSearchParams } from 'next/navigation';
+import { Paging, SimplifiedPlaylist } from '@/lib/types';
+import { UserPlaylistsContext } from '@/providers/UserPlaylistsProvider';
 
-
-interface LibraryProps { }
-
-const Library: FC<LibraryProps> = (): React.JSX.Element => {
-    const { data: session } = useSession();
-    const [playlists, setPlaylists] = useState([]);
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-    const paramId = searchParams?.get('id');
-
-    useEffect(() => {
-        async function fetchPlaylists() {
-            if (session && (session as any).accessToken) {
-                const response = await fetch('https://api.spotify.com/v1/me/playlists', {
-                    headers: {
-                        Authorization: `Bearer ${(session as any).accessToken}`,
-                    },
-                });
-                const data = await response.json();
-                setPlaylists(data.items);
-            }
-        }
-        playlists.length === 0 && fetchPlaylists();
-    }), [session];
+export default function Library({ className }: { className: string; }): React.JSX.Element {
+    const pathname: string | null = usePathname();
+    const searchParams: ReadonlyURLSearchParams | null = useSearchParams();
+    const paramId: string | null | undefined = searchParams?.get('id');
+    const userPlaylists: Paging<SimplifiedPlaylist> = useContext(UserPlaylistsContext);
 
     return (
-        <Card className="w-1/4 min-w-[270px] max-w-[400px]">
+        <Card className={ `${className}` }>
             <div className="fixed w-fit">
                 <CardHeader>
                     <div className="flex justify-between items-center">
@@ -102,7 +84,7 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                 </div>
                 <ScrollArea aria-orientation="vertical" className="w-full mb-2 px-2">
                     <div className="w-full flex flex-col">
-                        { playlists.map((playlist: any, index: number): React.JSX.Element => (
+                        { userPlaylists?.items.map((playlist: any, index: number): React.JSX.Element => (
                             <Button variant="ghost" key={ index } className={ `flex justify-start !py-8 !px-2 items-center` } asChild>
                                 <Link href={ `/playlist?id=${playlist.id}` }>
                                     { playlist.images ?
@@ -121,9 +103,7 @@ const Library: FC<LibraryProps> = (): React.JSX.Element => {
                         )) }
                     </div>
                 </ScrollArea>
-            </CardFooter>
-        </Card>
+            </CardFooter >
+        </Card >
     );
 };
-
-export default Library;

@@ -3,7 +3,7 @@
 import React, { FC, useContext } from 'react';
 import { Button } from '../ui/button';
 import { UserPlaylistsContext } from '@/providers/UserPlaylistsProvider';
-import { SimplifiedPlaylist } from '@/lib/types/Playlist';
+import { SimplifiedPlaylist } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 

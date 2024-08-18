@@ -9,6 +9,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import getCurrentUserPlaylists from "@/lib/data/playlists/getCurrentUserPlaylists";
 import UserPlaylistsProvider from "@/providers/UserPlaylistsProvider";
 import PlayerProvider from "@/providers/PlayerProvider";
+import { Paging, SimplifiedPlaylist } from "@/lib/types";
 
 export default async function Layout({
     children,
@@ -18,7 +19,7 @@ export default async function Layout({
 
     const session = await getServerSession(authOptions);
     const user = await getCurrentUser(session.accessToken);
-    const userPlaylists = await getCurrentUserPlaylists(session.accessToken);
+    const userPlaylists = await getCurrentUserPlaylists(session.accessToken) as Paging<SimplifiedPlaylist>;
 
     return (
         <UserProvider user={ user }>
@@ -26,11 +27,12 @@ export default async function Layout({
                 <PlayerProvider token={ session.accessToken }>
                     <div className="max-h-[100vh] grid gap-4">
                         <Header />
-                        <main className="flex gap-4 w-full max-h-[75dvh]">
-                            <Library />
-                            <Card className="w-full overflow-hidden">
+                        <main className="flex gap-4 max-h-[75dvh]">
+                            <Library className="w-1/4 min-w-[270px] max-w-[400px]" />
+                            <Card className="overflow-hidden w-full">
                                 { children }
                             </Card>
+
                         </main>
                         <MusicPlayer token={ session.accessToken } />
                     </div>
