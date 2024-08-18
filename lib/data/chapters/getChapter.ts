@@ -1,6 +1,6 @@
 "use server";
 
-import Chapter from "@/lib/(old types)/Chapter";
+import { Chapter } from "@/lib/types";
 
 /**
  * Retrieves a specific chapter from Spotify API.

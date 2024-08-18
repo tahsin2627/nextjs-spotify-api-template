@@ -4,7 +4,7 @@
  * Pauses the playback on Spotify.
  *
  * @param {string} token - The access token for the Spotify API.
- * @param {string} [deviceId] - (optional) The ID of the device on which to pause the playback.
+ * @param {string} [deviceId] - (optional) The ID of the device on which to pause the playback. Default is user's currently active device.
  *
  * @returns {Promise<void>} A promise that resolves when the playback is paused.
  *
