@@ -12,7 +12,7 @@ import { Paging } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of chapters to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<SimplifiedChapter> | undefined>} A promise that resolves to an object containing the audiobook chapters, or undefined if an error occurs.
+ * @returns {Promise<Paging<SimplifiedChapter>>} A promise that resolves to an object containing the audiobook chapters, or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-audiobook-chapters
  */
@@ -22,7 +22,7 @@ export default async function getAudiobookChapters(
   offset: number = 0,
   limit: number = 50,
   market?: string
-): Promise<Paging<SimplifiedChapter> | undefined> {
+): Promise<Paging<SimplifiedChapter>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/audiobooks/${audiobookId}/chapters?offset=${offset}&limit=${limit}${
@@ -34,11 +34,15 @@ export default async function getAudiobookChapters(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<SimplifiedChapter> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

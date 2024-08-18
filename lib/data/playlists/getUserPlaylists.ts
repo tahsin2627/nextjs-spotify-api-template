@@ -10,7 +10,7 @@ import { Paging, SimplifiedPlaylist } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of playlists to retrieve (default: 50).
  *
- * @returns {Promise<Paging<SimplifiedPlaylist> | undefined>} A Promise that resolves to the retrieved playlists or undefined if an error occurs.
+ * @returns {Promise<Paging<SimplifiedPlaylist>>} A Promise that resolves to the retrieved playlists or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-list-users-playlists
  */
@@ -19,7 +19,7 @@ export default async function getUserPlaylists(
   userId: string,
   offset: number = 0,
   limit: number = 50
-): Promise<Paging<SimplifiedPlaylist> | undefined> {
+): Promise<Paging<SimplifiedPlaylist>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/users/${userId}/playlists?offset=${offset}&limit=${limit}`,

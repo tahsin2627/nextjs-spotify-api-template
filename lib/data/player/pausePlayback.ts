@@ -4,7 +4,7 @@
  * Pauses the playback on Spotify.
  *
  * @param {string} token - The access token for the Spotify API.
- * @param {string} [device_id] - (optional) The ID of the device on which to pause the playback.
+ * @param {string} [deviceId] - (optional) The ID of the device on which to pause the playback.
  *
  * @returns {Promise<void>} A promise that resolves when the playback is paused.
  *
@@ -12,12 +12,12 @@
  */
 export default async function pausePlayback(
   token: string,
-  device_id?: string
+  deviceId?: string
 ): Promise<void> {
   try {
-    await fetch(
+    const res: Response = await fetch(
       `https://api.spotify.com/v1/me/player/pause${
-        device_id ? `?device_id=${device_id}` : ""
+        deviceId ? `?device_id=${deviceId}` : ""
       }`,
       {
         method: "PUT",
@@ -26,7 +26,14 @@ export default async function pausePlayback(
         },
       }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

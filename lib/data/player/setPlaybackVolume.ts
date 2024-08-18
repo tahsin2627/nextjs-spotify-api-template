@@ -5,7 +5,7 @@
  *
  * @param {string} token - The access token for the Spotify API.
  * @param {number} volume_percent - The desired volume percentage (0-100).
- * @param {string} [device_id] - (optional) The device ID to set the volume for.
+ * @param {string} [deviceId] - (optional) The device ID to set the volume for. Default is user's currently active device.
  *
  * @returns {Promise<void>} A promise that resolves when the volume is set successfully.
  *
@@ -14,12 +14,12 @@
 export default async function setPlaybackVolume(
   token: string,
   volume_percent: number,
-  device_id?: string
+  deviceId?: string
 ): Promise<void> {
   try {
-    await fetch(
+    const res: Response = await fetch(
       `https://api.spotify.com/v1/me/player/volume?volume_percent=${volume_percent}${
-        device_id ? `&device_id=${device_id}` : ""
+        deviceId ? `&device_id=${deviceId}` : ""
       }`,
       {
         method: "PUT",
@@ -28,7 +28,14 @@ export default async function setPlaybackVolume(
         },
       }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

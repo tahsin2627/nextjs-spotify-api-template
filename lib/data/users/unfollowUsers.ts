@@ -26,11 +26,14 @@ export default async function unfollowUsers(
         method: "DELETE",
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
+
     return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

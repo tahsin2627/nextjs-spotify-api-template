@@ -4,7 +4,7 @@ import { Recommendations } from "@/lib/types";
 
 /**
  * Retrieves recommendations based on the provided parameters.
- * 
+ *
  * @param token - The access token for the Spotify API.
  * @param seedArtists - An array of seed artist IDs.
  * @param seedGenres - An array of seed genre names.
@@ -53,9 +53,9 @@ import { Recommendations } from "@/lib/types";
  * @param minValence - The minimum value for valence.
  * @param maxValence - The maximum value for valence.
  * @param targetValence - The target value for valence.
- * 
+ *
  * @returns A Promise that resolves to the recommendations.
- * 
+ *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations
  */
 export default async function getRecommandations(
@@ -107,7 +107,7 @@ export default async function getRecommandations(
   minValence?: number,
   maxValence?: number,
   targetValence?: number
-): Promise<Recommendations | undefined> {
+): Promise<Recommendations> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/recommendations?
@@ -171,11 +171,15 @@ export default async function getRecommandations(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Recommendations = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

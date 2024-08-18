@@ -9,7 +9,7 @@ import { Artist, Paging } from "@/lib/types";
  * @param {string} after - (optional) The last artist ID retrieved. Used for pagination.
  * @param {number} [limit] - (optional) The maximum number of artists to retrieve (default: 50).
  *
- * @returns {Promise<Paging<Artist> | undefined>} A Promise that resolves to a Paging object containing the list of followed artists, or undefined if an error occurs.
+ * @returns {Promise<Paging<Artist>>} A Promise that resolves to a Paging object containing the list of followed artists, or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-followed
  */
@@ -17,7 +17,7 @@ export default async function getFollowedArtists(
   token: string,
   after?: string,
   limit: number = 50
-): Promise<Paging<Artist> | undefined> {
+): Promise<Paging<Artist>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/following?type=artist&after=${after}&limit=${limit}`,
@@ -27,11 +27,15 @@ export default async function getFollowedArtists(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<Artist> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

@@ -9,7 +9,7 @@ import { Audiobook } from "@/lib/types";
  * @param {string} audiobookId - The ID of the audiobook to retrieve.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Audiobook | undefined>} A promise that resolves to the retrieved audiobook, or undefined if not found.
+ * @returns {Promise<Audiobook>} A promise that resolves to the retrieved audiobook, or undefined if not found.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-audiobook
  */
@@ -17,7 +17,7 @@ export default async function getAudiobook(
   token: string,
   audiobookId: string,
   market?: string
-): Promise<Audiobook | undefined> {
+): Promise<Audiobook> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/audiobooks/${audiobookId}${
@@ -29,11 +29,15 @@ export default async function getAudiobook(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Audiobook = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

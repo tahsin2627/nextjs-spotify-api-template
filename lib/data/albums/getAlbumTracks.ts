@@ -11,7 +11,7 @@ import { Paging, Track } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of tracks to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<Track> | undefined>} A promise that resolves to the paging object containing the tracks, or undefined if an error occurred.
+ * @returns {Promise<Paging<Track>>} A promise that resolves to the paging object containing the tracks, or undefined if an error occurred.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
  */
@@ -21,7 +21,7 @@ export default async function getAlbumTracks(
   offset: number = 0,
   limit: number = 50,
   market?: string
-): Promise<Paging<Track> | undefined> {
+): Promise<Paging<Track>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/albums/${albumId}/tracks?offset=${offset}&limit=${limit}${
@@ -33,11 +33,15 @@ export default async function getAlbumTracks(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<Track> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

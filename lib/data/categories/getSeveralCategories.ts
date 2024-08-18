@@ -9,7 +9,7 @@ import { Category, Paging } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
  *
- * @returns {Promise<{ categories: Paging<Category> } | undefined>} - The promise that resolves to an object containing the categories.
+ * @returns {Promise<{ categories: Paging<Category> }>} - The promise that resolves to an object containing the categories.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-categories
  */
@@ -17,12 +17,7 @@ export default async function getSeveralCategories(
   token: string,
   offset: number = 0,
   limit: number = 50
-): Promise<
-  | {
-      categories: Paging<Category>;
-    }
-  | undefined
-> {
+): Promise<{ categories: Paging<Category> }> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/browse/categories?offset=${offset}&limit=${limit}`,
@@ -32,11 +27,15 @@ export default async function getSeveralCategories(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: { categories: Paging<Category> } = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

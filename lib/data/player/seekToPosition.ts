@@ -5,7 +5,7 @@
  *
  * @param {string} token - The Spotify access token.
  * @param {number} position_ms - The position in milliseconds to seek to.
- * @param {string} [device_id] - (optional) The ID of the device on which to seek the playback position.
+ * @param {string} [deviceId] - (optional) The ID of the device on which to seek the playback position. Default is user's currently active device.
  *
  * @returns {Promise<void>} A promise that resolves when the seek operation is completed.
  *
@@ -14,12 +14,12 @@
 export default async function seekToPosition(
   token: string,
   position_ms: number,
-  device_id?: string
+  deviceId?: string
 ): Promise<void> {
   try {
-    await fetch(
+    const res: Response = await fetch(
       `https://api.spotify.com/v1/me/player/seek?position_ms=${position_ms}${
-        device_id ? `&device_id=${device_id}` : ""
+        deviceId ? `&device_id=${deviceId}` : ""
       }`,
       {
         method: "PUT",
@@ -28,7 +28,14 @@ export default async function seekToPosition(
         },
       }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

@@ -10,7 +10,7 @@ import { Paging, SavedAlbum } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of albums to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<SavedAlbum> | undefined>} A promise that resolves to the paging object containing the saved albums, or undefined if an error occurred.
+ * @returns {Promise<Paging<SavedAlbum>>} A promise that resolves to the paging object containing the saved albums, or undefined if an error occurred.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-albums
  */
@@ -19,7 +19,7 @@ export default async function getSavedAlbums(
   offset: number = 0,
   limit: number = 50,
   market?: string
-): Promise<Paging<SavedAlbum> | undefined> {
+): Promise<Paging<SavedAlbum>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/albums?offset=${offset}&limit=${limit}${
@@ -31,11 +31,15 @@ export default async function getSavedAlbums(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<SavedAlbum> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

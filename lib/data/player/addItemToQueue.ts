@@ -2,24 +2,24 @@
 
 /**
  * Adds an item to the Spotify player's queue.
- * 
+ *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} uri - The URI of the item to be added to the queue.
- * @param {string} [device_id] - (Optional) The ID of the device on which to add the item.
- * 
+ * @param {string} [deviceId] - (Optional) The ID of the device on which to add the item. Default is user's currently active device.
+ *
  * @returns {Promise<void>} A promise that resolves when the item is successfully added to the queue.
- * 
+ *
  * @see https://developer.spotify.com/documentation/web-api/reference/add-to-queue
  */
 export default async function addItemToQueue(
   token: string,
   uri: string,
-  device_id?: string
+  deviceId?: string
 ): Promise<void> {
   try {
-    await fetch(
+    const res: Response = await fetch(
       `https://api.spotify.com/v1/me/player/queue?uri=${uri}${
-        device_id ? `&device_id=${device_id}` : ""
+        deviceId ? `&device_id=${deviceId}` : ""
       }`,
       {
         method: "POST",
@@ -28,7 +28,14 @@ export default async function addItemToQueue(
         },
       }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

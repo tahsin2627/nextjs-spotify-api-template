@@ -9,7 +9,7 @@ import { Episode } from "@/lib/types";
  * @param {string} episodeId - The ID of the episode to retrieve.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Episode | undefined>} A promise that resolves to the retrieved episode, or undefined if not found.
+ * @returns {Promise<Episode>} A promise that resolves to the retrieved episode, or undefined if not found.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-episode
  */
@@ -17,7 +17,7 @@ export default async function getEpisode(
   token: string,
   episodeId: string,
   market?: string
-): Promise<Episode | undefined> {
+): Promise<Episode> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/episodes/${episodeId}${
@@ -29,11 +29,15 @@ export default async function getEpisode(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Episode = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

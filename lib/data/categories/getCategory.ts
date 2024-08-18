@@ -9,7 +9,7 @@ import { Category } from "@/lib/types";
  * @param {string} categoryId - The ID of the category to retrieve.
  * @param {string} [fields] - (optional) Fields to include in the response.
  *
- * @returns {Promise<Category | undefined>} A promise that resolves to the retrieved category object, or undefined if the request fails.
+ * @returns {Promise<Category>} A promise that resolves to the retrieved category object, or undefined if the request fails.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-category
  */
@@ -17,7 +17,7 @@ export default async function getCategory(
   token: string,
   categoryId: string,
   fields?: string
-): Promise<Category | undefined> {
+): Promise<Category> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/browse/categories/${categoryId}${
@@ -29,11 +29,15 @@ export default async function getCategory(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Category = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

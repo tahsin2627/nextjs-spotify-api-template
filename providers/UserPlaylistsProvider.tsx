@@ -1,11 +1,11 @@
 "use client";
 
-import React, { createContext } from "react";
-import Playlist from "@/lib/types/Playlist";
+import React, { Context, createContext, ReactNode } from "react";
+import { Paging, SimplifiedPlaylist } from "@/lib/types";
 
-export const UserPlaylistsContext = createContext();
+export const UserPlaylistsContext: Context<Paging<SimplifiedPlaylist>> = createContext({} as Paging<SimplifiedPlaylist>);
 
-export default function UserPlaylistsProvider({ children, userPlaylists }: { children: React.ReactNode; userPlaylists; }) {
+export default function UserPlaylistsProvider({ children, userPlaylists }: { children: ReactNode; userPlaylists: Paging<SimplifiedPlaylist>; }) {
     return (
         <UserPlaylistsContext.Provider value={ userPlaylists }>
             { children }

@@ -13,18 +13,22 @@ import { PrivateUser } from "@/lib/types";
  */
 export default async function getCurrentUser(
   token: string
-): Promise<PrivateUser | undefined> {
+): Promise<PrivateUser> {
   try {
     const res: Response = await fetch(`https://api.spotify.com/v1/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: PrivateUser = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

@@ -9,7 +9,7 @@ import Chapter from "@/lib/(old types)/Chapter";
  * @param {string[]} chaptersIds - The IDs of the chapters to retrieve.
  * @param {string} [market] - The market for which to retrieve the chapters.
  *
- * @returns {Promise<{ chapters: Chapter[] } | undefined>} - The retrieved chapters.
+ * @returns {Promise<{ chapters: Chapter[] }>} - The retrieved chapters.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-several-chapters
  */
@@ -17,12 +17,7 @@ export default async function getSeveralChapters(
   token: string,
   chaptersIds: string[],
   market?: string
-): Promise<
-  | {
-      chapters: Chapter[];
-    }
-  | undefined
-> {
+): Promise<{ chapters: Chapter[] }> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/chapters?ids=${chaptersIds.join(",")}${
@@ -34,11 +29,15 @@ export default async function getSeveralChapters(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: { chapters: Chapter[] } = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

@@ -1,6 +1,6 @@
 "use server";
 
-import { SavedTrack } from "@/lib/types";
+import { Paging, SavedTrack } from "@/lib/types";
 
 /**
  * Retrieves the saved tracks for a user from the Spotify API.
@@ -17,7 +17,7 @@ export default async function getSavedTracks(
   token: string,
   offset: number = 0,
   limit: number = 50
-): Promise<SavedTrack[] | undefined> {
+): Promise<Paging<SavedTrack>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/tracks?limit=${limit ?? 20}${
@@ -29,11 +29,15 @@ export default async function getSavedTracks(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<SavedTrack> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

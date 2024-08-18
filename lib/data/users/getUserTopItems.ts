@@ -13,7 +13,7 @@ import { Track } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
  *
- * @returns {Promise<Paging<Artist> | Paging<Track> | undefined>} A promise that resolves to a paging object containing the top items (artists or tracks), or undefined if an error occurs.
+ * @returns {Promise<Paging<Artist | Track>>} A promise that resolves to a paging object containing the top items (artists or tracks), or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
  */
@@ -23,7 +23,7 @@ export default async function getUserTopItems(
   timeRange: string,
   offset: number = 0,
   limit: number = 50
-): Promise<Paging<Artist> | Paging<Track> | undefined> {
+): Promise<Paging<Artist | Track>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/top/${type}?time_range=${timeRange}&offset=${offset}&limit=${limit}`,
@@ -33,11 +33,15 @@ export default async function getUserTopItems(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<Artist | Track> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

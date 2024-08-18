@@ -8,14 +8,14 @@ import { Artist } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string} artistId - The ID of the artist to retrieve information for.
  *
- * @returns {Promise<Artist | undefined>} A promise that resolves to the artist information, or undefined if the request fails.
+ * @returns {Promise<Artist>} A promise that resolves to the artist information, or undefined if the request fails.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artist
  */
 export default async function getArtist(
   token: string,
   artistId: string
-): Promise<Artist | undefined> {
+): Promise<Artist> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/artists/${artistId}`,
@@ -25,11 +25,15 @@ export default async function getArtist(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Artist = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

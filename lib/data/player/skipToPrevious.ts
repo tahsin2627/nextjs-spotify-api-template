@@ -4,7 +4,7 @@
  * Skips to the previous track in the user's Spotify player.
  *
  * @param {string} token - The access token for the Spotify API.
- * @param {string} deviceId - (optional) The ID of the device on which to skip to the previous track.
+ * @param {string} deviceId - (optional) The ID of the device on which to skip to the previous track. Default is user's currently active device.
  *
  * @returns {Promise<void>} A Promise that resolves to void.
  *
@@ -15,7 +15,7 @@ export default async function skipToNext(
   deviceId?: string
 ): Promise<void> {
   try {
-    await fetch(
+    const res: Response = await fetch(
       `https://api.spotify.com/v1/me/player/next${
         deviceId ? `?device_id=${deviceId}` : ""
       }`,
@@ -26,7 +26,14 @@ export default async function skipToNext(
         },
       }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

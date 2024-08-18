@@ -9,7 +9,7 @@ import { Audiobook, Paging } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of audiobooks to retrieve per request (default: 50).
  *
- * @returns {Promise<Paging<Audiobook> | undefined>} A promise that resolves to the paginated list of audiobooks, or undefined if an error occurs.
+ * @returns {Promise<Paging<Audiobook>>} A promise that resolves to the paginated list of audiobooks, or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-audiobooks
  */
@@ -17,7 +17,7 @@ export default async function getSavedAudiobooks(
   token: string,
   offset: number = 0,
   limit: number = 50
-): Promise<Paging<Audiobook> | undefined> {
+): Promise<Paging<Audiobook>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/audiobooks?offset=${offset}&limit=${limit}`,
@@ -27,11 +27,15 @@ export default async function getSavedAudiobooks(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<Audiobook> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

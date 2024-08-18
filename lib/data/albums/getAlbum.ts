@@ -9,7 +9,7 @@ import { Album } from "@/lib/types";
  * @param {string} albumId - The ID of the album to retrieve.
  * @param {string} [market] - (optional) The market for which to retrieve the album information.
  *
- * @returns {Promise<Album | undefined>} A promise that resolves to the album information, or undefined if the album is not found.
+ * @returns {Promise<Album>} A promise that resolves to the album information, or undefined if the album is not found.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-album
  */
@@ -17,7 +17,7 @@ export default async function getAlbum(
   token: string,
   albumId: string,
   market?: string
-): Promise<Album | undefined> {
+): Promise<Album> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/albums/${albumId}${
@@ -29,11 +29,15 @@ export default async function getAlbum(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Album = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

@@ -11,7 +11,7 @@ import { SearchContent, SpotifyType } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
  *
- * @returns {Promise<SearchContent | undefined>} A promise that resolves to the search results or undefined if an error occurs.
+ * @returns {Promise<SearchContent>} A promise that resolves to the search results or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/search
  */
@@ -21,7 +21,7 @@ export default async function SearchForItem(
   type: SpotifyType,
   offset: number = 0,
   limit: number = 50
-): Promise<SearchContent | undefined> {
+): Promise<SearchContent> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/search?q=${query}&type=${type}&offset=${offset}&limit=${limit}`,
@@ -31,11 +31,15 @@ export default async function SearchForItem(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: SearchContent = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

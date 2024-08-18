@@ -12,7 +12,7 @@ import { Album, Paging } from "@/lib/types";
  * @param {("album" | "single" | "appears_on" | "compilation")[]} [include_groups] - (optional) The groups of albums to include.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<Album> | undefined>} A promise that resolves to the paging object containing the artist's albums, or undefined if an error occurred.
+ * @returns {Promise<Paging<Album>>} A promise that resolves to the paging object containing the artist's albums, or undefined if an error occurred.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-albums
  */
@@ -23,7 +23,7 @@ export default async function getArtistAlbums(
   limit: number = 50,
   include_groups?: ("album" | "single" | "appears_on" | "compilation")[],
   market?: string
-): Promise<Paging<Album> | undefined> {
+): Promise<Paging<Album>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/artists/${artistId}/albums?offset=${offset}&limit=${limit}${
@@ -35,11 +35,15 @@ export default async function getArtistAlbums(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<Album> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

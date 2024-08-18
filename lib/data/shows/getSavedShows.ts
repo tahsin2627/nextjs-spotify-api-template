@@ -10,7 +10,7 @@ import { Paging, SavedShow } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of shows to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<SavedShow> | undefined>} A promise that resolves to a `Paging<SavedShow>` object or `undefined` if an error occurs.
+ * @returns {Promise<Paging<SavedShow>>} A promise that resolves to a `Paging<SavedShow>` object or `undefined` if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-shows
  */
@@ -19,7 +19,7 @@ export default async function getSavedShows(
   offset: number = 0,
   limit: number = 50,
   market?: string
-): Promise<Paging<SavedShow> | undefined> {
+): Promise<Paging<SavedShow>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/me/shows?offset=${offset}&limit=${limit}${
@@ -31,11 +31,15 @@ export default async function getSavedShows(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<SavedShow> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

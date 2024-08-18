@@ -28,11 +28,14 @@ export default async function addCustomPlaylistImageCover(
         body: image,
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
+
     return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

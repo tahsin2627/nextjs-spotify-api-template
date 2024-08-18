@@ -9,7 +9,7 @@ import { Show } from "@/lib/types";
  * @param {string[]} showsIds - An array of show IDs.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<{shows: Show[]}| undefined>} Promise that resolves to an object containing the retrieved shows.Returns undefined if an error occurs.
+ * @returns {Promise<{shows: Show[]}>} Promise that resolves to an object containing the retrieved shows.Returns undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-shows
  */
@@ -17,12 +17,7 @@ export default async function getSeveralShows(
   token: string,
   showsIds: string[],
   market?: string
-): Promise<
-  | {
-      shows: Show[];
-    }
-  | undefined
-> {
+): Promise<{ shows: Show[] }> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/shows?ids=${showsIds.join(",")}${
@@ -34,11 +29,15 @@ export default async function getSeveralShows(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: { shows: Show[] } = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

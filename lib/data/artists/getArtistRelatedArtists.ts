@@ -8,19 +8,14 @@ import { Artist } from "@/lib/types";
  * @param {string} token - The access token for the Spotify API.
  * @param {string} artistId - The ID of the artist.
  *
- * @returns {Promise<{ artists: Artist[] } | undefined>} A promise that resolves to an object containing an array of related artists, or undefined if the request fails.
+ * @returns {Promise<{ artists: Artist[] }>} A promise that resolves to an object containing an array of related artists, or undefined if the request fails.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-related-artists
  */
 export default async function getArtistRelatedArtists(
   token: string,
   artistId: string
-): Promise<
-  | {
-      artists: Artist[];
-    }
-  | undefined
-> {
+): Promise<{ artists: Artist[] }> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/artists/${artistId}/related-artists`,
@@ -30,11 +25,15 @@ export default async function getArtistRelatedArtists(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: { artists: Artist[] } = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

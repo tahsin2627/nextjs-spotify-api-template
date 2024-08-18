@@ -1,6 +1,6 @@
 "use server";
 
-import { Paging, SimplifiedPlaylist } from "@/lib/types";
+import { FeaturedPlaylists } from "@/lib/types";
 
 /**
  * Retrieves the playlists for a specific category.
@@ -10,7 +10,7 @@ import { Paging, SimplifiedPlaylist } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset value for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of playlists to retrieve (default: 50).
  *
- * @returns {Promise<{message: string, playlists: Paging<SimplifiedPlaylist>} | undefined} A promise that resolves to an object containing a message and an array of playlists, or undefined if an error occurs.
+ * @returns {Promise<FeaturedPlaylists>} A promise that resolves to an object containing a message and an array of playlists, or undefined if an error occurs.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-categories-playlists
  */
@@ -19,13 +19,7 @@ export default async function getCategoryPlaylists(
   categoryId: string,
   offset: number = 0,
   limit: number = 50
-): Promise<
-  | {
-      message: string;
-      playlists: Paging<SimplifiedPlaylist>;
-    }
-  | undefined
-> {
+): Promise<FeaturedPlaylists> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/browse/categories/${categoryId}/playlists?limit=${limit}&offset=${offset}`,
@@ -35,11 +29,15 @@ export default async function getCategoryPlaylists(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: FeaturedPlaylists = await res.json();
+    return data;
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }

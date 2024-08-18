@@ -9,7 +9,7 @@ import { Album, Paging } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of albums to retrieve (default: 50).
  *
- * @returns {Promise<{ albums: Paging<Album> } | undefined>} - The promise that resolves with the retrieved albums or undefined if an error occurred.
+ * @returns {Promise<{ albums: Paging<Album> }>} - The promise that resolves with the retrieved albums or undefined if an error occurred.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-new-releases
  */
@@ -17,12 +17,7 @@ export default async function getNewReleases(
   token: string,
   offset: number = 0,
   limit: number = 50
-): Promise<
-  | {
-      albums: Paging<Album>;
-    }
-  | undefined
-> {
+): Promise<{ albums: Paging<Album> }> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/browse/new-releases?offset=${offset}&limit=${limit}`,
@@ -32,11 +27,15 @@ export default async function getNewReleases(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: { albums: Paging<Album> } = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

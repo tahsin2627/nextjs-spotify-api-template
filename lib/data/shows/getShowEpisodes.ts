@@ -11,7 +11,7 @@ import { Episode, Paging } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of episodes to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<Episode> | undefined>} A Promise that resolves to a Paging object containing the episodes, or undefined if an error occurs.
+ * @returns {Promise<Paging<Episode>>} A Promise that resolves to a Paging object containing the episodes.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-shows-episodes
  */
@@ -21,7 +21,7 @@ export default async function getShowEpisodes(
   offset: number = 0,
   limit: number = 50,
   market?: string
-): Promise<Paging<Episode> | undefined> {
+): Promise<Paging<Episode>> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/shows/${showId}/episodes?offset=${offset}&limit=${limit}${
@@ -33,11 +33,15 @@ export default async function getShowEpisodes(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: Paging<Episode> = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

@@ -9,7 +9,7 @@ import { Track } from "@/lib/types";
  * @param {string} artistId - The ID of the artist.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<{ tracks: Track[] } | undefined>} A promise that resolves to an object containing the top tracks of the artist, or undefined if an error occurred.
+ * @returns {Promise<{ tracks: Track[] }>} A promise that resolves to an object containing the top tracks of the artist, or undefined if an error occurred.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-top-tracks
  */
@@ -17,12 +17,7 @@ export default async function getArtistTopTracks(
   token: string,
   artistId: string,
   market?: string
-): Promise<
-  | {
-      tracks: Track[];
-    }
-  | undefined
-> {
+): Promise<{ tracks: Track[] }> {
   try {
     const res: Response = await fetch(
       `https://api.spotify.com/v1/artists/${artistId}/top-tracks${
@@ -34,11 +29,15 @@ export default async function getArtistTopTracks(
         },
       }
     );
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+
+    const data: { tracks: Track[] } = await res.json();
+    return data;
   } catch (error) {
-    console.error(error);
+    console.error("An error occurred while fetching data:", error);
+    throw error;
   }
 }

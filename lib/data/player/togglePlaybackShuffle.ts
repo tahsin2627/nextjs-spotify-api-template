@@ -5,7 +5,7 @@
  *
  * @param {string} token - The access token for the Spotify API.
  * @param {boolean} state - The desired shuffle state (true for on, false for off).
- * @param {string} [device_id] - (optional) The device ID to target the shuffle state change.
+ * @param {string} [device_id] - (optional) The device ID to target the shuffle state change. Default is user's currently active device.
  *
  * @returns {Promise<void>} A promise that resolves when the shuffle state is toggled.
  *
@@ -17,7 +17,7 @@ export default async function togglePlaybackShuffle(
   device_id?: string
 ): Promise<void> {
   try {
-    await fetch(
+    const res: Response = await fetch(
       `https://api.spotify.com/v1/me/player/shuffle?state=${state}${
         device_id ? `&device_id=${device_id}` : ""
       }`,
@@ -28,7 +28,14 @@ export default async function togglePlaybackShuffle(
         },
       }
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }
