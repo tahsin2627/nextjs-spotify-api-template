@@ -9,7 +9,7 @@ import { Track } from "@/lib/types";
  * @param {string} artistId - The ID of the artist.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<{ tracks: Track[] }>} A promise that resolves to an object containing the top tracks of the artist, or undefined if an error occurred.
+ * @returns {Promise<{ tracks: Track[] }>} A promise that resolves to an object containing the top tracks of the artist.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-top-tracks
  */

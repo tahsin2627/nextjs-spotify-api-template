@@ -9,7 +9,7 @@ import { Category } from "@/lib/types";
  * @param {string} categoryId - The ID of the category to retrieve.
  * @param {string} [fields] - (optional) Fields to include in the response.
  *
- * @returns {Promise<Category>} A promise that resolves to the retrieved category object, or undefined if the request fails.
+ * @returns {Promise<Category>} A promise that resolves to the retrieved category object.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-category
  */

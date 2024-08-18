@@ -9,7 +9,7 @@ import { Episode } from "@/lib/types";
  * @param {string[]} episodesIds - An array of episode IDs to retrieve.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<{ episodes: Episode[] }>} A promise that resolves to an object containing the retrieved episodes, or undefined if an error occurs.
+ * @returns {Promise<{ episodes: Episode[] }>} A promise that resolves to an object containing the retrieved episodes.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-multiple-episodes
  */

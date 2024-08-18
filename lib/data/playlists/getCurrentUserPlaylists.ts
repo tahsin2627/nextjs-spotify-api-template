@@ -9,7 +9,7 @@ import { Paging, SimplifiedPlaylist } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset value for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of playlists to retrieve (default: 50).
  *
- * @returns {Promise<Paging<SimplifiedPlaylist>>} A promise that resolves to a `Paging` object containing the user's playlists, or `undefined` if an error occurs.
+ * @returns {Promise<Paging<SimplifiedPlaylist>>} A promise that resolves to a `Paging` object containing the user's playlists.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-list-of-current-users-playlists
  */

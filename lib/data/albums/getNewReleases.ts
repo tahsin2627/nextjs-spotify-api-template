@@ -9,7 +9,7 @@ import { Album, Paging } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of albums to retrieve (default: 50).
  *
- * @returns {Promise<{ albums: Paging<Album> }>} - The promise that resolves with the retrieved albums or undefined if an error occurred.
+ * @returns {Promise<{ albums: Paging<Album> }>} - The promise that resolves with the retrieved albums.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-new-releases
  */

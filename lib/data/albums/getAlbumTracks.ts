@@ -11,7 +11,7 @@ import { Paging, Track } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of tracks to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<Track>>} A promise that resolves to the paging object containing the tracks, or undefined if an error occurred.
+ * @returns {Promise<Paging<Track>>} A promise that resolves to the paging object containing the tracks.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-albums-tracks
  */

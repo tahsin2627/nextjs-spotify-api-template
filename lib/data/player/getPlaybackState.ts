@@ -8,7 +8,7 @@ import { CurrentlyPlayingContext } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<CurrentlyPlayingContext>} - The currently playing context or undefined if an error occurs.
+ * @returns {Promise<CurrentlyPlayingContext>} - The currently playing context.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-information-about-the-users-current-playback
  */

@@ -8,7 +8,7 @@
  * @param {string[]} uris - An array of URIs representing the items to add.
  * @param {number} [position] - (optional) The position at which to insert the items in the playlist.
  *
- * @returns {Promise<void>} A promise that resolves to void.
+ * @returns {Promise<void>} A promise that resolves when the items are successfully added to the playlist.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist
  */

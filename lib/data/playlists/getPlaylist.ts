@@ -9,7 +9,7 @@ import { Playlist } from "@/lib/types";
  * @param {string} playlistId - The ID of the playlist to retrieve.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Playlist>} A promise that resolves to the retrieved playlist, or undefined if an error occurs.
+ * @returns {Promise<Playlist>} A promise that resolves to the retrieved playlist.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-playlist
  */

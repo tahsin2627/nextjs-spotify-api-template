@@ -10,7 +10,7 @@ import { Paging, SavedEpisode } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of episodes to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<SavedEpisode>>} A promise that resolves to a paging object containing saved episode data, or undefined if an error occurred.
+ * @returns {Promise<Paging<SavedEpisode>>} A promise that resolves to a paging object containing saved episode data.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-episodes
  */

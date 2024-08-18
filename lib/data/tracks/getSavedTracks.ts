@@ -9,7 +9,7 @@ import { Paging, SavedTrack } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
  *
- * @returns A promise that resolves to an array of SavedTrack objects, or undefined if an error occurs.
+ * @returns A promise that resolves to an array of SavedTrack objects.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-tracks
  */

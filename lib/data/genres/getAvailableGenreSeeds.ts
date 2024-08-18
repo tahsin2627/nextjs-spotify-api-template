@@ -5,7 +5,7 @@
  *
  * @param {string} token - The access token for the Spotify API.
  *
- * @returns {Promise<string[]>} A promise that resolves to an array of available genre seeds, or undefined if an error occurs.
+ * @returns {Promise<string[]>} A promise that resolves to an array of available genre seeds.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendation-genres
  */

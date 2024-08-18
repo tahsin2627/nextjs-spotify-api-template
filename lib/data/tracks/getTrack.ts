@@ -8,7 +8,7 @@ import { Track } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {string} trackId - The ID of the track to retrieve.
  *
- * @returns {Promise<Track>} A promise that resolves to the retrieved track or undefined if not found.
+ * @returns {Promise<Track>} A promise that resolves to the retrieved track.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-track
  */

@@ -12,7 +12,7 @@ import { Album, Paging } from "@/lib/types";
  * @param {("album" | "single" | "appears_on" | "compilation")[]} [include_groups] - (optional) The groups of albums to include.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<Album>>} A promise that resolves to the paging object containing the artist's albums, or undefined if an error occurred.
+ * @returns {Promise<Paging<Album>>} A promise that resolves to the paging object containing the artist's albums.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-albums
  */

@@ -5,7 +5,7 @@
  *
  * @param {string} token - The access token for authentication.
  *
- * @returns {Promise<string[]>} A promise that resolves to an array of available markets, or undefined if there was an error.
+ * @returns {Promise<string[]>} A promise that resolves to an array of available markets.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-available-markets
  */

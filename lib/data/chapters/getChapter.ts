@@ -9,7 +9,7 @@ import Chapter from "@/lib/(old types)/Chapter";
  * @param {string} chapterId - The ID of the chapter to retrieve.
  * @param {string} [market] - The market for which to retrieve the chapter.
  *
- * @returns {Promise<Chapter>} A promise that resolves to the retrieved chapter, or undefined if not found.
+ * @returns {Promise<Chapter>} A promise that resolves to the retrieved chapter.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-chapter
  */

@@ -9,7 +9,7 @@ import { Artist, Paging } from "@/lib/types";
  * @param {string} after - (optional) The last artist ID retrieved. Used for pagination.
  * @param {number} [limit] - (optional) The maximum number of artists to retrieve (default: 50).
  *
- * @returns {Promise<Paging<Artist>>} A Promise that resolves to a Paging object containing the list of followed artists, or undefined if an error occurs.
+ * @returns {Promise<Paging<Artist>>} A Promise that resolves to a Paging object containing the list of followed artists.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-followed
  */

@@ -6,7 +6,7 @@
  * @param {string} token - The access token for the Spotify API.
  * @param {string[]} audiobooksIds - An array of audiobook IDs to check.
  *
- * @returns {Promise<boolean[]>} A promise that resolves to an array of booleans indicating whether each audiobook is saved or undefined if an error occurs.
+ * @returns {Promise<boolean[]>} A promise that resolves to an array of booleans indicating whether each audiobook is saved.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/check-users-saved-audiobooks
  */

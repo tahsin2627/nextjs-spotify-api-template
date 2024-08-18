@@ -9,7 +9,7 @@ import { FeaturedPlaylists } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of playlists to retrieve (default: 50).
  *
- * @returns {Promise<{message: string, playlists: Paging<SimplifiedPlaylist>}>} A promise that resolves to an object with the message and playlists if successful, otherwise undefined.
+ * @returns {Promise<{message: string, playlists: Paging<SimplifiedPlaylist>}>} A promise that resolves to an object with the message and playlists if successful.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-featured-playlists
  */

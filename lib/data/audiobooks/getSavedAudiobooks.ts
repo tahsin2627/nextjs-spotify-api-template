@@ -9,7 +9,7 @@ import { Audiobook, Paging } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of audiobooks to retrieve per request (default: 50).
  *
- * @returns {Promise<Paging<Audiobook>>} A promise that resolves to the paginated list of audiobooks, or undefined if an error occurs.
+ * @returns {Promise<Paging<Audiobook>>} A promise that resolves to the paginated list of audiobooks.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-audiobooks
  */

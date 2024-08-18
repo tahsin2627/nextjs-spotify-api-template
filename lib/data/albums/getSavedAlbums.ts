@@ -10,7 +10,7 @@ import { Paging, SavedAlbum } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of albums to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<SavedAlbum>>} A promise that resolves to the paging object containing the saved albums, or undefined if an error occurred.
+ * @returns {Promise<Paging<SavedAlbum>>} A promise that resolves to the paging object containing the saved albums.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-albums
  */

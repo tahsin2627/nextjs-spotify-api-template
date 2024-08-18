@@ -9,7 +9,7 @@ import { Track } from "@/lib/types";
  * @param {string[]} ids - An array of track IDs.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<{tracks: Track[]}>} A promise that resolves to an array of Track objects, or undefined if an error occurs.
+ * @returns {Promise<{tracks: Track[]}>} A promise that resolves to an array of Track objects.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-several-tracks
  */

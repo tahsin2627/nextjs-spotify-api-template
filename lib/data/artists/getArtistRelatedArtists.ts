@@ -8,7 +8,7 @@ import { Artist } from "@/lib/types";
  * @param {string} token - The access token for the Spotify API.
  * @param {string} artistId - The ID of the artist.
  *
- * @returns {Promise<{ artists: Artist[] }>} A promise that resolves to an object containing an array of related artists, or undefined if the request fails.
+ * @returns {Promise<{ artists: Artist[] }>} A promise that resolves to an object containing an array of related artists.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-artists-related-artists
  */

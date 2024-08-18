@@ -8,7 +8,7 @@ import { AudioFeatures } from "@/lib/types";
  * @param {string} token - The access token for the Spotify API.
  * @param {string} trackId - The ID of the track.
  *
- * @returns {Promise<AudioFeatures>} A promise that resolves to the audio features of the track, or undefined if an error occurs.
+ * @returns {Promise<AudioFeatures>} A promise that resolves to the audio features of the track.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-features
  */

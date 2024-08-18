@@ -7,9 +7,9 @@ import { Album } from "@/lib/types";
  *
  * @param {string} token - The access token for the Spotify API.
  * @param {string} albumId - The ID of the album to retrieve.
- * @param {string} [market] - (optional) The market for which to retrieve the album information.
+ * @param {string} [market] - (optional) The market (country) for which to retrieve the album information.
  *
- * @returns {Promise<Album>} A promise that resolves to the album information, or undefined if the album is not found.
+ * @returns {Promise<Album>} A promise that resolves to the album information.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-album
  */

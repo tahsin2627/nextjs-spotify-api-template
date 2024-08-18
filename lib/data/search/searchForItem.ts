@@ -11,7 +11,7 @@ import { SearchContent, SpotifyType } from "@/lib/types";
  * @param {number} [offset] - (optional) The offset for pagination (default: 0).
  * @param {number} [limit] - (optional) The maximum number of items to retrieve (default: 50).
  *
- * @returns {Promise<SearchContent>} A promise that resolves to the search results or undefined if an error occurs.
+ * @returns {Promise<SearchContent>} A promise that resolves to the search results.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/search
  */

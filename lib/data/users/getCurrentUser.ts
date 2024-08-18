@@ -7,7 +7,7 @@ import { PrivateUser } from "@/lib/types";
  *
  * @param {string} token - The access token for authentication.
  *
- * @returns A promise that resolves to the current user's information, or undefined if an error occurs.
+ * @returns {Promise<void>} A promise that resolves to the current user's information.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
  */

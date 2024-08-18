@@ -8,7 +8,7 @@ import { AudioAnalysis } from "@/lib/types";
  * @param {string} token - The access token for the Spotify API.
  * @param {string} trackId - The ID of the track to retrieve the audio analysis for.
  *
- * @returns {Promise<AudioAnalysis>} A promise that resolves to the audio analysis of the track, or undefined if an error occurs.
+ * @returns {Promise<AudioAnalysis>} A promise that resolves to the audio analysis of the track.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-audio-analysis
  */

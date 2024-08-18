@@ -8,7 +8,7 @@ import { RecentlyPlayed } from "@/lib/types";
  * @param {string} token - The access token for authentication.
  * @param {number} [limit] - (optional) The maximum number of tracks to retrieve (default: 50).
  *
- * @returns {Promise<RecentlyPlayed>} A promise that resolves to the recently played tracks or undefined if an error occurs.
+ * @returns {Promise<RecentlyPlayed>} A promise that resolves to the recently played tracks.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-recently-played
  */

@@ -10,7 +10,7 @@ import { Paging, SavedShow } from "@/lib/types";
  * @param {number} [limit] - (optional) The maximum number of shows to retrieve (default: 50).
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Paging<SavedShow>>} A promise that resolves to a `Paging<SavedShow>` object or `undefined` if an error occurs.
+ * @returns {Promise<Paging<SavedShow>>} A promise that resolves to an object containing the retrieved saved shows.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-users-saved-shows
  */

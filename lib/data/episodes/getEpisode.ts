@@ -9,7 +9,7 @@ import { Episode } from "@/lib/types";
  * @param {string} episodeId - The ID of the episode to retrieve.
  * @param {string} [market] - (optional) The market (country) for which to retrieve the tracks.
  *
- * @returns {Promise<Episode>} A promise that resolves to the retrieved episode, or undefined if not found.
+ * @returns {Promise<Episode>} A promise that resolves to the retrieved episode.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-episode
  */

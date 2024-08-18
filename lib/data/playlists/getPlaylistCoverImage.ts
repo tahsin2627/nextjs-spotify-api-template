@@ -8,7 +8,7 @@ import { Image } from "@/lib/types";
  * @param {string} token - The access token for the Spotify API.
  * @param {string} playlistId - The ID of the playlist.
  *
- * @returns {Promise<string>} - The URL of the playlist cover image, or undefined if it is not available.
+ * @returns {Promise<string>} - The URL of the playlist cover image.
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-playlist-cover
  */
