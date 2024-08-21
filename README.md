@@ -1,6 +1,6 @@
 # Next.js Spotify API Template
 
-This is a Next.js template project designed to interact with the Spotify API and Web Playback SDK. It includes TypeScript types and fetch actions related to the Spotify API, making it easier to build applications that require Spotify data. I wanted to build my own Spotify clone using Next.js but wasn't able to find a suitable template, so here it is !
+This is a Next.js template project designed to interact with the Spotify API and Web Playback SDK. It includes TypeScript types and fetch actions related to the Spotify API, making it easier to build applications that require Spotify data.
 
 ## Features
 
@@ -76,20 +76,56 @@ SPOTIFY_CLIENT_SECRET=your-client-secret
 
 ### Fetching Data from Spotify API
 
-This template includes predefined fetch actions to interact with the Spotify API. You can find these actions in the `lib/spotify` folder. Here's an example of how to fetch a user's playlists:
+This template includes predefined fetch actions to interact with the Spotify API. You can find these actions in the `lib/spotify` folder. Here's an example of how to fetch all user's playlists:
 
 ```typescript
-import { getUserPlaylists } from "./lib/spotify";
-
+import { getUserPlaylists } from "@/lib/spotify";
+[...]
 const playlists = await getUserPlaylists(token, userId);
 console.log(playlists);
 ```
 
-### Using shadcn/ui
+Every Spotify's object type is listed in the `lib/types` with full documentation. To ensure type safety across your project and to have a nice experience developping it, it's highly recommanded using thoses types. Here's an exemple of how to fetch all user's playlists with type assertion:
 
-This template comes with an optional components library: [shadcn/ui](https://ui.shadcn.com/docs). Unlike many components library, shadcn/ui allows you to fully custom your components by placing them in a `components/ui` folder instead of the usual `node_modules`, granting you access to all properties. Here's an exemple of how to create a Card :
+```typescript
+import { getUserPlaylists } from "@/lib/spotify";
+import { Paging, SimplifiedPlaylist } from "@/lib/types";
+[...]
+const playlists: Paging<SimplifiedPlaylist> = await getUserPlaylists(token, userId);
+console.log(playlists);
+```
+
+### Playing Spotify Music with Web Playback SDK
+
+This project also integrates the Spotify Web Playback SDK as a `React.ContextProvider` to enable music playback directly within your application and share all its relative states. Note that you **must** have a Premium Spotify account to use this functionnality since Spotify only provides it to its Premium members. Here's how to implement Spotify Web Playback SDK:
+
+```typescript
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import PlayerProvider from "@/providers/PlayerProvider";
+[...]
+const session = await getServerSession(authOptions);
+return (
+    <PlayerProvider token={ session.accessToken }>
+      //...
+    </PlayerProvider>
+)
+```
+
+### Building an Interface with shadcn/ui
+
+This template comes with an optional components library: [shadcn/ui](https://ui.shadcn.com/docs). Unlike many components libraries, shadcn/ui allows you to fully custom your components by placing them in a `components/ui` folder instead of the usual `node_modules`, granting you access to all properties. Here's an exemple of how to create a Card:
 
 ```tsx
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+    CardFooter
+} from '@/components/ui/card';
+[...]
 <Card>
   <CardHeader>
     <CardTitle>Card Title</CardTitle>
@@ -111,7 +147,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-To learn more about the Spotify API and Web Playback SDK, check out these resources :
+To learn more about the Spotify API and Web Playback SDK, check out these resources:
 
 - [Spotify for Developers](https://developer.spotify.com/documentation/web-api) - find everything you need about Spotify API endpoints.
 - [Spotify Web Playback SDK](https://developer.spotify.com/documentation/web-playback-sdk) - learn how to stream and play Spotify music in your own app.
@@ -120,4 +156,5 @@ To learn more about shadcn/ui, visit the [shadcn/ui](https://ui.shadcn.com/docs)
 
 ## Comment
 
-Hi, I'm Cyprien De Roef and I'm a student developper for 8 months now. I'm doing my best here to provide something useful, but I may have some inconsistencies lying around. I made this repo public in the hope it will be used but I would also appreciate if you suggest any improvements or PR you would find interesting. On the same note, if you see any mistake feel free to inform me. In the meantime, enjoy ! :)
+Hi, I'm Cyprien De Roef and I'm a student developper for 8 months now. If you're reading this, first of all: thanks! 
+I was looking for a Next.js template to start a Spotify clone project to play with their API but I didn't find anything suitable and recent enough to do what I want to do, so I figured I would do it myself and make it public. I made it so in the hope it will be useful for someone, but I would also really appreciate if you suggest any improvements you would find interesting. On the same note, if you see any mistake feel free to inform me. I'm trying my best here to provide something consistant, but I may have some things lying around. In the meantime, enjoy! :)
