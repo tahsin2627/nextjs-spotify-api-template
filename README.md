@@ -1,8 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Spotify API Template
+
+This is a Next.js template project designed to interact with the Spotify API. It includes TypeScript types and fetch actions related to the Spotify API, making it easier to build applications that require Spotify data.
+
+## Features
+
+- **Next.js**: A React framework for building server-side rendered applications.
+- **TypeScript**: Strongly typed JavaScript for better code quality and developer experience.
+- **Spotify API Integration**: Predefined types and fetch actions to interact with the Spotify API.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) (v6 or later) or [Yarn](https://yarnpkg.com/) (v1.22 or later) or [pnpm](https://pnpm.io/) (v6 or later) or [Bun](https://bun.sh/)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+### Running the Development Server
+
+To start the development server, run:
 
 ```bash
 npm run dev
@@ -14,23 +52,45 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Spotify API Setup
 
-## Learn More
+To use the Spotify API, you need to set up your Spotify Developer account and obtain the necessary credentials:
+
+- Go to the Spotify Developer Dashboard and log in.
+
+- Create a new application to get your Client ID and Client Secret.
+
+- Create a .env.local file in the root of your project and add your credentials:
+
+```
+SPOTIFY_CLIENT_ID=your-client-id
+SPOTIFY_CLIENT_SECRET=your-client-secret
+```
+
+### Fetching Data from Spotify API
+
+This template includes predefined fetch actions to interact with the Spotify API. You can find these actions in the lib/spotify.ts file. Here's an example of how to fetch a user's playlists:
+
+import { getUserPlaylists } from './lib/spotify';
+
+const playlists = await getUserPlaylists();
+console.log(playlists);
+
+### Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To learn more about the Spotify API, check out the [Spotify for Developers](https://developer.spotify.com/documentation/web-api) documentation.
 
-## Deploy on Vercel
+### Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out our Next.js deployment documentation for more details.
