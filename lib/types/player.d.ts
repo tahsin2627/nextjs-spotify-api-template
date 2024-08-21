@@ -32,6 +32,7 @@ export type PlayerErrorReason =
 
 /**
  * An object containing the details of a device.
+ *
  * @property id - The device ID.
  * @property is_active - If this device is the currently active device.
  * @property is_private_session - If this device is currently in a private session.
@@ -60,6 +61,7 @@ export interface Device {
 
 /**
  * The context object of the player.
+ *
  * @property external_urls - External URLs for this context.
  * @property href - A link to the Web API endpoint providing full details of the track.
  * @property type - The object type.
@@ -78,6 +80,7 @@ export interface PlayerContext {
 
 /**
  * The disallows from the CurrentlyPlayingContext object.
+ *
  * @property interrupting_playback - Interrupting playback. Optional field.
  * @property pausing - Pausing.
  * @property resuming - Resuming.
@@ -115,6 +118,7 @@ export interface ContextDisallows {
 
 /**
  * The currently playing context of the player api.
+ *
  * @extends CurrentlyPlaying
  * @property actions - Allows to update the user interface based on which playback actions are available within the current context.
  * @property device - The device that is currently active.
@@ -135,6 +139,7 @@ export interface CurrentlyPlayingContext extends CurrentlyPlaying {
 
 /**
  * The currently playing object of the player api.
+ *
  * @property context - The context.
  * @property currently_playing_type - The object type of the currently playing item.
  * @property is_playing - If something is currently playing, return true.
@@ -160,6 +165,7 @@ export interface CurrentlyPlaying {
 
 /**
  * The cursor object of the player api.
+ *
  * @property after - The cursor to use as key to find the next page of items.
  */
 export interface Cursor {
@@ -169,6 +175,7 @@ export interface Cursor {
 
 /**
  * The cursor paging object of the player api.
+ *
  * @property cursors - The cursors used to find the next set of items.
  */
 export interface CursorPaging<T>
@@ -179,6 +186,7 @@ export interface CursorPaging<T>
 
 /**
  * The devices object of the player api.
+ *
  * @property devices - A list of 0..n Device objects.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-information-about-the-users-current-playback
  */
@@ -189,6 +197,7 @@ export interface Devices {
 
 /**
  * The recently played object which is returned by the [Player.getRecentlyPlayed] function.
+ *
  * @property cursors - The cursors to check other pages of recently played.
  * @property href - A link to the Web API endpoint providing full details of the track.
  * @property limit - The maximum number of items in the response (as set in the query or by default).

@@ -15,6 +15,7 @@ export type SavedTrack = Saved<"track", Track>;
 
 /**
  * The structure containing the simplified details of the Spotify Track.
+ *
  * @property artists - The artists who performed the track.
  * @property available_markets - A list of the countries in which the track can be played.
  * @property disc_number - The disc number (usually 1 unless the album consists of more than one disc).
@@ -73,6 +74,7 @@ export interface SimplifiedTrack {
 
 /**
  * The structure containing the entire details of the Spotify Track.
+ *
  * @extends SimplifiedTrack
  * @property album - The album on which the track appears.
  * @property artists - The artists who performed the track.
@@ -93,6 +95,7 @@ export interface Track extends SimplifiedTrack {
 
 /**
  * The structure of the spotify linked track object.
+ *
  * @property external_urls - A map of url name and the url.
  * @property href - The api url where you can get the full details of the linked track.
  * @property id - The id of the linked track.
@@ -114,6 +117,7 @@ export interface LinkedTrack {
 
 /**
  * An object containing all the features of the audio.
+ *
  * @extends TuneableTrack
  * @property analysis_url - An HTTP URL to access the full audio analysis of this track. An access token is required to access this data.
  * @property id - The Spotify ID of the track.
@@ -137,6 +141,7 @@ export interface AudioFeatures extends Omit<TuneableTrack, "popularity"> {
 
 /**
  * The tuneable track object.
+ *
  * @property acousticness - A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.
  * @property danceability - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
  * @property duration_ms - The duration of the track in milliseconds.
@@ -186,6 +191,7 @@ export interface TuneableTrack {
 
 /**
  * Time interval object of [TrackAudioAnalysis].
+ *
  * @property start - The starting point of the time interval.
  * @property duration - The duration of the time interval.
  * @property confidence - The confidence of the time interval.
@@ -202,6 +208,7 @@ export interface TimeInterval {
 
 /**
  * The element structure of the array of [AudioAnalysis.sections] property.
+ *
  * @property start - The starting point of the section.
  * @property duration - The duration of the section.
  * @property confidence - The confidence of the section.
@@ -241,6 +248,7 @@ export interface AudioSection {
 
 /**
  * The element structure of the array of [AudioAnalysis.segments] property.
+ *
  * @property start - The starting point of the segment.
  * @property duration - The duration of the segment.
  * @property confidence - The confidence of the segment.
@@ -275,6 +283,7 @@ export interface AudioSegment {
 
 /**
  * The object structure of [AudioAnalysis.track] property.
+ *
  * @property duration - The duration of the track in milliseconds.
  * @property sample_md5 - The md5 hash of the samples of the track.
  * @property offset_seconds - The offset of the track.
@@ -357,6 +366,7 @@ export interface AudioTrack {
 
 /**
  * The object structure returned by [/audio-analysis/{id}] endpoint.
+ *
  * @property bars - The time intervals of the bars throughout the track.
  * @property beats - The time intervals of the beats throughout the track.
  * @property tatums - The time intervals of the tatums throughout the track.

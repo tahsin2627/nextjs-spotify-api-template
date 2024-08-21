@@ -28,6 +28,7 @@ export type SavedAlbum = Saved<"album", Album>;
 
 /**
  * The spotify object containing the simplified details of the Spotify Album.
+ *
  * @property album_group - The field is present when getting an artist’s albums.
  * @property album_type - The type of album.
  * @property artists - The artists of the album.
@@ -80,6 +81,7 @@ export interface SimplifiedAlbum {
 
 /**
  * The spotify object containing the entire details of the Spotify Album.
+ *
  * @extends SimplifiedAlbum
  * @property artists - The artists of the album.
  * @property copyrights - The copyright statements of the album.

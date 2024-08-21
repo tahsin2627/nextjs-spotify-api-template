@@ -4,7 +4,8 @@ import { Episode } from "./episode";
 import { ExternalUrl, Image, Paging, SpotifyType } from "./global";
 
 /**
- * The structure containing the reference for the tracks of the playlist..
+ * The structure containing the reference for the tracks of the playlist.
+ *
  * @property href - A link to the Web API endpoint where full details of the playlist’s tracks can be retrieved.
  * @property total - The total number of tracks in playlist.
  */
@@ -16,7 +17,8 @@ export interface PlaylistTracksReference {
 }
 
 /**
- * The structure containing the details of the Spotify Track in the playlist..
+ * The structure containing the details of the Spotify Track in the playlist.
+ *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks
  * @property added_at - The date and time the track or episode was added.
  * @property added_by - The Spotify user who added the track or episode.
@@ -36,6 +38,7 @@ export interface PlaylistTrack {
 
 /**
  * The structure containing the simplified details of the Spotify Playlist.
+ *
  * @property collaborative - True if the owner allows other users to modify the playlist.
  * @property description - The playlist description. Only returned for modified, verified playlists, otherwise null.
  * @property external_urls - Known external URLs for this playlist.
@@ -79,6 +82,7 @@ export interface SimplifiedPlaylist {
 
 /**
  * The structure containing the entire details of the Spotify Playlist.
+ *
  * @extends SimplifiedPlaylist
  * @property followers - Information about the followers of the playlist.
  * @property public - The playlist’s public/private status: true the playlist is public, false the playlist is private, null the playlist status is not relevant.
@@ -96,6 +100,7 @@ export interface Playlist extends Omit<SimplifiedPlaylist, "tracks"> {
 
 /**
  * The structure returned by the [/browse/featured-playlists] endpoint.
+ *
  * @property message - The message from the featured playlists.
  * @property playlists - The list of the featured playlists wrapped in Paging object.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-featured-playlists
@@ -109,6 +114,7 @@ export interface FeaturedPlaylists {
 
 /**
  * The query structure required by the [/users/{id}/playlists] enpoint.
+ *
  * @property name - The name for the new playlist.
  * @property public - Defaults to true. If true the playlist will be public.
  * @property collaboratve - Defaults to false. If true the playlist will be collaborative.

@@ -17,6 +17,7 @@ export type SavedAudiobook = Saved<"audiobook", Audiobook>;
 
 /**
  * The spotify object containing the simplified details of the Spotify Audiobook.
+ *
  * @property authors - The authors of the audiobook.
  * @property available_markets - The markets in which the audiobook is available.
  * @property copyrights - The field is present when getting an artist’s audiobooks.
@@ -76,6 +77,7 @@ export interface SimplifiedAudiobook {
 
 /**
  * The spotify object containing the entire details of the Spotify Audiobook.
+ *
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-audiobook
  * @extends SimplifiedAudiobook
  * @property publisher - The publisher of the audiobook.

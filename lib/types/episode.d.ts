@@ -8,6 +8,7 @@ export type SavedEpisode = Saved<"episode", Episode>;
 
 /**
  * The structure containing the simplified details of the Spotify episode.
+ *
  * @property audio_preview_url - A URL to a 30 second preview (MP3 format) of the episode. null if not available.
  * @property description - A description of the episode. HTML tags are stripped away from this field, use html_description field in case HTML tags are needed.
  * @property duration_ms - The episode length in milliseconds.
@@ -75,6 +76,7 @@ export interface SimplifiedEpisode {
 
 /**
  * The structure containing the entire details of the Spotify episode.
+ *
  * @extends SimplifiedEpisode
  * @property show - The show on which the episode belongs.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-an-episode
@@ -86,6 +88,7 @@ export interface Episode extends SimplifiedEpisode {
 
 /**
  * An object containing the resume point.
+ *
  * @property fully_played - Whether or not the episode has been fully played by the user.
  * @property resume_position_ms - The user’s most recent position in the episode in milliseconds.
  */

@@ -3,6 +3,7 @@ import { Followers } from "./user";
 
 /**
  * The structure containing the simplified details of the Spotify Artist.
+ *
  * @property external_urls - Known external URLs for this artist.
  * @property href - A link to the Web API endpoint providing full details of the artist.
  * @property id - The Spotify ID for the artist.
@@ -28,6 +29,7 @@ export interface SimplifiedArtist {
 
 /**
  * The structure containing the entire details of the Spotify Artist.
+ *
  * @extends SimplifiedArtist
  * @property followers - Information about the followers of the artist.
  * @property genres - A list of the genres the artist is associated with. For example: "Prog Rock" , "Post-Grunge". (If not yet classified, the array is empty.)

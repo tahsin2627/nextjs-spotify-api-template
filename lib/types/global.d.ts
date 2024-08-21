@@ -23,6 +23,7 @@ export type SearchType = "album" | "artist" | "track" | "show" | "episode";
 
 /**
  * The spotify object containing the details of an image.
+ *
  * @property height - The image height in pixels. If unknown: null or not returned.
  * @property url - The source URL of the image.
  * @property width - The image width in pixels. If unknown: null or not returned.
@@ -38,6 +39,7 @@ export interface Image {
 
 /**
  * The external urls object which contains the spotify url within it.
+ *
  * @property spotify - The Spotify URL for the object.
  */
 export interface ExternalUrl {
@@ -47,6 +49,7 @@ export interface ExternalUrl {
 
 /**
  * The external ids object which contains the spotify id within it.
+ *
  * @property isrc - International Standard Recording Code
  * @property ean - International Article Number
  * @property upc - Universal Product Code
@@ -62,6 +65,7 @@ export interface ExternalID {
 
 /**
  * The paging object is a form of collection of items from the spotify api.
+ *
  * @property href - A link to the Web API endpoint returning the full result of the request.
  * @property items - The requested data.
  * @property limit - The maximum number of items in the response (as set in the query or by default).
@@ -89,6 +93,7 @@ export interface Paging<T> {
 
 /**
  * The copyright object contains the type and the name of copyright.
+ *
  * @property text - The text of copyright.
  * @property type - The type of copyright.
  */

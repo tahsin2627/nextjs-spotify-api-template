@@ -3,6 +3,7 @@ import { SimplifiedTrack, TuneableTrack } from "./track";
 
 /**
  * An object containing details about the spotify category.
+ *
  * @property href - A link to the Web API endpoint returning full details of the category.
  * @property icons - The category icon, in various sizes.
  * @property id - The Spotify category ID of the category.
@@ -22,6 +23,7 @@ export interface Category {
 
 /**
  * The spotify recommendation seed object.
+ *
  * @property afterFilteringSize - The number of tracks available after min_* and max_* filters have been applied.
  * @property afterRelinkingSize - The number of tracks available after relinking for regional availability.
  * @property href - A link to the full track or artist data for this seed.
@@ -47,6 +49,7 @@ export interface RecommendationSeed {
 
 /**
  * The collection of recommendation seed objects with tracks provided from the spotify api.
+ *
  * @property seeds - An array of recommendation seed objects.
  * @property tracks - An array of track object (simplified) ordered according to the parameters supplied.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-recommendations

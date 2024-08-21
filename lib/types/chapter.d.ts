@@ -8,6 +8,7 @@ export type SavedChapter = Saved<"chapter", Chapter>;
 
 /**
  * The structure containing the simplified details of the Spotify chapter.
+ *
  * @property audio_preview_url - A URL to a 30 second preview (MP3 format) of the chapter. null if not available.
  * @property available_markets - A list of the countries in which the chapter can be played.
  * @property chapter_number - The number of the chapter.
@@ -78,6 +79,7 @@ export interface SimplifiedChapter {
 
 /**
  * The structure containing the entire details of the Spotify chapter.
+ *
  * @extends SimplifiedChapter
  * @property audiobook - The audiobook on which the chapter belongs.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-chapter
@@ -89,6 +91,7 @@ export interface Chapter extends SimplifiedChapter {
 
 /**
  * An object containing the resume point.
+ *
  * @property fully_played - Whether or not the chapter has been fully played by the user.
  * @property resume_position_ms - The user’s most recent position in the chapter in milliseconds.
  * @see https://developer.spotify.com/documentation/web-api/reference/#object-resumepointobject

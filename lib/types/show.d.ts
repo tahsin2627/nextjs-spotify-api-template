@@ -15,6 +15,7 @@ export type SavedShow = Saved<"show", Show>;
 
 /**
  * The structure containing the simplified details of the Spotify Show.
+ *
  * @property available_markets - A list of the countries in which the show can be played, identified by their ISO 3166-1 alpha-2 code.
  * @property copyrights - The copyright statements of the show.
  * @property description - A description of the show. HTML tags are stripped away from this field, use html_description field in case HTML tags are needed.
@@ -70,6 +71,7 @@ export interface SimplifiedShow {
 
 /**
  * The structure containing the entire details of the Spotify Show.
+ *
  * @extends SimplifiedShow
  * @property episodes - A list of the show’s episodes.
  * @see https://developer.spotify.com/documentation/web-api/reference/get-a-show
