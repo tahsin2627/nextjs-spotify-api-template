@@ -74,6 +74,15 @@ SPOTIFY_CLIENT_ID=your-client-id
 SPOTIFY_CLIENT_SECRET=your-client-secret
 ```
 
+4. In `.env.local`, add a JwtSecret by choosing a password and configure NextAuthUrl:
+
+```
+SPOTIFY_CLIENT_ID=your-client-id
+SPOTIFY_CLIENT_SECRET=your-client-secret
+JWT_SECRET=mysupersecretpassword
+NEXTAUTH_URL=http://localhost:3000
+```
+
 ### Fetching Data from Spotify API
 
 This template includes predefined fetch actions to interact with the Spotify API. You can find these actions in the `lib/spotify` folder. Here's an example of how to fetch all user's playlists:
