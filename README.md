@@ -120,4 +120,4 @@ To learn more about shadcn/ui, visit the [shadcn/ui](https://ui.shadcn.com/docs)
 
 ## Comment
 
-Hi, I'm Cyprien De Roef and I'm a student developper for 8 months now. I'm doing my best here to provide something useful, but I unfortunatly may have some inconsistencies lying around. I made this repo public in the hope it will be used but I would also appreciate if you suggest any improvements or PR you would find interesting. On the same note, if you see any mistake feel free to inform me. In the meantime, enjoy ! :)
+Hi, I'm Cyprien De Roef and I'm a student developper for 8 months now. I'm doing my best here to provide something useful, but I may have some inconsistencies lying around. I made this repo public in the hope it will be used but I would also appreciate if you suggest any improvements or PR you would find interesting. On the same note, if you see any mistake feel free to inform me. In the meantime, enjoy ! :)
