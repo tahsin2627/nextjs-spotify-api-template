@@ -3,19 +3,20 @@ import type { Metadata } from "next";
 import { NextAuthProvider } from "../providers/NextAuthProvider";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { NextFont } from "next/dist/compiled/@next/font";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter: NextFont = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Spotifyer",
-    description: "Listen to Spotify and generate new playlists",
+    title: "NextJS Spotify API",
+    description: "Listen to Spotify and manage playlists from your own app !",
 };
 
 export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
-}>) {
+}>): Promise<JSX.Element> {
 
     return (
         <NextAuthProvider>
