@@ -81,7 +81,7 @@ This template includes predefined fetch actions to interact with the Spotify API
 ```typescript
 import { getUserPlaylists } from "./lib/spotify";
 
-const playlists = await getUserPlaylists();
+const playlists = await getUserPlaylists(token, userId);
 console.log(playlists);
 ```
 
