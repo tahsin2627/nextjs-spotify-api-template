@@ -1,6 +1,6 @@
 # Next.js Spotify API Template
 
-This is a Next.js template project designed to interact with the Spotify API and Web Playback SDK. It includes TypeScript types and fetch actions related to the Spotify API, making it easier to build applications that require Spotify data.
+This is a Next.js template project designed to interact with the Spotify API and Web Playback SDK. It includes TypeScript types and fetch actions related to the Spotify API, making it easier to build applications that require Spotify data. I wanted to build my own Spotify clone using NextJS but wasn't able to find a suitable template, so here it is !
 
 ## Features
 
@@ -117,3 +117,8 @@ To learn more about the Spotify API and Web Playback SDK, check out these resour
 - [Spotify Web Playback SDK](https://developer.spotify.com/documentation/web-playback-sdk) - learn how to stream and play Spotify music in your own app.
 
 To learn more about shadcn/ui, visit the [shadcn/ui](https://ui.shadcn.com/docs) documentation.
+
+## Comment
+
+Hi, I'm Cyprien De Roef and I'm a student developper for 8 months now. I'm doing my best here to provide something useful, but I obviously may have some inconsistencies laying around. I made this repo public in the hope it will be used but I would also appreciate if you suggest any amelioration or PR. On the same note, if you see any mistake feel free to inform me.
+In the meantime, enjoy ! :)
