@@ -7,7 +7,7 @@ This is a Next.js template project designed to interact with the Spotify API and
 - **Next.js**: A React framework for building server-side rendered applications.
 - **TypeScript**: Strongly typed JavaScript for better code quality and developer experience.
 - **Spotify API Integration**: Predefined types and fetch actions to interact with the Spotify API and Web Playback SDK.
-- **NextAuth**: A strong authentication service for Next.js with support for the Spotify API.
+- **NextAuth**: A strong authentication service for Next.js with support for Spotify.
 - **TailwindCSS**: A utility-first CSS framework for building custom designs quickly and efficiently.
 - **shadcn/ui**: An awesome component library made using TaildwindCSS. Feel free to bring your own.
 
