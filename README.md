@@ -63,11 +63,11 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 To use the Spotify API, you need to set up your Spotify Developer account and obtain the necessary credentials:
 
--1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and log in.
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and log in.
 
--2. Create a new application to get your Client ID and Client Secret.
+2. Create a new application to get your Client ID and Client Secret.
 
--3. Create a `.env.local` file in the root of your project and add your credentials:
+3. Create a `.env.local` file in the root of your project and add your credentials:
 
 ```
 SPOTIFY_CLIENT_ID=your-client-id
