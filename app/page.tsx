@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +9,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { signIn } from "next-auth/react";
+import { SignInResponse } from "next-auth/react";
 
 export default function Page() {
 
@@ -17,11 +18,11 @@ export default function Page() {
             <CardHeader>
                 <CardTitle className="text-2xl">Login with Spotify</CardTitle>
                 <CardDescription>
-                    Enter your Spotify credentials to login to your account
+                    You&apos;ll be redirected to Spotify. Enter your Spotify credentials to login to your Spotifyer account.
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <Button type="submit" className="w-full" onClick={ () => signIn('spotify', { callbackUrl: '/' }) }>
+                <Button type="submit" className="w-full" onClick={ (): Promise<SignInResponse | undefined> => signIn('spotify', { callbackUrl: '/' }) }>
                     Login
                 </Button>
             </CardContent>
