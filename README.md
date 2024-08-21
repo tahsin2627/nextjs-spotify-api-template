@@ -25,8 +25,8 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/CyprienDeRoef/NextJSTemplateSpotifyAPI
-cd NextJSTemplateSpotifyAPI
+git clone https://github.com/CyprienDeRoef/nextjs-spotify-api-template
+cd nextjs-spotify-api-template
 ```
 
 2. Install dependencies:
