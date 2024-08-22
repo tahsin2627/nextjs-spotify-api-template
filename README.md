@@ -94,7 +94,7 @@ const playlists = await getUserPlaylists(token, userId);
 console.log(playlists);
 ```
 
-Every Spotify's object type is listed in the `lib/types` folder. It is highly recommanded to use those types to ensure type safety across your project and to have a nice experience developping it. Here's an exemple of how to fetch all user's playlists with type assertion:
+Every Spotify's object type is listed in the `lib/types` folder. Many of them come from [Definitly Typed](https://github.com/DefinitelyTyped/DefinitelyTyped). It is highly recommanded to use those types to ensure type safety across your project and to have a nice experience developping it. Here's an exemple of how to fetch all user's playlists with type assertion:
 
 ```typescript
 import { getUserPlaylists } from "@/lib/spotify";
