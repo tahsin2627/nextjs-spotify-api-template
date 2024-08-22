@@ -123,7 +123,7 @@ return (
 
 ### Building an Interface with shadcn/ui
 
-This template comes with an optional components library: [shadcn/ui](https://ui.shadcn.com/docs). Unlike many components libraries, shadcn/ui allows you to fully custom your components by placing them in a `components/ui` folder instead of the usual `node_modules`, granting you access to all properties. Here's an exemple of how to create a Card:
+This template comes with an optional components library: [shadcn/ui](https://ui.shadcn.com/docs). Unlike many components libraries, shadcn/ui allows you to fully customize your components by placing them in a `components/ui` folder instead of the usual `node_modules`, granting you access to all properties. Here's an exemple of how to create a Card:
 
 ```tsx
 import {
