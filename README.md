@@ -74,7 +74,7 @@ SPOTIFY_CLIENT_ID=your-client-id
 SPOTIFY_CLIENT_SECRET=your-client-secret
 ```
 
-4. In `.env.local`, add a JwtSecret by choosing a password and configure NextAuthUrl:
+4. In `.env.local`, add a JWT Secret by choosing a password and configure NextAuth Url:
 
 ```
 SPOTIFY_CLIENT_ID=your-client-id
