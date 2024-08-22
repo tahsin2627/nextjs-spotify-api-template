@@ -106,7 +106,7 @@ console.log(playlists);
 
 ### Playing Spotify Music with Web Playback SDK
 
-This project also integrates the Spotify Web Playback SDK as a `React.ContextProvider` to enable music playback directly within your application and share all its relative states. Note that you **must** have a Premium Spotify account to use this functionnality since Spotify only provides it to its Premium members. Here's how to implement Spotify Web Playback SDK:
+This project also integrates the Spotify Web Playback SDK as a `React.ContextProvider` to enable music playback directly within your application and share all its relative states. Note that you **must** have a Premium Spotify account to use this functionnality since Spotify only provides it to its Premium members. Here's how to implement the Spotify Web Playback SDK:
 
 ```typescript
 import { getServerSession } from "next-auth/next";
