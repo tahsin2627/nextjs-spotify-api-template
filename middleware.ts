@@ -11,8 +11,7 @@ export async function middleware(
   });
   const { pathname } = req.nextUrl;
   if (!token && !pathname.includes("/login")) {
-    // Handle the case where the user is not authenticated, uncomment next line to just redirect to login page
-    // return NextResponse.redirect("http://localhost:3000/login");
+    // Handle the case where the user is not authenticated.
   }
   const requestHeaders = new Headers(req.headers);
   requestHeaders.set(
