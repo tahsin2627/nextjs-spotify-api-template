@@ -158,10 +158,14 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+To learn more about NextAuth.js, browse the [NextAuth](https://next-auth.js.org/providers/spotify) documentation.
+
 To learn more about the Spotify API and Web Playback SDK, check out these resources:
 
 - [Spotify for Developers](https://developer.spotify.com/documentation/web-api) - find everything you need about Spotify API endpoints.
 - [Spotify Web Playback SDK](https://developer.spotify.com/documentation/web-playback-sdk) - learn how to stream and play Spotify music in your own app.
+
+To learn more about TailwindCSS, go to the [TaildwindCSS](https://tailwindcss.com/docs) documentation.
 
 To learn more about shadcn/ui, visit the [shadcn/ui](https://ui.shadcn.com/docs) documentation.
 
