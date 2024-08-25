@@ -10,7 +10,7 @@
  *
  * @see https://developer.spotify.com/documentation/web-api/reference/check-users-saved-tracks
  */
-export default async function checkUserSavedTracks(
+export default async function checkSavedTracks(
   token: string,
   ids: string[]
 ): Promise<boolean[]> {
