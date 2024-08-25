@@ -150,7 +150,7 @@ return (
     </Card>
 )
 ```
-Here is a work in progress exemple based on Spotify layout and built with shadcn/ui:
+Here is my current work in progress based on Spotify layout and built with shadcn/ui:
 
 ![image](https://github.com/user-attachments/assets/069d1e99-40ad-4f84-a8eb-2775b687e07b)
 
