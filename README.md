@@ -7,7 +7,7 @@ This is a Next.js template project designed to interact with the Spotify API and
 - **Next.js**: A React framework for building server-side rendered applications.
 - **TypeScript**: Strongly typed JavaScript for better code quality and developer experience.
 - **Spotify API Integration**: Predefined types and fetch actions to interact with the Spotify API and Web Playback SDK.
-- **NextAuth.js**: A strong authentication service for Next.js with support for Spotify.
+- **NextAuth.js**: A powerful authentication service for Next.js with support for Spotify.
 - **TailwindCSS**: A utility-first CSS framework for building custom designs quickly and efficiently.
 - **shadcn/ui**: An awesome component library made using TaildwindCSS. Feel free to bring your own.
 
@@ -85,7 +85,7 @@ NEXTAUTH_URL=http://localhost:3000
 
 ### Fetching Data from Spotify API
 
-This template includes predefined fetch actions to interact with the Spotify API. You can find these actions in the `lib/spotify` folder. Here's an example of how to fetch all user's playlists:
+This template includes predefined fetch actions to interact with the Spotify API. You can find these actions in the `lib/spotify` folder. Here's an example of how to fetch all the current user's playlists:
 
 ```typescript
 import { getUserPlaylists } from "@/lib/spotify";
@@ -94,7 +94,7 @@ const playlists = await getUserPlaylists(token, userId);
 console.log(playlists);
 ```
 
-Every Spotify's object type is listed in the `lib/types` folder. Many of them are reworked from [Definitly Typed](https://github.com/DefinitelyTyped/DefinitelyTyped). It is highly recommanded to use those types to ensure type safety across your project and to have a nice experience developping it. Here's an exemple of how to fetch all user's playlists with type assertion:
+Every Spotify's object type is listed in the `lib/types` folder. Many of them are reworked from [Definitly Typed](https://github.com/DefinitelyTyped/DefinitelyTyped). It is highly recommanded to use those types to ensure type safety across your project and to have a nice experience developping it. Here's an exemple of how to fetch all the current user's playlists with type assertion:
 
 ```typescript
 import { getUserPlaylists } from "@/lib/spotify";
@@ -150,10 +150,9 @@ return (
     </Card>
 )
 ```
-Here is a work in progress exemple based on Spotify layout and built with shadcn/ui:
+Here is my current work in progress based on Spotify layout and built with shadcn/ui:
 
-![image](https://github.com/user-attachments/assets/e128e998-c237-4e43-b743-59bc7acb5205)
-
+![image](https://github.com/user-attachments/assets/069d1e99-40ad-4f84-a8eb-2775b687e07b)
 
 ### Learn More
 
