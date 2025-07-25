@@ -1,5 +1,5 @@
 "use client";
-
+/// <reference types="spotify-web-playback-sdk" />
 import React, { createContext, useEffect } from "react";
 
 export const PlayerContext = createContext<Spotify.Player | undefined>(undefined);
