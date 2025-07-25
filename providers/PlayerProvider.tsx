@@ -1,64 +1,72 @@
 "use client";
 /// <reference types="spotify-web-playback-sdk" />
-import React, { createContext, useEffect } from "react";
 
+import React, { createContext, useEffect, useState } from "react";
+
+// Context to share the player instance
 export const PlayerContext = createContext<Spotify.Player | undefined>(undefined);
 
-export default function PlayerProvider({ children, token }: { children: React.ReactNode; token: string; }) {
+export default function PlayerProvider({
+  children,
+  token,
+}: {
+  children: React.ReactNode;
+  token: string;
+}) {
+  const [player, setPlayer] = useState<Spotify.Player | undefined>(undefined);
 
-    const [player, setPlayer] = React.useState<Spotify.Player | undefined>();
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://sdk.scdn.co/spotify-player.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://sdk.scdn.co/spotify-player.js";
-        script.async = true;
-        document.body.appendChild(script);
-        window.onSpotifyWebPlaybackSDKReady = () => {
-            console.log("player ready");
-            setPlayer(player);
-            if (!player) {
-                const player = new Spotify.Player({
-                    name: "Spotifyer",
-                    getOAuthToken: (cb) => {
-                        cb(token);
-                    },
-                    volume: 0.5,
-                });
-                // Error handling
-                player.addListener("initialization_error", ({ message }) => {
-                    console.error(message);
-                });
-                player.addListener("authentication_error", ({ message }) => {
-                    console.error(message);
-                });
-                player.addListener("account_error", ({ message }) => {
-                    console.error(message);
-                });
-                player.addListener("playback_error", ({ message }) => {
-                    console.error(message);
-                });
-                // Playback status updates
-                player.addListener("player_state_changed", (state) => {
-                    console.log(state);
-                });
-                // Ready
-                player.addListener("ready", ({ device_id }) => {
-                    console.log("Ready with Device ID", device_id);
-                });
-                // Not Ready
-                player.addListener("not_ready", ({ device_id }) => {
-                    console.log("Device ID has gone offline", device_id);
-                });
-                // Connect to the player!
-                player.connect();
-                player.disconnect();
-            }
-        };
-    }, []);
+    (window as any).onSpotifyWebPlaybackSDKReady = () => {
+      console.log("Spotify Web Playback SDK is ready");
 
-    return (
-        <PlayerContext.Provider value={ player }>
-            { children }
-        </PlayerContext.Provider>
-    );
+      const SpotifyPlayer = (window as any).Spotify.Player;
+      const newPlayer = new SpotifyPlayer({
+        name: "OpenSpot Player",
+        getOAuthToken: (cb: (token: string) => void) => {
+          cb(token);
+        },
+        volume: 0.5,
+      });
+
+      // Set up event listeners
+      newPlayer.addListener("initialization_error", ({ message }: any) =>
+        console.error("Init error:", message)
+      );
+      newPlayer.addListener("authentication_error", ({ message }: any) =>
+        console.error("Auth error:", message)
+      );
+      newPlayer.addListener("account_error", ({ message }: any) =>
+        console.error("Account error:", message)
+      );
+      newPlayer.addListener("playback_error", ({ message }: any) =>
+        console.error("Playback error:", message)
+      );
+
+      newPlayer.addListener("player_state_changed", (state: any) => {
+        console.log("Player state changed:", state);
+      });
+
+      newPlayer.addListener("ready", ({ device_id }: any) => {
+        console.log("Ready with Device ID", device_id);
+      });
+
+      newPlayer.addListener("not_ready", ({ device_id }: any) => {
+        console.log("Device ID has gone offline", device_id);
+      });
+
+      newPlayer.connect();
+      setPlayer(newPlayer);
+    };
+  }, [token]);
+
+  return (
+    <PlayerContext.Provider value={player}>
+      {children}
+    </PlayerContext.Provider>
+  );
 }
