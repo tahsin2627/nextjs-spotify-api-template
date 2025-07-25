@@ -68,7 +68,6 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/spotify-web-playback-sdk": "^1.0.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
